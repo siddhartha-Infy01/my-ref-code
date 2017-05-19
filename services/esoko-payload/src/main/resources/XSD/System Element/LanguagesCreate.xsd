@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createlanguages"
+	xmlns:tns="http://www.iexceed.com/createlanguages" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createlanguagesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRLANGDTLS" type="tns:CRLANGDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CRLANGDTLS">
+		<sequence>
+			<element name="languageCode" type="string"></element>
+			<element name="languageId" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createlanguagesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="createlanguagesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createlanguagesReq" type="tns:createlanguagesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createlanguagesResWrap">
+		<complexType>
+			<sequence>
+				<element name="createlanguagesRes" type="tns:createlanguagesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

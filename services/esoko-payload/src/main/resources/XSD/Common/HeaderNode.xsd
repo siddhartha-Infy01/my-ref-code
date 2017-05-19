@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/Header"
+	xmlns:tns="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<complexType name="Header">
+		<sequence>
+			<element name="serviceName" type="string"></element>
+			<element name="operationName" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="errorCode" type="string"></element>
+			<element name="errorDescription" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="extraParams" type="string"></element>
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAlerts"
+	xmlns:tns="http://www.iexceed.com/queryAlerts" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAlertsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRALERTS" type="tns:QRALERTS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRALERTS">
+		<sequence>
+			<element name="alert_id" type="string"></element>
+			<element name="alert_name" type="string"></element>
+			<element name="receiver" type="string"></element>
+			<element name="groups" type="string"></element>
+			<element name="users" type="string"></element>
+			<element name="commodities" type="string"></element>
+			<element name="commodities1" type="string"></element>
+			<element name="locations" type="string"></element>
+			<element name="locations1" type="string"></element>
+			<element name="status" type="string"></element>	
+			<element name="edit_flag" type="string"></element>		
+					
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryAlertsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAlertsRes" type="tns:queryAlertsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

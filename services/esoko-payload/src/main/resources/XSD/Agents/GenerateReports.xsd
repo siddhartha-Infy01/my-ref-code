@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/generateReports"
+	xmlns:tns="http://www.iexceed.com/generateReports" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="generateReportsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="GENREPORTREQ" type="tns:GENREPORTREQ" />
+		</sequence>
+	</complexType>
+	<complexType name="generateReportsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="GENREPORTRES" type="tns:GENREPORTRES"
+				minOccurs="1" maxOccurs="unbounded" />
+			<element name="ACTIVITY" type="tns:ACTIVITY" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="GENREPORTREQ">
+		<sequence>
+			<element name="agentId" type="string" />
+			<element name="networkId" type="string" />
+			<element name="applicationId" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="GENREPORTRES">
+		<sequence>
+			<element name="month" type="string" />
+			<element name="survey" type="string" />
+			<element name="newsLibrary" type="string" />
+			<element name="prices" type="string" />
+			<element name="offers" type="string" />
+			<element name="contacts" type="string" />
+			<element name="cost" type="string" />
+			<element name="percentTarget" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="ACTIVITY">
+		<sequence>
+			<element name="month" type="string" />
+			<element name="type" type="string" />
+			<element name="count" type="string" />
+		</sequence>
+	</complexType>
+	<element name="generateReportsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="generateReportsReq" type="tns:generateReportsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="generateReportsResWrap">
+		<complexType>
+			<sequence>
+				<element name="generateReportsRes" type="tns:generateReportsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

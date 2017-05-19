@@ -1,0 +1,1 @@
+select * from library_images where library_id=?;

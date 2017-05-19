@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/subscriberMessages"
+	xmlns:tns="http://www.iexceed.com/subscriberMessages" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="subscriberMessagesReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MSGSUBSCRIPTION" type="tns:MSGSUBSCRIPTION" />
+		</sequence>
+	</complexType>
+	<complexType name="MSGSUBSCRIPTION">
+		<sequence>
+			<element name="network_id" type="string" />
+			<element name="subscription_id" type="string" />
+			<element name="subscription_type" type="string" />
+			<element name="send_to" type="string" />
+			<element name="message" type="string" />
+			<element name="sms" type="string" />
+			<element name="email" type="string" />
+			<element name="attachment" type="string" />
+			<element name="MSGINVOICES" type="tns:MSGINVOICES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="MSGINVOICES">
+		<sequence>
+			<element name="invoice_id" type="string" />
+			<element name="invoice_name" type="int" />
+
+		</sequence>
+	</complexType>
+	<element name="subscriberMessagesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriberMessagesReq" type="tns:subscriberMessagesReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="subscriberMessagesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="subscriberMessagesResWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriberMessagesRes" type="tns:subscriberMessagesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

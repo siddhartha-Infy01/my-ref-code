@@ -1,0 +1,1 @@
+select * from user_shares where from_share=? and to_share=? and share_type='S' and share_item='people';

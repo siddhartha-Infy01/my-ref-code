@@ -1,0 +1,1 @@
+SELECT * FROM commodity_variety where commodity_id IN(SELECT commodity_id FROM commodities where parent_id=?);

@@ -1,0 +1,1 @@
+select * from people where people_id=? and default_network_id=?

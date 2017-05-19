@@ -1,0 +1,1 @@
+update subscription_master set subscription_type = ? where subscription_id = ?;

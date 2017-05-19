@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addAlias"
+	xmlns:tns="http://www.iexceed.com/addAlias" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addAliasReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ADDALIAS" type="tns:ADDALIAS" />
+		</sequence>
+	</complexType>
+	<complexType name="ADDALIAS">
+		<sequence>
+			<element name="alias_name" type="string"></element>
+			<element name="commodity_name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="addAliasRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="addAliasReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addAliasReq" type="tns:addAliasReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addAliasResWrap">
+		<complexType>
+			<sequence>
+				<element name="addAliasRes" type="tns:addAliasRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

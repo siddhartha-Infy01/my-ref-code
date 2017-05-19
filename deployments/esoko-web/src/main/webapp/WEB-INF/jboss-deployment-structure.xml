@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0">
+  <deployment>
+    <exclusions>
+       <module name="org.hibernate"/>
+       <module name="org.apache.log4j" />
+    </exclusions>
+  </deployment>
+</jboss-deployment-structure>

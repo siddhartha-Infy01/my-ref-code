@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createfxRates"
+	xmlns:tns="http://www.iexceed.com/createfxRates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createfxRatesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRFXRTDTLS" type="tns:CRFXRTDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CRFXRTDTLS">
+		<sequence>
+			<element name="forexId" type="string"></element>
+			<element name="date" type="date"></element>
+			<element name="baseCCy" type="string"></element>
+			<element name="quoteCCy" type="string"></element>
+			<element name="rate" type="decimal"></element>
+			<element name="networkId" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="userData" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createfxRatesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="createfxRatesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createfxRatesReq" type="tns:createfxRatesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createfxRatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="createfxRatesRes" type="tns:createfxRatesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryVarieties"
+	xmlns:tns="http://www.iexceed.com/queryVarieties" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryVarietiesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+				<element name="VARDTLS" type="tns:VARDTLS" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="VARALS" type="tns:VARALS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="VARDTLS">
+		<sequence>
+			<element name="commodityID" type="string"></element>
+			<element name="qTypeId" type="string"></element>
+			<element name="attribId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="VARALS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+			
+		</sequence>
+	</complexType>
+		<element name="queryVarietiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryVarietiesRes" type="tns:queryVarietiesRes"/>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

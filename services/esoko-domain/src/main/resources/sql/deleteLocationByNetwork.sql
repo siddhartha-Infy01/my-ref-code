@@ -1,0 +1,1 @@
+delete from network_location where network_id=?;

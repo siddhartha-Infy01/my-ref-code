@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNwkTransactions"
+	xmlns:tns="http://www.iexceed.com/queryNwkTransactions" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNwkTransactionsRes">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="TRNDTLS" type="tns:TRNDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	<complexType name="TRNDTLS">
+		<sequence>
+			<element name="date" type="string"></element>
+			<element name="serviceName" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="lcyAmount" type="float"></element>
+			<element name="crDr" type="string"></element>
+			<element name="balance" type="float"></element>
+		</sequence>
+	</complexType>
+	<element name="queryNwkTransactionsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNwkTransactionsRes" type="tns:queryNwkTransactionsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+SELECT * FROM user_widget_settings where user_id=? and widget_id=?;

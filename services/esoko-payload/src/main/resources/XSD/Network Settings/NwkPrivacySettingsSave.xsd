@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNwkPrivacySettings"
+	xmlns:tns="http://www.iexceed.com/saveNwkPrivacySettings" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNwkPrivacySettingsReq">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRNWKPRVDTLS" type="tns:CRNWKPRVDTLS" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+	</complexType>
+	<complexType name="CRNWKPRVDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="contacts" type="string"></element>
+			<element name="offers" type="string"></element>
+			<element name="prices" type="string"></element>
+			<element name="newsLibrary" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveNwkPrivacySettingsRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="saveNwkPrivacySettingsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPrivacySettingsReq" type="tns:saveNwkPrivacySettingsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNwkPrivacySettingsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPrivacySettingsRes" type="tns:saveNwkPrivacySettingsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

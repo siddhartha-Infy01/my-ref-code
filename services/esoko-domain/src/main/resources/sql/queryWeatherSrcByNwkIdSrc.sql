@@ -1,0 +1,1 @@
+SELECT * FROM Weather_source where network_id=? and user_id=?;

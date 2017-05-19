@@ -1,0 +1,1 @@
+SELECT * FROM push_alert_master where push_alert_id=?;

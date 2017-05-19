@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCommodities"
+	xmlns:tns="http://www.iexceed.com/queryCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryCommoditiesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRCOMMODITIESDETAILS" type="tns:QRCOMMODITIESDETAILS" />
+		</sequence>
+	</complexType>
+	<complexType name="QRCOMMODITIESDETAILS">
+		<sequence>
+			<element name="detailId" type="string" />
+			<element name="COMMODITIES" type="tns:COMMODITIES" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="COMMODITIES">
+		<sequence>
+			<element name="commodity" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryCommoditiesRes" type="tns:queryCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

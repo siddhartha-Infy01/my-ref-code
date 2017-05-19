@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querylanguages"
+	xmlns:tns="http://www.iexceed.com/querylanguages" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querylanguagesRes">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="QRLANGDTLS" type="tns:QRLANGDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="QRLANGDTLS">
+		<sequence>
+			<element name="languageCode" type="string"></element>
+			<element name="languageId" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="querylanguagesResWrap">
+		<complexType>
+			<sequence>
+				<element name="querylanguagesRes" type="tns:querylanguagesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

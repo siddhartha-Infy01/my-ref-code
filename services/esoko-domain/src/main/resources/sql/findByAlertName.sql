@@ -1,0 +1,1 @@
+SELECT count(*) FROM push_alert_master where name=? and message_type=? and payee_network_id=?;

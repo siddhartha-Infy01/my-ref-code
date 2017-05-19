@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.iexceed.com/queryResellerSubscripInvoices"
+	xmlns:tns="http://www.iexceed.com/queryResellerSubscripInvoices"
+	xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryResellerSubscripInvoicesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRRSLRSUBSINVOICES" type="tns:QRRSLRSUBSINVOICES"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRRSLRSUBSINVOICES">
+		<sequence>
+			<element name="date" type="string"></element>
+			<element name="invoice_no" type="string"></element>
+			<element name="network_id" type="string"></element>
+			<element name="network_name" type="string" />
+			<element name="due" type="string" />
+			<element name="amount" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="queryResellerSubscripInvoicesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryResellerSubscripInvoicesRes" type="tns:queryResellerSubscripInvoicesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

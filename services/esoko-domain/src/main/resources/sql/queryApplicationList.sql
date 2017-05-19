@@ -1,0 +1,1 @@
+select DISTINCT application_id FROM AgentReportsView WHERE network_id=?;

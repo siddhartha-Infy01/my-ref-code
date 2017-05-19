@@ -1,0 +1,1 @@
+select * from reseller_master where network_id =? and record_status = 'A'; 

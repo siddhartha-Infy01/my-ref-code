@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/getSmrtGrpCnt"
+	xmlns:tns="http://www.iexceed.com/getSmrtGrpCnt" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="getSmrtGrpCntReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SMRTGRPCNTREQ" type="tns:SMRTGRPCNTREQ" />
+		</sequence>
+	</complexType>
+	<complexType name="getSmrtGrpCntRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SMRTGRPCNT" type="tns:SMRTGRPCNT" />
+		</sequence>
+	</complexType>
+	<complexType name="SMRTGRPCNTREQ">
+		<sequence>			
+			<element name="networkId" type="string" />			
+			<element name="match" type="string" />			
+			<element name="limit" type="long" />
+			<element name="selectedBy" type="string" />
+			<element name="RULES" type="tns:RULES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="RULES">
+		<sequence>
+			<element name="type" type="string" />
+			<element name="condition" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="SMRTGRPCNT">
+		<sequence>			
+			<element name="count" type="long" />
+		</sequence>
+	</complexType>
+	<element name="getSmrtGrpCntReqWrap">
+		<complexType>
+			<sequence>
+				<element name="getSmrtGrpCntReq" type="tns:getSmrtGrpCntReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getSmrtGrpCntResWrap">
+		<complexType>
+			<sequence>
+				<element name="getSmrtGrpCntRes" type="tns:getSmrtGrpCntRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

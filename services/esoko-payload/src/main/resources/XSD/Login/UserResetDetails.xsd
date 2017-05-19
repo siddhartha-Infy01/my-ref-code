@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/getUserDetails"
+	xmlns:tns="http://www.iexceed.com/getUserDetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<element name="getUserDetailsReq">
+		<complexType>
+			<sequence>
+				<element name="Header" type="hr:Header" />
+				<element name="USERDETAIL" type="tns:USERDETAIL" />
+			</sequence>
+		</complexType>
+	</element>
+	<complexType name="USERDETAIL">
+		<sequence>
+			<element name="firstName" type="string"></element>
+			<element name="lastName" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+	<element name="getUserDetailsRes">
+		<complexType>
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="getUserDetailsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="getUserDetailsReq" type="tns:USERDETAIL" />
+			</sequence>
+		</complexType>
+	</element>
+		<element name="getUserDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="getUserDetailsRes" type="tns:USERDETAIL" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

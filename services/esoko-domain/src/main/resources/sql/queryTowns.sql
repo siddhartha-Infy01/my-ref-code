@@ -1,0 +1,1 @@
+select * from locations where type='T' and record_status='A' and auth_stat='A' and parent_country=? order by location_id;

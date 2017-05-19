@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAgentSurvey"
+	xmlns:tns="http://www.iexceed.com/queryAgentSurvey" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAgentSurveyRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRAGENTSURVEY" type="tns:QRAGENTSURVEY"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTSURVEY">
+		<sequence>
+			<element name="survey_name" type="string" />
+			<element name="description" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryAgentSurveyResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAgentSurveyRes" type="tns:queryAgentSurveyRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

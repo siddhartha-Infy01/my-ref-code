@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAllUnAuthCommodities"
+	xmlns:tns="http://www.iexceed.com/queryAllUnAuthCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllUnAuthCommoditiesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRUNAUTHCOMMDDTLS" type="tns:QRUNAUTHCOMMDDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRUNAUTHCOMMDDTLS">
+		<sequence>
+			<element name="commodity" type="string" />
+			<element name="requestor" type="string" />
+			<element name="country" type="string" />
+			<element name="date" type="string" />
+			<element name="description" type="string" />
+			<element name="picture" type="base64Binary" />
+			<element name="local_name" type="string" />
+			<element name="market" type="string" />
+			<element name='COMMOD_TYPE' type="tns:COMMOD_TYPE" maxOccurs="unbounded" />
+			<element name='COMMD_ATTRIBUTE' type="tns:COMMD_ATTRIBUTE"
+				maxOccurs="unbounded" />
+			<element name='COMMOD_VARIETY' type="tns:COMMOD_VARIETY"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="COMMOD_TYPE">
+		<sequence>
+			<element name="type_name" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="COMMOD_VARIETY">
+		<sequence>
+			<element name="variety_name" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="COMMD_ATTRIBUTE">
+		<sequence>
+			<element name="attribute_name" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryAllUnAuthCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllUnAuthCommoditiesRes" type="tns:queryAllUnAuthCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

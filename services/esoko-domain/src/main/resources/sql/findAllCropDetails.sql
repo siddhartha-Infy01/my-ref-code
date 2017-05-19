@@ -1,0 +1,1 @@
+select * from crop_tip_details where crop_tip_id=?;

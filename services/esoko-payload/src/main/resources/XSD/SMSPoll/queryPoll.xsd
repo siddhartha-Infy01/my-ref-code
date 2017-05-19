@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPoll"
+	xmlns:tns="http://www.iexceed.com/queryPoll" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPollRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="POLLCRDTL" type="tns:POLLCRDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="POLLCRDTL">
+		<sequence>
+			<element name="requestType" type="string" />
+			<element name="pollId" type="string" />
+			<element name="pollName" type="string" />
+			<element name="currencyId" type="string" />
+			<element name="payeeAccNo" type="string" />
+			<element name="payeeType" type="string" />
+			<element name="networkId" type="string" />
+			<element name="pollCode" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+			<element name="scheduleTime" type="string" />
+			<element name="frequency" type="string" />
+			<element name="repeat" type="string" />
+			<element name="scheduleDays" type="string" />
+			<element name="reminderAfter" type="string" />
+			<element name="reminderMsg" type="string" />
+			<element name="stopInterval" type="string" />
+			<element name="stopMeasure" type="string" />
+			<element name="interpret" type="string" />
+			<element name="publicKeyword" type="string" />
+			<element name="RECIPIENTS" type="tns:RECIPIENTS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="POLLDTLS" type="tns:POLLDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="POLLDTLS">
+		<sequence>
+			<element name="quesNo" type="string" />
+			<element name="quetion" type="string" />
+			<element name="nuOfChar" type="string" />
+			<element name="nuOfMsg" type="string" />
+			<element name="correctGoTo" type="string" />
+			<element name="inCorrectGoTo" type="string" />
+			<element name="KEYWORDS" type="tns:KEYWORDS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="RECIPIENTS">
+		<sequence>
+			<element name="parentId" type="string" />
+			<element name="recipientId" type="string" />
+			<element name="recipientType" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="KEYWORDS">
+		<sequence>
+			<element name="keyword" type="string" />
+			<element name="alias" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryPollResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPollRes" type="tns:queryPollRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

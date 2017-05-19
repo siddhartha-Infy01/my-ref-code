@@ -1,0 +1,1 @@
+select * from commodity_attributes where commodity_id=?;

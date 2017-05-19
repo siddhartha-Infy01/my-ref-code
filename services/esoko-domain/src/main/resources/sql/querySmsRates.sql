@@ -1,0 +1,1 @@
+SELECT a.operator_id,a.cost,a.cost_currency__id,a.premium from  smpp_routes a, operators b where a.operator_id=b.operator_id and a.record_status='A' and b.record_status='A' and b.location_id=?;

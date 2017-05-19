@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryKeywords"
+	xmlns:tns="http://www.iexceed.com/queryKeywords" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryKeywordsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRKEYWORDS" type="tns:QRKEYWORDS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRKEYWORDS">
+		<sequence>
+			<element name="keyword" type="string"></element>
+			<element name="action" type="string"></element>
+			<element name="usageCount" type="string"></element>
+			<element name="status" type="string"></element>
+			<element name="joinFlag" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="replyFlag" type="string"></element>
+			<element name="airtimeFlag" type="string"></element>
+			<element name="payeeAcc" type="string"></element>
+			<element name="response" type="string"></element>
+			<element name="airtime" type="string"></element>
+			<element name="airtimeCurrency" type="string"></element>
+			<element name="noOfMsgs" type="string"></element>
+			<element name="noOfCharc" type="string"></element>
+			<element name="alertIds" type="string"></element>
+			<element name="groupId" type="string"></element>
+			<element name="myNetwork" type="string"></element>
+			<element name="groupName" type="string"></element>
+			<element name="alertName" type="string"></element>
+			<element name="channel" type="string"></element>
+			<element name="aliases" type="string"></element>
+			
+		
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryKeywordsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryKeywordsRes" type="tns:queryKeywordsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

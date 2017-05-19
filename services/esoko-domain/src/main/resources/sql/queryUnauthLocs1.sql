@@ -1,0 +1,1 @@
+select * from locations where auth_stat='U' order by type ;

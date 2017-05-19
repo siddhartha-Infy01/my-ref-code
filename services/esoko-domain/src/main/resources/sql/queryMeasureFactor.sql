@@ -1,0 +1,1 @@
+select * from measure_factor where base_measure_id=? and quote_measure_id=? and commodity_id=? and network_id=? and price_type=?;

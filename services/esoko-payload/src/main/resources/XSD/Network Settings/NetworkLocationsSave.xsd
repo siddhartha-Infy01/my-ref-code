@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNetworkLocations"
+	xmlns:tns="http://www.iexceed.com/saveNetworkLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNetworkLocationsReq">
+			<sequence  >
+				<element name="Header" type="hr:Header" />
+				<element name="CRNWKLOCDTLS" type="tns:CRNWKLOCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="CRNWKLOCDTLS">
+		<sequence>
+			<element name="locationIds" type="string"></element>
+			<element name="locationNames" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveNetworkLocationsRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="saveNetworkLocationsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkLocationsReq" type="tns:saveNetworkLocationsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNetworkLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkLocationsRes" type="tns:saveNetworkLocationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+select a.* from commodities a where a.parent_id=?;

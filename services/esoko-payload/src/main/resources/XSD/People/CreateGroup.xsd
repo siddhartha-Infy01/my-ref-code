@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createGroup"
+	xmlns:tns="http://www.iexceed.com/createGroup" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="createGroupReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRGROUPDTL" type="tns:CRGROUPDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="createGroupRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="CRGROUPDTL">
+		<sequence>			
+			<element name="networkId" type="string" />
+			<element name="name" type="string" />
+			<element name="smartGroup" type="string" />
+			<element name="match" type="string" />			
+			<element name="limit" type="long" />
+			<element name="selectedBy" type="string" />
+			<element name="RULES" type="tns:RULES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="RULES">
+		<sequence>
+			<element name="type" type="string" />
+			<element name="condition" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>
+	<element name="createGroupReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createGroupReq" type="tns:createGroupReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createGroupResWrap">
+		<complexType>
+			<sequence>
+				<element name="createGroupRes" type="tns:createGroupRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createPushTemplate"
+	xmlns:tns="http://www.iexceed.com/createPushTemplate" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createPushTemplate">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPSHTMPLT" type="tns:CRPSHTMPLT" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPSHTMPLT">
+		<sequence>
+		    <element name="editFlag" type="string"></element>
+		    <element name="oldTemplateId" type="string"></element>
+			<element name="templateId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="message" type="string"></element>
+				<element name="characters" type="string"></element>
+			<element name="noofmessages" type="string"></element>
+					
+		</sequence>
+	</complexType>
+		<complexType name="createPushTemplateRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createPushTemplateWrap">
+		<complexType>
+			<sequence>
+				<element name="createPushTemplate" type="tns:createPushTemplate" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createPushTemplateResWrap">
+		<complexType>
+			<sequence>
+				<element name="createPushTemplateRes" type="tns:createPushTemplateRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

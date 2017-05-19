@@ -1,0 +1,1 @@
+select * FROM poll_master where poll_name=?;

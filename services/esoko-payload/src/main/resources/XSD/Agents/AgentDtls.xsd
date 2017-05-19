@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/agentdetails"
+	xmlns:tns="http://www.iexceed.com/agentdetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="agentdetailsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="AGNTDTLS" type="tns:AGNTDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="AGNTDTLS">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="people_id" type="string"></element>
+			<element name="profile_pic" type="base64Binary"></element>
+			<element name="mobile" type="string"></element>
+			<element name="email" type="string"></element>	
+            <element name="salary" type="string"></element>
+			<element name="montlybonus" type="string"></element>	
+			<element name="AGNTSUBDTLS" type="tns:AGNTSUBDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="AGNTSUBDTLS">
+		<sequence>
+				<element name="application_id" type="string"></element>
+				<element name="AGNTSUBLOWDTLS" type="tns:AGNTSUBLOWDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="AGNTSUBLOWDTLS">
+		<sequence>
+<element name="location_id" type="string"></element>
+            <element name="detail_id" type="string"></element>
+			<element name="location_count" type="string"></element>
+			<element name="commodity_id" type="string"></element>
+			<element name="commodity_count" type="string"></element>
+			<element name="template" type="string"></element>
+			<element name="template_count" type="string"></element>
+			<element name="target" type="string"></element>
+			<element name="incentive" type="string"></element>
+			<element name="bonus" type="string"></element>
+			</sequence>
+	</complexType>			
+	<element name="agentdetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="agentdetailsRes" type="tns:agentdetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

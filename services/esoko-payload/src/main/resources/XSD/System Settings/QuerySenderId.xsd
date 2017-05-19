@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySenderId"
+	xmlns:tns="http://www.iexceed.com/querySenderId" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySenderIdRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SENDERIDS" type="tns:SENDERIDS" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="SENDERIDS">
+		<sequence>
+			<element name="senderId" type="string" />
+			<element name="locationId" type="string" />
+			<element name="networkName" type="string" />
+			<element name="networkId" type="string" />
+			<element name="sendType" type="string" />
+			<element name="Apps" type="string" />
+				
+		
+		</sequence>
+	</complexType>
+	
+	<element name="querySenderIdResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySenderIdRes" type="tns:querySenderIdRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

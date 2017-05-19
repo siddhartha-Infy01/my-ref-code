@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNetworkCommodities"
+	xmlns:tns="http://www.iexceed.com/saveNetworkCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNetworkCommoditiesReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRNWKCMDDTLS" type="tns:CRNWKCMDDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRNWKCMDDTLS">
+		<sequence>
+			<element name="commodityIds" type="string"></element>
+			<element name="commodityNames" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveNetworkCommoditiesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="saveNetworkCommoditiesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkCommoditiesReq" type="tns:saveNetworkCommoditiesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNetworkCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkCommoditiesRes" type="tns:saveNetworkCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+SELECT * FROM agent_details a where a.detail_id=?;

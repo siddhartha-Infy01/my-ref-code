@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveDashBoardSettings"
+	xmlns:tns="http://www.iexceed.com/saveDashBoardSettings" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveDashBoardSettingsReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRDASHBOARDDETAILS" type="tns:CRDASHBOARDDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRDASHBOARDDETAILS">
+		<sequence>
+			<element name="userId" type="string"></element>
+			<element name="widgetId" type="string"></element>
+			<element name="xCoordinate" type="int"></element>
+			<element name="yCoordinate" type="int"></element>
+			<element name="enabled" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveDashBoardSettingsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="saveDashBoardSettingsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveDashBoardSettingsReq" type="tns:saveDashBoardSettingsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveDashBoardSettingsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveDashBoardSettingsRes" type="tns:saveDashBoardSettingsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPeopleApprvl"
+	xmlns:tns="http://www.iexceed.com/queryPeopleApprvl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPeopleApprvlRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRPPPLAPPRV" type="tns:QRPPPLAPPRV" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPPPLAPPRV">
+		<sequence>
+			<element name="peopleId" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="phone" type="string"></element>
+			<element name="location" type="string"></element>
+			<element name="commodity" type="string"></element>
+			<element name="user" type="string"></element>
+			<element name="username" type="string"></element>
+			<element name="mode" type="string"></element>
+			<element name="date" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="birthyear" type="string"></element>
+			<element name="occupation" type="string"></element>
+		
+		
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryPeopleApprvlResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPeopleApprvlRes" type="tns:queryPeopleApprvlRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createShareRequest"
+	xmlns:tns="http://www.iexceed.com/createShareRequest" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createShareRequest">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRSHAREDTLS" type="tns:CRSHAREDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="CRSHAREDTLS">
+		<sequence>
+			<element name="fromNetwork" type="string"></element>
+			<element name="toNetwork" type="string"></element>
+			<element name="peopleType" type="string"></element>
+			<element name="peopleMode" type="string"></element>
+			<element name="SHAREITEMS" type="tns:SHAREITEMS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="SHAREITEMS">
+		<sequence>
+			<element name="shareItem" type="string"></element>
+			<element name="shareType" type="string"></element>
+			<element name="shareStatus" type="string"></element>
+
+		</sequence>
+	</complexType>
+	<complexType name="createShareRequestRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createShareRequestWrap">
+		<complexType>
+			<sequence>
+				<element name="createShareRequest" type="tns:createShareRequest" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createShareRequestResWrap">
+		<complexType>
+			<sequence>
+				<element name="createShareRequestRes" type="tns:createShareRequestRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

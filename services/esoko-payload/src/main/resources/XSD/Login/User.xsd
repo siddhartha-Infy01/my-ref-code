@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createEsokoUser"
+	xmlns:tns="http://www.iexceed.com/createEsokoUser" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="createEsokoUserReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="USERDETAIL" type="tns:USERDETAIL" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="CRNEWSUBUSRAGENT" type="tns:CRNEWSUBUSRAGENT"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="USERDETAIL">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="gender" type="string" />
+			<element name="country" type="string" />
+			<element name="language" type="string" />
+			<element name="email" type="string" />
+			<element name="phone" type="string" />
+			<element name="password" type="string" />
+			<element name="town" type="string" />
+			<element name="yearOfBirth" type="string" />
+			<element name="networkId" type="string" />
+			<element name="occupationId" type="string" />
+			<element name="deviceId" type="string" />
+			<element name="userType" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="CRNEWSUBUSRAGENT">
+		<sequence>
+			<element name="paramName" type="string"></element>
+			<element name="sourceUserId" type="string"></element>
+
+		</sequence>
+	</complexType>
+
+	<complexType name="createEsokoUserRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="USERDETAILRES" type="tns:USERDETAILRES" />
+		</sequence>
+	</complexType>
+	<complexType name="USERDETAILRES">
+		<sequence>
+			<element name="userId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="createEsokoUserReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createEsokoUserReq" type="tns:createEsokoUserReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createEsokoUserResWrap">
+		<complexType>
+			<sequence>
+				<element name="createEsokoUserRes" type="tns:createEsokoUserRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

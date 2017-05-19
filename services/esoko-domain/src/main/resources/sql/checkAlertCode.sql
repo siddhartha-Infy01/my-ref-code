@@ -1,0 +1,1 @@
+SELECT * FROM crop_tip_master WHERE alert_code=?;

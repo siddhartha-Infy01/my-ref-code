@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAlert"
+	xmlns:tns="http://www.iexceed.com/queryAlert" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAlertRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALERTDTLS" type="tns:ALERTDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="ALERTDTLS">
+		<sequence>
+			<element name="alertName" type="string" />
+			<element name="country" type="string" />
+			<element name="state" type="string" />
+			<element name="town" type="string" />
+			<element name="alertType" type="string" />
+			<element name="commodity" type="string" />
+			<element name="markets" type="string" />
+			<element name="bidsOffers" type="string" />
+			<element name="bidsBids" type="string" />
+			<element name="dataSource" type="string" />
+			<element name="language" type="string" />			
+			<element name="currency" type="string" />
+			<element name="payeeAccNo" type="string" />
+			<element name="payeeAccName" type="string" />
+			<element name="payeeAccBal" type="string" />
+			<element name="payeeType" type="string" />
+			<element name="networkId" type="string" />
+			<element name="isAlertPublic" type="string" />
+			<element name="alertCode" type="string" />
+			<element name="deliverOn" type="string" />
+			<element name="neverEnds" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+			<element name="time" type="string" />			
+			<element name="RECIPIENTS" type="tns:RECIPIENTS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="PRICETYPEDTL" type="tns:PRICETYPEDTL"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PRICETYPEDTL">
+		<sequence>
+			<element name="priceType" type="string" />
+			<element name="measureId" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="RECIPIENTS">
+		<sequence>
+			<element name="parentId" type="string" />
+			<element name="recipientId" type="string" />
+			<element name="recipientType" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryAlertResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAlertRes" type="tns:queryAlertRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

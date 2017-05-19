@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryWeather"
+	xmlns:tns="http://www.iexceed.com/queryWeather" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryWeatherRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRWTHRDTLS" type="tns:QRWTHRDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRWTHRDTLS">
+		<sequence>
+			<element name="wthrId" type="string"></element>
+			<element name="locId" type="string"></element>
+			<element name="date" type="date"></element>
+			<element name="temp" type="string"></element>
+			<element name="summary" type="string"></element>
+			<element name="rain" type="string"></element>
+			<element name="gis" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryWeatherResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryWeatherRes" type="tns:queryWeatherRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

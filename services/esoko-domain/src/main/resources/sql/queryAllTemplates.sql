@@ -1,0 +1,1 @@
+SELECT * FROM esoko.survey_templates where auth_stat='A' and network_id=?;

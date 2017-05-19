@@ -1,0 +1,2 @@
+select a.first_name,a.last_name,a.town,a.country,a.people_id,group_concat(b.location_id separator ','),group_concat(b.commodity_id separator ','),group_concat(b.template separator ','),sum(b.target),b.application_id from people a,agent_details b where b.network_id=? and b.record_status=?
+and  b.network_id=a.default_network_id and b.user_id=a.people_id group by people_id,application_id  order by first_name,application_id;

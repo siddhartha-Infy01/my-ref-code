@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/pollAction"
+	xmlns:tns="http://www.iexceed.com/pollAction" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="pollActionReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="pollActionDTL" type="tns:pollActionDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="pollActionRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="pollActionDTL">
+		<sequence>
+			<element name="pollAction" type="string" />
+			<element name="POLLID" type="tns:POLLID" minOccurs="1"
+			maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="POLLID">
+		<sequence>
+			<element name="pollId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="pollActionReqWrap">
+		<complexType>
+			<sequence>
+				<element name="pollActionReq" type="tns:pollActionReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="pollActionResWrap">
+		<complexType>
+			<sequence>
+				<element name="pollActionRes" type="tns:pollActionRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+select * from System_accounts where owner_id not in (?,?);

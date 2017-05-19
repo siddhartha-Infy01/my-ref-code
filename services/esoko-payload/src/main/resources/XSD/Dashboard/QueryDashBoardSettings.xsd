@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryDashBoardSettings"
+	xmlns:tns="http://www.iexceed.com/queryDashBoardSettings" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryDashBoardSettingsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRDASHBOARDDETAILS" type="tns:QRDASHBOARDDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRDASHBOARDDETAILS">
+		<sequence>
+			<element name="widgetId" type="string"></element>
+			<element name="xCoordinate" type="float"></element>
+			<element name="yCoordinate" type="float"></element>
+			<element name="enabled" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryDashBoardSettingsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryDashBoardSettingsRes" type="tns:queryDashBoardSettingsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

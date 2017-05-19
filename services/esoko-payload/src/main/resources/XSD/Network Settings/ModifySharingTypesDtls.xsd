@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/modifyShareDtlsReq"
+	xmlns:tns="http://www.iexceed.com/modifyShareDtlsReq" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="modifyShareDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MDSHAREDTLS" type="tns:MDSHAREDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="MDSHAREDTLS">
+		<sequence>
+			<element name="fromNetwork" type="string"></element>
+			<element name="toNetwork" type="string"></element>
+			<element name="shareItem" type="string"></element>
+			<element name="action" type="string"></element>
+			<element name="sendReceive" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="modifyShareDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="modifyShareDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="modifyShareDtlsReq" type="tns:modifyShareDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="modifyShareDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="modifyShareDtlsRes" type="tns:modifyShareDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

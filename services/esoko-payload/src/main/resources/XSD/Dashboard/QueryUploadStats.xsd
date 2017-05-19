@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUploadStats"
+	xmlns:tns="http://www.iexceed.com/queryUploadStats" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUploadStatsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="UPLDSTATS" type="tns:UPLDSTATS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="UPLDSTATS">
+		<sequence>
+			<element name="uploadId" type="string"></element>
+			<element name="noOfPriceUploads" type="int"></element>
+			<element name="commodityId" type="string"></element>
+			<element name="commodityName" type="string"></element>
+			<element name="marketName" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUploadStatsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUploadStatsRes" type="tns:queryUploadStatsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

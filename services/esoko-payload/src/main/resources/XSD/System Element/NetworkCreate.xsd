@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createNetwork"
+	xmlns:tns="http://www.iexceed.com/createNetwork" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="CreateNetworkReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRNWKDETAILS" type="tns:CRNWKDETAILS" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CRNWKDETAILS">
+		<sequence>
+			<element name="networkID" type="string"></element>
+			<element name="type" type="string"></element>			
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="website" type="string"></element>
+			<element name="networkOwner" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CreateNetworkRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+			<element name="CreateNetworkReqWrap">
+		<complexType>
+			<sequence>
+				<element name="CreateNetworkReq" type="tns:CreateNetworkReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="CreateNetworkResWrap">
+		<complexType>
+			<sequence>
+				<element name="CreateNetworkRes" type="tns:CreateNetworkRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

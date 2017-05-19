@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryLocationsApprvl"
+	xmlns:tns="http://www.iexceed.com/queryLocationsApprvl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryLocationsApprvlRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRLOCAPPRV" type="tns:QRLOCAPPRV" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRLOCAPPRV">
+		<sequence>
+			<element name="locationId" type="string"></element>
+			<element name="locationType" type="string"></element>
+			<element name="locationTree" type="string"></element>
+			<element name="requestor" type="string"></element>
+			<element name="latitude" type="string"></element>
+			<element name="longitude" type="string"></element>
+			<element name="markdetDays" type="string"></element>
+			<element name="marketPic" type="base64Binary"></element>
+			<element name="commodities" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="uploaddate" type="string"></element>
+			<element name="uploadmode" type="string"></element>
+		    <element name="networkId" type="string"></element>
+			<element name="networkName" type="string"></element>
+			<element name="Requestorname" type="string"></element>
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryLocationsApprvlResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryLocationsApprvlRes" type="tns:queryLocationsApprvlRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

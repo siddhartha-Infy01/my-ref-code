@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createPrices"
+	xmlns:tns="http://www.iexceed.com/createPrices" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createPricesReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPRICEDETAILS" type="tns:CRPRICEDETAILS" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPRICEDETAILS">
+		<sequence>
+			<element name="latitude" type="string" />
+			<element name="longitude" type="string" />
+			<element name="upload_mode" type="string" />
+			<element name="network_id" type="string" />
+			<element name="agent_id" type="string" />
+			<element name="detail_id" type="string" />
+			<element name="market" type="string" />
+			<element name="collectd_date" type="string" />
+			<element name="currency_id" type="string" />
+			<element name="commodities" type="tns:commodity" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="comments" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="commodity">
+		<sequence>
+			<element name="commodity_id" type="string" />
+			<element name="price_type" type="string" />
+			<element name="price" type="double" />
+			<element name="measure_id" type="string" />
+			<element name="variety" type="string" />
+			<element name="variety_comment" type="string" />
+			<element name="weight" type="double" />
+			<element name="weight_measure" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="createPricesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createPricesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createPricesReq" type="tns:createPricesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createPricesResWrap">
+		<complexType>
+			<sequence>
+				<element name="createPricesRes" type="tns:createPricesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

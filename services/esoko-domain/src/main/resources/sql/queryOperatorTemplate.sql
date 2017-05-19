@@ -1,0 +1,1 @@
+select * from operator_templates where operator_id=?;

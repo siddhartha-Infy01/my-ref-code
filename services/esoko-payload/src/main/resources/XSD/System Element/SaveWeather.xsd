@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveWeather"
+	xmlns:tns="http://www.iexceed.com/saveWeather" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveWeatherReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SVWEATHER" type="tns:SVWEATHER" />
+		</sequence>
+
+	</complexType>
+	<complexType name="SVWEATHER">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="location" type="string"></element>
+			<element name="resource" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveWeatherRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="saveWeatherReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveWeatherReq" type="tns:saveWeatherReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveWeatherResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveWeatherRes" type="tns:saveWeatherRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

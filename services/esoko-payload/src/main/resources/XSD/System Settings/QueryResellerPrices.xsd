@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryResellerPrices"
+	xmlns:tns="http://www.iexceed.com/queryResellerPrices" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryResellerPricesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRYRESELLERPRICESLIST" type="tns:QRYRESELLERPRICESLIST" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRYRESELLERPRICESLIST">
+		<sequence>
+			<element name="type" type="string"></element>
+			<element name="QRYRESELLERPRICES" type="tns:QRYRESELLERPRICES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRYRESELLERPRICES">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+			<element name="margin" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="queryResellerPricesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryResellerPricesRes" type="tns:queryResellerPricesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

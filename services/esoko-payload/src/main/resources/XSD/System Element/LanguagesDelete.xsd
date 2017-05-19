@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deletelanguages"
+	xmlns:tns="http://www.iexceed.com/deletelanguages" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deletelanguagesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLLANGDTLS" type="tns:DLLANGDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLLANGDTLS">
+		<sequence>
+			<element name="languageCode" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deletelanguagesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="deletelanguagesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deletelanguagesReq" type="tns:deletelanguagesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deletelanguagesResWrap">
+		<complexType>
+			<sequence>
+				<element name="deletelanguagesRes" type="tns:deletelanguagesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

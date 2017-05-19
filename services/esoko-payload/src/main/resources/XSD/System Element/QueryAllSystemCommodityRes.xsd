@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySysCommodities"
+	xmlns:tns="http://www.iexceed.com/querySysCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySysCommoditiesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SECTOR" type="tns:SECTOR" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="COMGRP" type="tns:COMGRP" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="COMSUBGROUP" type="tns:COMSUBGROUP" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="COMFAMILY" type="tns:COMFAMILY" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="QRSYSCOMMDTLS" type="tns:QRSYSCOMMDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+			<element name="COMVARIETY" type="tns:COMVARIETY" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="SECTOR">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMGRP">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMSUBGROUP">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMFAMILY">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="QRSYSCOMMDTLS">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+			<element name="COMTYPES" type="tns:COMTYPES" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="COMMEASURES" type="tns:COMMEASURES" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="COMATTRIBS" type="tns:COMATTRIBS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMVARIETY">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="Rank" type="string"></element>
+			<element name="Status" type="string"></element>
+			<element name="Parent" type="string"></element>
+			<element name="Level" type="string"></element>
+			<element name="Picture" type="string"></element>
+			<element name="Desc" type="string"></element>
+			<element name="COMTYPES" type="tns:COMTYPES" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="COMATTRIBS" type="tns:COMATTRIBS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="COMMEASURES" type="tns:COMMEASURES" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMTYPES">
+		<sequence>
+			<element name="type" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMATTRIBS">
+		<sequence>
+			<element name="Name" type="string"></element>
+			<element name="selected" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMMEASURES">
+		<sequence>
+			<element name="priceType" type="string"></element>
+			<element name="COMMEASURESDTLS" type="tns:COMMEASURESDTLS"
+				minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="COMMEASURESDTLS">
+		<sequence>
+			<element name="measureId" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="querySysCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySysCommoditiesRes" type="tns:querySysCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

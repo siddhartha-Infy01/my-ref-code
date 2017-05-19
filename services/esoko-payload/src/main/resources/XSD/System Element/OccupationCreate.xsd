@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createOccupation"
+	xmlns:tns="http://www.iexceed.com/createOccupation" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createOccupationReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CROCCDTLS" type="tns:CROCCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CROCCDTLS">
+		<sequence>
+			<element name="occupationID" type="string"></element>
+			<element name="occupationName" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="parentId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="userData" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createOccupationRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="createOccupationReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createOccupationReq" type="tns:createOccupationReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createOccupationResWrap">
+		<complexType>
+			<sequence>
+				<element name="createOccupationRes" type="tns:createOccupationRes"/>
+				</sequence>
+		</complexType>
+		</element>
+	
+</schema>

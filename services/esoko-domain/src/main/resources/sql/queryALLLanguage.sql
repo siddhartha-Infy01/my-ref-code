@@ -1,0 +1,1 @@
+select * from languages where record_status='A' order by language_id;

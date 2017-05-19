@@ -1,0 +1,1 @@
+select a.* from commodity_measures a, commodities b where a.commodity_id=b.commodity_id and a.commodity_id=? and a.location_id=? and b.type='C'; 

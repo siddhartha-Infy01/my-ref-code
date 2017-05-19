@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveUserDetails"
+	xmlns:tns="http://www.iexceed.com/saveUserDetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveUserDetailsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRUSRDTLS" type="tns:CRUSRDTLS" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="CRUSRDTLS">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="birthYear" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="phone1" type="string"></element>
+			<element name="phone2" type="string"></element>
+			<element name="address" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="website" type="anyURI"></element>
+			<element name="occupation" type="string"></element>
+			<element name="dispCcy" type="string"></element>
+			<element name="language" type="string"></element>
+			<element name="defaultNwk" type="string"></element>
+			<element name="privSettings" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveUserDetailsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="saveUserDetailsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveUserDetailsReq" type="tns:saveUserDetailsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveUserDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveUserDetailsRes" type="tns:saveUserDetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

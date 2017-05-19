@@ -1,0 +1,1 @@
+SELECT * FROM push_alert_recipients WHERE push_alert_id=?;

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editGroup"
+	xmlns:tns="http://www.iexceed.com/editGroup" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header"/>
+	<complexType name="editGroupReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDGROUPDTL" type="tns:EDGROUPDTL" />
+		</sequence>
+	</complexType>	
+	<complexType name="editGroupRes">
+		<sequence>
+			<element name="Header" type="hr:Header"/>
+		</sequence>
+	</complexType>		
+	<complexType name="EDGROUPDTL">
+		<sequence>			
+			<element name="networkId" type="string" />
+			<element name="groupId" type="string" />
+			<element name="updatedName" type="string" />
+			<element name="smartGroup" type="string" />
+			<element name="match" type="string" />			
+			<element name="limit" type="long" />
+			<element name="selectedBy" type="string" />
+			<element name="RULES" type="tns:RULES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="RULES">
+		<sequence>
+			<element name="type" type="string" />
+			<element name="condition" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>
+	<element name="editGroupReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editGroupReq" type="tns:editGroupReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="editGroupResWrap">
+		<complexType>
+			<sequence>
+				<element name="editGroupRes" type="tns:editGroupRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

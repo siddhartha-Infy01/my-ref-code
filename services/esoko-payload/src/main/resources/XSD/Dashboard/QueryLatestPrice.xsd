@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryLatestPrice"
+	xmlns:tns="http://www.iexceed.com/queryLatestPrice" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryLatestPriceRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="COMMDETAILS" type="tns:COMMDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="COMMDETAILS">
+		<sequence>
+			<element name="commodityId" type="string"></element>
+			<element name="commodityName" type="string"></element>
+			<element name="currencyCode" type="string"></element>
+			<element name="currencySymbol" type="string"></element>
+			<element name="PRICEDETAILS" type="tns:PRICEDETAILS" minOccurs="1" maxOccurs="unbounded" ></element>
+		</sequence>
+	</complexType>
+	<complexType name="PRICEDETAILS">
+		<sequence>
+			<element name="marketName" type="string"></element>
+			<element name="price" type="float"></element>
+			<element name="units" type="string"></element>
+			<element name="uploadedBy" type="string"></element>
+			<element name="uploadedOn" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryLatestPriceResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryLatestPriceRes" type="tns:queryLatestPriceRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,2 @@
+select b.location_id,(select sms_code from sms_codes where network_id=? and sms_id=b.location_id) as sm_code from
+network_location b, locations c where b.location_id=c.location_id and b.network_id=? and c.type=? ;

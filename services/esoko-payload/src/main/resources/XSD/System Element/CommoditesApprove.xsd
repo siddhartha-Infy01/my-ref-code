@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/approveCommodites"
+	xmlns:tns="http://www.iexceed.com/approveCommodites" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="approveCommoditesReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="APPDTLS" type="tns:APPDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="APPDTLS">
+		<sequence>
+			<element name="commodity_name" type="string" />
+			<element name="local_name" type="string" />
+			<element name="requestor" type="string" />
+			<element name="major_market" type="string" />
+			<element name="description" type="string" />
+			<element name="picture" type="base64Binary" />
+			<element name="TYPE" type="tns:TYPE" maxOccurs="unbounded"/>
+			<element name="ATTRIBUTES" type="tns:ATTRIBUTES"  maxOccurs="unbounded"/>
+			<element name="ALIAS" type="tns:ALIAS" maxOccurs="unbounded"/>
+			<element name="VARIETY" type="tns:VARIETY" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="VARIETY">
+		<sequence>
+			<element name="variety_name" type="string"  />
+		</sequence>
+	</complexType>
+	<complexType name="ALIAS">
+		<sequence>
+			<element name="alias_name" type="string"  />
+		</sequence>
+	</complexType>
+	<complexType name="TYPE">
+		<sequence>
+			<element name="type_name" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="ATTRIBUTES">
+		<sequence>
+			<element name="attribute_name" type="string"  />
+		</sequence>
+	</complexType>
+	<complexType name="approveCommoditesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="approveCommoditesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="approveCommoditesReq" type="tns:approveCommoditesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="approveCommoditesResWrap">
+		<complexType>
+			<sequence>
+				<element name="approveCommoditesRes" type="tns:approveCommoditesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

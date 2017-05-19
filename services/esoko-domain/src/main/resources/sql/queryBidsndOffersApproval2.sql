@@ -1,0 +1,3 @@
+select upload_id,commodity,TRIM(TRAILING '.' from TRIM(TRAILING '0' from quantity)),(select symbol from Measures where measure_id=a.measure),TRIM(TRAILING '.' from  TRIM(TRAILING '0' from price_amount)),(select name from currencies where a.currency_id=currency_id),(select measure_name from Measures where a.amount_unit=measure_id),offer_uploaded_by,
+offer_userid,upload_mode,created_ts,DATEDIFF(expiry_date,current_date()),negotiable_flag,location,payement_mode,delivery_point,delivery_type,no_of_days,grade,(select first_name from people where default_network_id= ? and people_id=a.offer_userid) as name
+from bids_offers_master a where network_id=? and auth_stat='U' order by name;

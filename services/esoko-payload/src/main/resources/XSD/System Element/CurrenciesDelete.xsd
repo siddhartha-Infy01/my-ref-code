@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteCurrencies"
+	xmlns:tns="http://www.iexceed.com/deleteCurrencies" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteCurrenciesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLCURRDTLS" type="tns:DLCURRDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLCURRDTLS">
+		<sequence>
+			<element name="currencyCode" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteCurrenciesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="deleteCurrenciesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteCurrenciesReq" type="tns:deleteCurrenciesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteCurrenciesResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteCurrenciesRes" type="tns:deleteCurrenciesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

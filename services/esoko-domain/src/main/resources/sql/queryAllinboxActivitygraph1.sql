@@ -1,0 +1,1 @@
+SELECT created_ts,count(*),service_name FROM inbox_monitor  where network_id=?  and created_ts between ? and ? and channel=? group by service_name,date(created_ts);

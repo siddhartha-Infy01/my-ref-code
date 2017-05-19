@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCcByName"
+	xmlns:tns="http://www.iexceed.com/queryCcByName"  xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryCcByNameRes">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="QRCURBYNAME" type="tns:QRCURBYNAME" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+		<complexType  name="QRCURBYNAME">
+			<sequence>
+				<element name="currencyCode" type="string"></element>
+				<element name="currencyId" type="string"></element>
+				<element name="rank" type="int"></element>
+				<element name="symbol" type="string"></element>
+				<element name="noOfDecimals" type="int"></element>
+			</sequence>
+		</complexType>
+		<element name="queryCcByNameResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryCcByNameRes" type="tns:queryCcByNameRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

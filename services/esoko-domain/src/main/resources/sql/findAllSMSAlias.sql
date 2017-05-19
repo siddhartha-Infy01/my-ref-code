@@ -1,0 +1,1 @@
+SELECT * FROM sms_code_alias where network_id=?;

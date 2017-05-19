@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryLocations"
+	xmlns:tns="http://www.iexceed.com/queryLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryLocationsRes">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="QRLOCDTLS" type="tns:QRLOCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="QRLOCALS" type="tns:QRLOCALS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="QRLOCDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="rank" type="int"></element>
+		</sequence>
+	</complexType>
+	<complexType name="QRLOCALS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="parentId" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryLocationsRes" type="tns:queryLocationsRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

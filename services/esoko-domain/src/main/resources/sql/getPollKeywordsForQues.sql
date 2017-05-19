@@ -1,0 +1,1 @@
+select * from poll_keywords where poll_id=? and poll_ques_no=?;

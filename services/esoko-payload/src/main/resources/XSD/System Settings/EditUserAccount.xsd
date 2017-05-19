@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editUserAccount"
+	xmlns:tns="http://www.iexceed.com/editUserAccount" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="editUserAccountReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDITUSERACC" type="tns:EDITUSERACC" />
+		</sequence>
+	</complexType>
+	<complexType name="EDITUSERACC">
+		<sequence>
+			<element name="ownerId" type="string"/>			
+			<element name="accName" type="string"/>
+			<element name="balance" type="string"/>
+			<element name="minBalance" type="string"/>
+			<element name="currencyId" type="string"/>
+		</sequence>
+	</complexType>	
+	<element name="editUserAccountReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editUserAccountReq" type="tns:editUserAccountReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="editUserAccountRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="editUserAccountResWrap">
+		<complexType>
+			<sequence>
+				<element name="editUserAccountRes" type="tns:editUserAccountRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

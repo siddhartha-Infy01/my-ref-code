@@ -1,0 +1,1 @@
+SELECT * from Networks where type='K' and primary_location_id=?;

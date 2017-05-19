@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createweather"
+	xmlns:tns="http://www.iexceed.com/createweather" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createweatherReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRWTHRDTLS" type="tns:CRWTHRDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRWTHRDTLS">
+		<sequence>
+			<element name="wthrId" type="string"></element>
+			<element name="locId" type="string"></element>
+			<element name="date" type="date"></element>
+			<element name="temp" type="string"></element>
+			<element name="summary" type="string"></element>
+			<element name="rain" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="userData" type="string"></element>
+			<element name="gis" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createweatherRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createweatherReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createweatherReq" type="tns:createweatherReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createweatherResWrap">
+		<complexType>
+			<sequence>
+				<element name="createweatherRes" type="tns:createweatherRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+select a.* from user_occupations a, occupations b where a.occupation_id=b.occupation_id and  b.record_status='A' and a.user_id=? and a.network_id=?;

@@ -1,0 +1,1 @@
+SELECT * FROM invoice_details where invoice_no=? and paid_status<>'D';

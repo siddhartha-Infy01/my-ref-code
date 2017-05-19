@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUserDetails"
+	xmlns:tns="http://www.iexceed.com/queryUserDetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserDetailsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRUSRDTLS" type="tns:QRUSRDTLS" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="QRUSRDTLS">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="birthYear" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="phone1" type="string"></element>
+			<element name="phone2" type="string"></element>
+			<element name="address" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="website" type="anyURI"></element>
+			<element name="occupation" type="string"></element>
+			<element name="dispCcy" type="string"></element>
+			<element name="language" type="string"></element>
+			<element name="defaultNwk" type="string"></element>
+			<element name="defaultNwkId" type="string"></element>
+			<element name="defaultNwkLoc" type="string"></element>
+			<element name="defaultNwkOwner" type="string"></element>
+			<element name="privSettings" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+			<element name="resellerId" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUserDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserDetailsRes" type="tns:queryUserDetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

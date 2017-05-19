@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteCommodities"
+	xmlns:tns="http://www.iexceed.com/deleteCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteCommoditiesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLCOMMDTLS" type="tns:DLCOMMDTLS" minOccurs="1" maxOccurs="unbounded" />
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLCOMMDTLS">
+		<sequence>
+			<element name="commodityID" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteCommoditiesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+	<element name="deleteCommoditiesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteCommoditiesReq" type="tns:deleteCommoditiesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteCommoditiesRes" type="tns:deleteCommoditiesRes"/>
+				</sequence>
+		</complexType>
+	</element>
+</schema>

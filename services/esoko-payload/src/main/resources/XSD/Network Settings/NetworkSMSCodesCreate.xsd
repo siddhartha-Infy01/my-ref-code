@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createSMSCodes"
+	xmlns:tns="http://www.iexceed.com/createSMSCodes" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createSMSCodesReq">
+			<sequence  >
+				<element name="Header" type="hr:Header" />
+				<element name="CRSMSCDDTLS" type="tns:CRSMSCDDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="CRSMSCDDTLS">
+		<sequence>
+			<element name="Location" type="string"></element>
+			<element name="code" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="SMSCDALS" type="tns:SMSCDALS" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="SMSCDALS">
+		<sequence>
+			<element name="aliases" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createSMSCodesRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="createSMSCodesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createSMSCodesReq" type="tns:createSMSCodesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createSMSCodesResWrap">
+		<complexType>
+			<sequence>
+				<element name="createSMSCodesRes" type="tns:createSMSCodesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

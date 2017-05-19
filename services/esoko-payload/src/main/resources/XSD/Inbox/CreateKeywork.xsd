@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createKeyword"
+	xmlns:tns="http://www.iexceed.com/createKeyword" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="createKeywordReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRKEYWORD" type="tns:CRKEYWORD" />
+		</sequence>
+	</complexType>
+	<complexType name="createKeywordRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="CRKEYWORD">
+		<sequence>
+			<element name="keyword" type="string" />
+			<element name="channel" type="string" />
+			<element name="oLdKeyword" type="string" />
+			<element name="networkId" type="string" />
+			<element name="joinFlag" type="string" />
+			<element name="replyFlag" type="string" />
+			<element name="airtimeFlag" type="string" />
+			<element name="payee_account" type="string" />
+			<element name="response" type="string" />
+			<element name="airtime" type="string" />
+			<element name="airtime_currency" type="string" />
+			<element name="noOfMessages" type="integer" />
+			<element name="noOfCharacters" type="integer" />
+			<element name="ealerts" type="string" />
+			<element name="groups" type="string" />
+			<element name="myNetwork" type="string" />
+			<element name="editFlag" type="string" />
+			<element name="aliases" type="string" />
+			
+					</sequence>
+	</complexType>
+	
+	
+	<element name="createKeywordReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createKeywordReq" type="tns:createKeywordReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createKeywordResWrap">
+		<complexType>
+			<sequence>
+				<element name="createKeywordRes" type="tns:createKeywordRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

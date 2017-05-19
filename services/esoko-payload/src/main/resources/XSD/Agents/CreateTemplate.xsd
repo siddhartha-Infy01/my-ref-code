@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createSurveyTemplate"
+	xmlns:tns="http://www.iexceed.com/createSurveyTemplate" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createSurveyTemplate">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRSRVTMPLT" type="tns:CRSRVTMPLT" />
+		</sequence>
+	</complexType>
+	<complexType name="CRSRVTMPLT">
+		<sequence>
+		     <element name="editFlag" type="string"></element>
+		    <element name="oldTemplateId" type="string"></element>
+			<element name="templateId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="description" type="string"></element>
+					
+		</sequence>
+	</complexType>
+		<complexType name="createSurveyTemplateRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createSurveyTemplateWrap">
+		<complexType>
+			<sequence>
+				<element name="createSurveyTemplate" type="tns:createSurveyTemplate" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createSurveyTemplateResWrap">
+		<complexType>
+			<sequence>
+				<element name="createSurveyTemplateRes" type="tns:createSurveyTemplateRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

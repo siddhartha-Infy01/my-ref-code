@@ -1,0 +1,1 @@
+ update keywords set record_status = ?,modified_by = ?,modified_ts = now()  where   channel = ? and keyword =  ?;

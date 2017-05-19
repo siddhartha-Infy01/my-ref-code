@@ -1,0 +1,1 @@
+select * from system_user where user_id=?;

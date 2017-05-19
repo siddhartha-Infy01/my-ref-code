@@ -1,0 +1,1 @@
+select * from  currencies where record_status='A' order by name;

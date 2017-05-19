@@ -1,0 +1,1 @@
+select * from forex where  base_currency_id=? and quote_currency_id=?;

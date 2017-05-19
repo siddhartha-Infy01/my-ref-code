@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createContacts"
+	xmlns:tns="http://www.iexceed.com/createContacts" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createContactsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRCONTACTDETAILS" type="tns:CRCONTACTDETAILS" />
+		</sequence>
+	</complexType>
+	<complexType name="PERSONALDETAILS">
+		<sequence>
+			<element name="image" type="base64Binary" />
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="age" type="string" />
+			<element name="gender" type="string" />
+			<element name="mobileNo" type="string" />
+			<element name="email" type="string" />
+			<element name="membershipID" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="COMMON_ELEMENTS">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="country" type="string" />
+			<element name="currency" type="string" />
+			<element name="commodity" type="string" />
+			<element name="location" type="string" />
+			<element name="occupations" type="string" />
+			<element name="language" type="string" />
+			<element name="town" type="string" />
+			<element name="mode" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="CRCONTACTDETAILS">
+		<sequence>
+			<element name="PERSONDETAILS" type="tns:PERSONALDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+			<element name="COMMON_ELEMENT" type="tns:COMMON_ELEMENTS" />
+		</sequence>
+	</complexType>
+	<complexType name="createContactsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRCONTACTDTLSRES" type="tns:CRCONTACTDTLSRES" />
+		</sequence>
+	</complexType>
+	<complexType name="CRCONTACTDTLSRES">
+		<sequence>
+			<element name="peopleId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="createContactsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createContactsReq" type="tns:createContactsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createContactsResWrap">
+		<complexType>
+			<sequence>
+				<element name="createContactsRes" type="tns:createContactsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

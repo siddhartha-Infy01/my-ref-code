@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteSenderId"
+	xmlns:tns="http://www.iexceed.com/deleteSenderId" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteSenderId">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLSNDID" type="tns:DLSNDID" />
+		</sequence>
+	</complexType>
+	<complexType name="DLSNDID">
+		<sequence>
+			<element name="senderId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="locationId" type="string"></element>
+			
+			
+				
+		</sequence>
+	</complexType>
+	
+	<complexType name="deleteSenderIdRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteSenderIdWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSenderId" type="tns:deleteSenderId" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteSenderIdResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSenderIdRes" type="tns:deleteSenderIdRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

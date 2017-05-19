@@ -1,0 +1,1 @@
+select max(subscription_id) from network_subscription;

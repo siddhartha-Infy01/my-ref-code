@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNwkSMSRates"
+	xmlns:tns="http://www.iexceed.com/queryNwkSMSRates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNwkSMSRatesRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+				<element name="QRSMSDTLS" type="tns:QRSMSDTLS"  minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="QRSMSDTLS">
+		<sequence>
+			<element name="providerName" type="string" />
+			<element name="amount" type="float" />
+			<element name="currency" type="string" />
+			<element name="premium" type="float" />
+			<element name="voice" type="float" />
+			<element name="premiumVoice" type="float" />
+		</sequence>
+	</complexType>
+	<element name="queryNwkSMSRatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNwkSMSRatesRes" type="tns:queryNwkSMSRatesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

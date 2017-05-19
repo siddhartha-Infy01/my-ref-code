@@ -1,0 +1,1 @@
+SELECT * FROM keyword_alias where  alias=? and channel=?;

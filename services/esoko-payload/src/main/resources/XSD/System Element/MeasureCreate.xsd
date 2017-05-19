@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createMeasure"
+	xmlns:tns="http://www.iexceed.com/createMeasure" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createMeasureReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRMSRDTLS" type="tns:CRMSRDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRMSRDTLS">
+		<sequence>
+			<element name="measureId" type="string"></element>
+			<element name="symbol" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="isSystem" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="CRALSDTLS" type="tns:CRALSDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRALSDTLS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createMeasureRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createMeasureReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createMeasureReq" type="tns:createMeasureReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createMeasureResWrap">
+		<complexType>
+			<sequence>
+				<element name="createMeasureRes" type="tns:createMeasureRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

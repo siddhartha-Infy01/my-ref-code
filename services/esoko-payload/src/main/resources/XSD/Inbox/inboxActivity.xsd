@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/inboxActivityMonitor"
+	xmlns:tns="http://www.iexceed.com/inboxActivityMonitor" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="inboxActivityMonitorRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="INBXACTVTYMON" type="tns:INBXACTVTYMON" minOccurs="1"
+				maxOccurs="unbounded" />
+				<element name="INBXACTVTYMONCTDATA" type="tns:INBXACTVTYMONCTDATA" minOccurs="1"
+				maxOccurs="unbounded" />	
+		</sequence>
+	</complexType>
+	<complexType name="INBXACTVTYMON">
+		<sequence>
+			<element name="activityId" type="string"></element>
+			<element name="serviceName" type="string"></element>
+			<element name="peopleId" type="string"></element>
+			<element name="peopleName" type="string"></element>
+			<element name="msisdn" type="string"></element>
+			<element name="message" type="string"></element>
+			<element name="error" type="string"></element>
+			<element name="date" type="string"></element>
+			<element name="channel" type="string"></element>
+			
+		
+						
+			
+		</sequence>
+	</complexType>
+	<complexType name="INBXACTVTYMONCTDATA">
+		<sequence>
+			<element name="date" type="string"></element>
+			<element name="NO_SMS" type="string"></element>
+			<element name="type" type="string"></element>
+				
+							
+			
+		</sequence>
+	</complexType>
+	
+	<element name="inboxActivityMonitorResWrap">
+		<complexType>
+			<sequence>
+				<element name="inboxActivityMonitorRes" type="tns:inboxActivityMonitorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

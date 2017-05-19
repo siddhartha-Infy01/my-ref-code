@@ -1,0 +1,1 @@
+select * from occupations where record_status='A' and parent_id=?;

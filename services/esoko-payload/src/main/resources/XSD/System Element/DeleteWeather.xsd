@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteWeather"
+	xmlns:tns="http://www.iexceed.com/deleteWeather" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteWeatherReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLTWEATHER" type="tns:DLTWEATHER" />
+		</sequence>
+	</complexType>
+	<complexType name="DLTWEATHER">
+		<sequence>
+			<element name="source" type="string" />
+			<element name="networkId" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="deleteWeatherRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteWeatherReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteWeatherReq" type="tns:deleteWeatherReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteWeatherResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteWeatherRes" type="tns:deleteWeatherRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

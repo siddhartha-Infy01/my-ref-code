@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/CommoditiesMap"
+	xmlns:tns="http://www.iexceed.com/CommoditiesMap" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="mapCommoditiesReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MPCOMMDTLS" type="tns:MPCOMMDTLS" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+
+	</complexType>
+	<complexType name="MPCOMMDTLS">
+		<sequence>
+			<element name="commodityID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="mapType" type="string"></element>
+			<element name="mapValue" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="mapCommoditiesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="mapCommoditiesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="mapCommoditiesReq" type="tns:mapCommoditiesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="mapCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="mapCommoditiesRes" type="tns:mapCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

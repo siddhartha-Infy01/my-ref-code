@@ -1,0 +1,1 @@
+select * from languages where code=? and record_status='A';

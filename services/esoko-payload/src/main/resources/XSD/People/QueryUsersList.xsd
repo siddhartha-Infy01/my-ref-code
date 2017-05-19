@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUsersList"
+	xmlns:tns="http://www.iexceed.com/queryUsersList" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUsersListRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRUSERLISTS" type="tns:QRUSERLISTS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRUSERLISTS">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="email" type="string" />
+			<element name="county" type="string" />
+			<element name="town" type="string" />
+			<element name="mob1" type="string" />
+			<element name="mob2" type="string" />
+			<element name="profilePic" type="base64Binary" />
+		</sequence>
+	</complexType>
+	<element name="queryUsersListResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUsersListRes" type="tns:queryUsersListRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

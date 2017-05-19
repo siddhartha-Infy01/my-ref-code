@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createLibrary"
+	xmlns:tns="http://www.iexceed.com/createLibrary" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createLibraryReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRLIBRARYDETAILS" type="tns:CRLIBRARYDETAILS" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRLIBRARYDETAILS">
+		<sequence>
+			<element name="network_id" type="string" />
+			<element name="agentId" type="string" />
+			<element name="category" type="string" />
+			<element name="title" type="string" />
+			<element name="summary" type="string" />
+			<element name="story" type="string" />
+			<element name="sourceUrl" type="string" />
+			<element name="image" type="base64Binary" />
+			<element name="file" type="base64Binary" />
+			<element name="fileName" type="string" />
+			<element name="fileType" type="string" />
+			<element name="date" type="string" />
+			<element name="author" type="string" />
+			<element name="locations" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="commodities" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="createLibraryRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createLibraryReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createLibraryReq" type="tns:createLibraryReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createLibraryResWrap">
+		<complexType>
+			<sequence>
+				<element name="createLibraryRes" type="tns:createLibraryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

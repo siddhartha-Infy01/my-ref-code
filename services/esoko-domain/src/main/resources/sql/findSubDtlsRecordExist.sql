@@ -1,0 +1,1 @@
+select count(*) from subscription_details  where  subscription_type = ? and param_name = ?  and subscription_id=?;

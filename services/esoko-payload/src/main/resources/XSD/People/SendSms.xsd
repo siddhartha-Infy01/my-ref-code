@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/sendSms"
+	xmlns:tns="http://www.iexceed.com/sendSms" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="sendSmsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SENDSMS" type="tns:SENDSMS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="sendSmsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="SENDSMS">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="networkId" type="string" />
+			<element name="message" type="string" />
+			<element name="account" type="string" />
+			<element name="schedule" type="string" />
+			<element name="frequency" type="string" />
+			<element name="repeats" type="string" />
+			<element name="town" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+			<element name="time" type="string" />
+			<element name="sendSMSEmail" type="string" />
+			<element name="sendCopyToMe" type="string" />
+		</sequence>
+	</complexType>
+	<element name="sendSmsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="sendSmsReq" type="tns:sendSmsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="sendSmsResWrap">
+		<complexType>
+			<sequence>
+				<element name="sendSmsRes" type="tns:sendSmsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryfxRatesDate"
+	xmlns:tns="http://www.iexceed.com/queryfxRatesDate" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryfxRatesDateRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="FXRTSDATES" type="tns:FXRTSDATES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="FXRTSDATES">
+		<sequence>
+			<element name="localCcy" type="string"></element>
+			<element name="localCcyCode" type="string"></element>
+			<element name="usdRates" type="string"></element>
+			<element name="date" type="string"></element>
+			
+		</sequence>
+	</complexType>
+	<element name="queryfxRatesDateResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryfxRatesDateRes" type="tns:queryfxRatesDateRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

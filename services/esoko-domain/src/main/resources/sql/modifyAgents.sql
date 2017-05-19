@@ -1,0 +1,1 @@
+ update agent_details set record_status = ?,modified_by = ?,modified_ts = now()  where   network_id = ? and user_id =  ?;

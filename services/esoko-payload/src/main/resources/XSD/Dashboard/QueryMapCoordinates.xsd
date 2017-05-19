@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryMapCoordinates"
+	xmlns:tns="http://www.iexceed.com/queryMapCoordinates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryMapCoordinatesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="NWKDETAILS" type="tns:NWKDETAILS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="NWKDETAILS">
+		<sequence>
+			<element name="xCo" type="float"></element>
+			<element name="yCo" type="float"></element>
+			<element name="PEOPLEDTLS" type="tns:PEOPLEDTLS" minOccurs="1" maxOccurs="unbounded" ></element>
+		</sequence>
+	</complexType>
+	<complexType name="PEOPLEDTLS">
+		<sequence>
+			<element name="xCo" type="float"></element>
+			<element name="yCo" type="float"></element>
+		</sequence>
+	</complexType>
+	<element name="queryMapCoordinatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryMapCoordinatesRes" type="tns:queryMapCoordinatesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

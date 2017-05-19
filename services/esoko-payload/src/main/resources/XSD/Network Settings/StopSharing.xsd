@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/stopSharing"
+	xmlns:tns="http://www.iexceed.com/stopSharing" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="stopSharingReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="STPSHARE" type="tns:STPSHARE" />
+		</sequence>
+	</complexType>
+	<complexType name="STPSHARE">
+		<sequence>
+			<element name="toNetwork" type="string"></element>
+			<element name="fromNetwork" type="string"></element>
+			<element name="flag" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="stopSharingRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="stopSharingReqWrap">
+		<complexType>
+			<sequence>
+				<element name="stopSharingReq" type="tns:stopSharingReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="stopSharingResWrap">
+		<complexType>
+			<sequence>
+				<element name="stopSharingRes" type="tns:stopSharingRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

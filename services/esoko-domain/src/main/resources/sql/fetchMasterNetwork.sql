@@ -1,0 +1,1 @@
+select * from people where people_id = ? and master_flag = 'Y';

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editOperator"
+	xmlns:tns="http://www.iexceed.com/editOperator" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="editOperatorReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDROUTEDTL" type="tns:EDROUTEDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="EDROUTEDTL">
+		<sequence>
+			<element name="routeId" type="string" />
+			<element name="channel" type="string" />
+			<element name="exception" type="string" />
+			<element name="cost" type="float" />
+			<element name="margin" type="float" />
+			<element name="premium" type="float" />
+			<element name="currencyId" type="string" />	
+		</sequence>
+	</complexType>	
+	<element name="editOperatorReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editOperatorReq" type="tns:editOperatorReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="editOperatorRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="editOperatorResWrap">
+		<complexType>
+			<sequence>
+				<element name="editOperatorRes" type="tns:editOperatorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryProfileDetails"
+	xmlns:tns="http://www.iexceed.com/queryProfileDetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryProfileDetailsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRYPROFILEDTLS" type="tns:QRYPROFILEDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRYPROFILEDTLS">
+		<sequence>
+			<element name="profile_id" type="string"></element>
+			<element name="no_of_fields" type="int"></element>
+			<element name="bioData" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryProfileDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryProfileDetailsRes" type="tns:queryProfileDetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

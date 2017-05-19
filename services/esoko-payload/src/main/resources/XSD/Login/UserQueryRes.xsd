@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryEsokoUser"
+	xmlns:tns="http://www.iexceed.com/queryEsokoUser" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="queryEsokoUserRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="USERDETAIL" type="tns:USERDETAIL" />
+		</sequence>
+	</complexType>
+
+	<complexType name="USERDETAIL">
+		<sequence>
+			<element name="firstName" type="string"></element>
+			<element name="lastName" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="phone" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="yearOfBirth" type="string"></element>
+			<element name="occupations" type="string"></element>
+			<element name="commodities" type="string"></element>
+			<element name="markets" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+			<element name="userID" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="profileCompletion" type="string"></element>
+			<element name="networkNameStatus" type="string"></element>
+			<element name="networkPicStatus" type="string"></element>
+			<element name="emailValidateStatus" type="string"></element>
+			<element name="mobileValidateStatus" type="string"></element>
+			<element name="userPicStatus" type="string"></element>
+			<element name="ageGenderStatus" type="string"></element>
+			<element name="memberStatus" type="string"></element>
+			<element name="currencyId" type="string"></element>
+			<element name="networkName" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryEsokoUserResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryEsokoUserRes" type="tns:queryEsokoUserRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

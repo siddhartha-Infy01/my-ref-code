@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/keywordActions"
+	xmlns:tns="http://www.iexceed.com/keywordActions" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="keywordActionsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="KEYWORDACTN" type="tns:KEYWORDACTN"  />
+		
+		</sequence>
+	</complexType>
+		<complexType name="KEYWORDACTN">
+		<sequence>
+			<element name="flag" type="string"></element>
+			<element name="KEYWORDDTLS" type="tns:KEYWORDDTLS" minOccurs="1"  maxOccurs="unbounded" />
+			</sequence>
+	</complexType>
+	<complexType name="KEYWORDDTLS">
+		<sequence>
+			<element name="channel" type="string"></element>
+			<element name="keyword" type="string"></element>
+			</sequence>
+	</complexType>
+	
+	<complexType name="keywordActionsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="keywordActionsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="keywordActionsReq" type="tns:keywordActionsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="keywordActionsResWrap">
+		<complexType>
+			<sequence>
+				<element name="keywordActionsRes" type="tns:keywordActionsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

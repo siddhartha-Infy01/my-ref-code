@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryRecipients"
+	xmlns:tns="http://www.iexceed.com/queryRecipients" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryRecipientsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="GROUPDTLS" type="tns:GROUPDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="GROUPDTLS">
+		<sequence>
+			<element name="groupId" type="string" />
+			<element name="groupName" type="string" />
+			<element name="count" type="string" />
+			<element name="type" type="string" />
+			<element name="USERDTLS" type="tns:USERDTLS" minOccurs="1"
+				maxOccurs="unbounded" />													
+		</sequence>
+	</complexType>	
+	<complexType name="USERDTLS">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="userName" type="string" />
+			<element name="country" type="string" />
+			<element name="mobile" type="string" />
+			<element name="type" type="string" />
+			<element name="cost" type="float" />												
+		</sequence>
+	</complexType>
+	
+	<element name="queryRecipientsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryRecipientsRes" type="tns:queryRecipientsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

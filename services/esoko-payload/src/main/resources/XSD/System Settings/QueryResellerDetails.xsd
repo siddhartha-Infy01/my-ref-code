@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryResellerDtls"
+	xmlns:tns="http://www.iexceed.com/queryResellerDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryResellerDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRRSLRDTLS" type="tns:QRRSLRDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="QRRSLRDTLS">
+		<sequence>
+			<element name="reseller_id" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="company" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string" />
+			<element name="msisdn1" type="string" />
+			<element name="msisdn2" type="string" />
+			<element name="fixed" type="string" />
+			<element name="email" type="string" />
+			<element name="address" type="string" />
+			<element name="website" type="string" />
+			<element name="countries" type="string" />
+			<element name="paypal" type="string" />
+			<element name="bitcoin" type="string" />
+			<element name="bank_dtls" type="string" />
+			<element name="mobile_money" type="string" />
+			<element name="admins" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryResellerDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryResellerDtlsRes" type="tns:queryResellerDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

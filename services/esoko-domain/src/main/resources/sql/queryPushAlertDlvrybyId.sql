@@ -1,0 +1,1 @@
+select * from message_delivary_Details where schedule_id=? and date(created_TS)=?;

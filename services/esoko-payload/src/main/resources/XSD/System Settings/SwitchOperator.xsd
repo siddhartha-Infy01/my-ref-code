@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/switchOperator"
+	xmlns:tns="http://www.iexceed.com/switchOperator" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="switchOperatorReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SWROUTEDTL" type="tns:SWROUTEDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="SWROUTEDTL">
+		<sequence>
+			<element name="routeId" type="string" />
+			<element name="gatewayId" type="string" />						
+		</sequence>
+	</complexType>	
+	<element name="switchOperatorReqWrap">
+		<complexType>
+			<sequence>
+				<element name="switchOperatorReq" type="tns:switchOperatorReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="switchOperatorRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="switchOperatorResWrap">
+		<complexType>
+			<sequence>
+				<element name="switchOperatorRes" type="tns:switchOperatorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

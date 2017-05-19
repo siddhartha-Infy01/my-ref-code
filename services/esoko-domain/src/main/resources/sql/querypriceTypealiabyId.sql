@@ -1,0 +1,1 @@
+select * from price_type_alias where price_type_id=?;

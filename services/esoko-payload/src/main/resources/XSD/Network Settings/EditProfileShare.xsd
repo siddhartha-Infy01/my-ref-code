@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editProfileShare"
+	xmlns:tns="http://www.iexceed.com/editProfileShare" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="editProfileShareReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDITPROILESHARE" type="tns:EDITPROILESHARE" />
+		</sequence>
+	</complexType>
+	<complexType name="EDITPROILESHARE">
+		<sequence>
+			<element name="profile_id" type="string"></element>
+			<element name="network_id" type="string"></element>
+			<element name="oldprofile_id" type="string"></element>
+			<element name="editFlag" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="birth_year" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="mobile_number" type="string"></element>
+			<element name="address" type="string"></element>
+			<element name="company" type="string"></element>
+			<element name="language" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="currency" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="editProfileShareRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="editProfileShareReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editProfileShareReq" type="tns:editProfileShareReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="editProfileShareResWrap">
+		<complexType>
+			<sequence>
+				<element name="editProfileShareRes" type="tns:editProfileShareRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

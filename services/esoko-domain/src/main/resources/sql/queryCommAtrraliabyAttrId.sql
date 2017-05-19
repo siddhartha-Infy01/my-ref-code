@@ -1,0 +1,1 @@
+select * from comm_attribute_alias where attribute_id=?;

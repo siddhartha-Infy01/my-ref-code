@@ -1,0 +1,1 @@
+delete from user_locations where user_id=? and network_id=?;

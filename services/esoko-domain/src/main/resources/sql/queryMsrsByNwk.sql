@@ -1,0 +1,1 @@
+select a.* from measure_factor a where a.network_id=? order by commodity_id;

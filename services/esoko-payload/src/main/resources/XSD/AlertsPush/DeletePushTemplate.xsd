@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deletePushTemplateRequest"
+	xmlns:tns="http://www.iexceed.com/deletePushTemplateRequest" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deletePushTemplateRequest">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLPSHTEMPS" type="tns:DLPSHTEMPS" minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="DLPSHTEMPS">
+		<sequence>
+			<element name="templateId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			
+			
+				
+		</sequence>
+	</complexType>
+	
+	<complexType name="deletePushTemplateRequestRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deletePushTemplateRequestWrap">
+		<complexType>
+			<sequence>
+				<element name="deletePushTemplateRequest" type="tns:deletePushTemplateRequest" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deletePushTemplateRequestResWrap">
+		<complexType>
+			<sequence>
+				<element name="deletePushTemplateRequestRes" type="tns:deletePushTemplateRequestRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

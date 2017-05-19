@@ -1,0 +1,1 @@
+SELECT * FROM people where default_network_id =? and record_status='A' and (people_id) NOT IN (SELECT user_id FROM user_group where network_id =?);

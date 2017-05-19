@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySubscriptionUpgrade"
+	xmlns:tns="http://www.iexceed.com/querySubscriptionUpgrade" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySubscriptionUpgradeRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRYSUBSCRIBUPGRADELIST" type="tns:QRYSUBSCRIBUPGRADELIST" />
+		</sequence>
+	</complexType>
+	<complexType name="QRYSUBSCRIBUPGRADELIST">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="networkName" type="string" />
+			<element name="owner_id" type="string" />
+			<element name="balance" type="string" />
+			<element name="currency" type="string" />
+			<element name="accountNo" type="string" />
+			<element name="agents" type="string" />
+			<element name="alerts" type="double" />
+			<element name="cost_reseller" type="double" />
+			<element name="margin_earned" type="double" />
+			<element name="period" type="int" />
+			<element name="currency_symbol" type="string" />
+			<element name="EXTRA" type="tns:EXTRA" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="QRYSUBSCRIBUPGRADE" type="tns:QRYSUBSCRIBUPGRADE"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="EXTRA">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="QRYSUBSCRIBUPGRADE">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="period_3" type="string" />
+			<element name="period_6" type="string" />
+			<element name="period_9" type="string" />
+			<element name="period_year" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="querySubscriptionUpgradeResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySubscriptionUpgradeRes" type="tns:querySubscriptionUpgradeRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

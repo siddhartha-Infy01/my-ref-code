@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createPeople"
+	xmlns:tns="http://www.iexceed.com/createPeople" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="createPeopleReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPEOPLEDTLS" type="tns:CRPEOPLEDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="createPeopleRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPEOPLEDTLSRES" type="tns:CRPEOPLEDTLSRES"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPEOPLEDTLS">
+		<sequence>
+			<element name="image" type="base64Binary" />
+			<element name="title" type="string" />
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="email" type="string" />
+			<element name="country" type="string" />
+			<element name="mainOffice" type="string" />
+			<element name="town" type="string" />
+			<element name="mob1" type="string" />
+			<element name="mob2" type="string" />
+			<element name="gender" type="string" />
+			<element name="birthYear" type="string" />
+			<element name="currency" type="string" />
+			<element name="company" type="string" />
+			<element name="position" type="string" />
+			<element name="description" type="string" />
+			<element name="fixedPhone" type="string" />
+			<element name="fax" type="string" />
+			<element name="address1" type="string" />
+			<element name="address2" type="string" />
+			<element name="website" type="string" />
+			<element name="privacy" type="string" />
+			<element name="language" type="string" />
+			<element name="mode" type="string" />
+			<element name="COMCOMMD" type="tns:COMCOMMD" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="COMLOC" type="tns:COMLOC" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="COMOCCUP" type="tns:COMOCCUP" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="common_language" type="string" />
+			<element name="common_town" type="string" />
+			<element name="networkId" type="string" />
+			<element name="CMMDTLS" type="tns:CMMDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="LOCDTLS" type="tns:LOCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="OCCDTLS" type="tns:OCCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="COMCOMMD">
+		<sequence>
+			<element name="common_commodity" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="COMLOC">
+		<sequence>
+			<element name="common_location" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="COMOCCUP">
+		<sequence>
+			<element name="common_occupation" type="string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="CRPEOPLEDTLSRES">
+		<sequence>
+			<element name="peopleId" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="CMMDTLS">
+		<sequence>
+			<element name="commodity" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="LOCDTLS">
+		<sequence>
+			<element name="location" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="OCCDTLS">
+		<sequence>
+			<element name="occupation" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="createPeopleReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createPeopleReq" type="tns:createPeopleReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createPeopleResWrap">
+		<complexType>
+			<sequence>
+				<element name="createPeopleRes" type="tns:createPeopleRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

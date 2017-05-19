@@ -1,0 +1,1 @@
+select * from people where default_network_id=? and record_status='A' order by people_id;

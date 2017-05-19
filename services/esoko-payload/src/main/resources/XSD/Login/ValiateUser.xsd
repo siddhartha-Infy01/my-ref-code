@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/validateEsokoUser"
+	xmlns:tns="http://www.iexceed.com/validateEsokoUser" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="validateEsokoUserReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="VALIDATEUSER" type="tns:VALIDATEUSER" />			
+		</sequence>
+	</complexType>
+
+	<complexType name="VALIDATEUSER">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="OTP" type="string" />			
+		</sequence>
+	</complexType>
+
+	<complexType name="validateEsokoUserRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />			
+		</sequence>
+	</complexType>	
+	<element name="validateEsokoUserReqWrap">
+		<complexType>
+			<sequence>
+				<element name="validateEsokoUserReq" type="tns:validateEsokoUserReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="validateEsokoUserResWrap">
+		<complexType>
+			<sequence>
+				<element name="validateEsokoUserRes" type="tns:validateEsokoUserRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

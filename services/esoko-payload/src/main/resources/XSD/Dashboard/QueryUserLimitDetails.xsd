@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.iexceed.com/queryUserLimitDetails"
+	xmlns:tns="http://www.iexceed.com/queryUserLimitDetails"
+	xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserLimitDetailsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="LMTDTLS" type="tns:LMTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="LMTDTLS">
+		<sequence>
+			<element name="limit" type="float"></element>
+			<element name="usedLimit" type="float"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUserLimitDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserLimitDetailsRes" type="tns:queryUserLimitDetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

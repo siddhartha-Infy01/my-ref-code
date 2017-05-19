@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+            classpath:META-INF/esoko-config.xml
+        </param-value>
+	</context-param>	
+	<listener>
+		<listener-class>com.iexceed.esoko.context.EsokoContextStartup</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.iexceed.esoko.context.EsokoContextListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>jersey</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		 <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jersey</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<resource-ref>
+		<description>DBConnection</description>
+		<res-ref-name>jdbc/IEsokoDS</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	<resource-ref>
+		<description>DBConnection</description>
+		<res-ref-name>jdbc/AppzillonDS</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>

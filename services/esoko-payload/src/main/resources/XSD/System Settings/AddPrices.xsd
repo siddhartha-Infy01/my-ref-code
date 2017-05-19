@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addSubPricesDtls"
+	xmlns:tns="http://www.iexceed.com/addSubPricesDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addSubPricesDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPRICESLIST" type="tns:CRPRICESLIST"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPRICESLIST">
+		<sequence>
+			<element name="type" type="string"></element>
+			<element name="level" type="string"></element>
+			<element name="row_id" type="int"></element>
+			<element name="CRPRICES" type="tns:CRPRICES" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPRICES">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+			<element name="margin" type="string" />
+			<element name="country_name" type="string" />
+			<element name="network_name" type="string" />
+		</sequence>
+	</complexType>
+	<element name="addSubPricesDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addSubPricesDtlsReq" type="tns:addSubPricesDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="addSubPricesDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="addSubPricesDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="addSubPricesDtlsRes" type="tns:addSubPricesDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryBidsOfferApprvl"
+	xmlns:tns="http://www.iexceed.com/queryBidsOfferApprvl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryBidsOfferApprvlRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRBIDSOFFRSAPPRV" type="tns:QRBIDSOFFRSAPPRV" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRBIDSOFFRSAPPRV">
+		<sequence>
+			<element name="uploadId" type="string"></element>
+			<element name="commodity" type="string"></element>
+			<element name="quantity" type="string"></element>
+			<element name="price" type="string"></element>
+			<element name="user" type="string"></element>
+			<element name="uploadedUserId" type="string"></element>
+			<element name="ownerUserId" type="string"></element>
+			<element name="mode" type="string"></element>
+			<element name="date" type="string"></element>
+			<element name="expiresBy" type="string"></element>
+			<element name="location" type="string"></element>
+			<element name="paymentDetails" type="string"></element>
+			<element name="DeliveryPoint" type="string"></element>
+			<element name="DeliveryBy" type="string"></element>
+			<element name="grade" type="string"></element>
+		
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryBidsOfferApprvlResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryBidsOfferApprvlRes" type="tns:queryBidsOfferApprvlRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

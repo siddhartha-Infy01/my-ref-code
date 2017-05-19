@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryMeasure"
+	xmlns:tns="http://www.iexceed.com/queryMeasure" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryMeasureRes">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="MSRDTLS" type="tns:QRMSRDTLS" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="QRALSDTLS" type="tns:QRALSDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="QRMSRDTLS">
+		<sequence>
+			<element name="measureId" type="string"></element>
+			<element name="symbol" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="isSystem" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="QRALSDTLS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryMeasureResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryMeasureRes" type="tns:queryMeasureRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

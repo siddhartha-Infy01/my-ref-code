@@ -1,0 +1,1 @@
+UPDATE esoko.people  SET record_status='A'  WHERE people_id=? and default_network_id=?;

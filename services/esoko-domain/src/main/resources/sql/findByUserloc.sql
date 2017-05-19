@@ -1,0 +1,1 @@
+select a.* from user_locations a, locations b where a.location_id=b.location_id and  b.record_status='A' and a.user_id=? and a.network_id=?;

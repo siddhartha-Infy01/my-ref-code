@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryVariousCounts"
+	xmlns:tns="http://www.iexceed.com/queryVariousCounts" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryVariousCountsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="COUNTDTLS" type="tns:COUNTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="COUNTDTLS">
+		<sequence>
+			<element name="noOfPublicNwks" type="int"></element>
+			<element name="noOfPrivateNwks" type="int"></element>
+			<element name="noOfCountryNwks" type="int"></element>
+			<element name="noOfRegionalNwks" type="int"></element>
+			<element name="noOfPeople" type="int"></element>
+			<element name="CMDDETAILS" type="tns:CMDDETAILS" minOccurs="1" maxOccurs="unbounded" ></element>
+		</sequence>
+	</complexType>
+	<complexType name="CMDDETAILS">
+		<sequence>
+			<element name="commodityId" type="string"></element>
+			<element name="commodityName" type="string"></element>
+			<element name="attribute" type="string"></element>
+			<element name="count" type="int"></element>
+		</sequence>
+	</complexType>
+	<element name="queryVariousCountsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryVariousCountsRes" type="tns:queryVariousCountsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

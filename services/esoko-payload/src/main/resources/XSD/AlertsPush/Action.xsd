@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/action"
+	xmlns:tns="http://www.iexceed.com/action" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="actionReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ACTIONDTL" type="tns:ACTIONDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="actionRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="ACTIONDTL">
+		<sequence>
+			<element name="action" type="string" />
+			<element name="PUSHALERTID" type="tns:PUSHALERTID" minOccurs="1"
+			maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PUSHALERTID">
+		<sequence>
+			<element name="alertId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="actionReqWrap">
+		<complexType>
+			<sequence>
+				<element name="actionReq" type="tns:actionReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="actionResWrap">
+		<complexType>
+			<sequence>
+				<element name="actionRes" type="tns:actionRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

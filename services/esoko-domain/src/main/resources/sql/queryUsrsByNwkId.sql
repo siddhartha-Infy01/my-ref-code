@@ -1,0 +1,1 @@
+SELECT * FROM user_group where network_id=? and group_id='Administrator';

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/userFundTransfer"
+	xmlns:tns="http://www.iexceed.com/userFundTransfer" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="userFundTransferReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="FNDTRFDTLS" type="tns:FNDTRFDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="FNDTRFDTLS">
+		<sequence>
+			<element name="toAcc" type="string"></element>
+			<element name="fromAcc" type="string"></element>
+			<element name="amount" type="float"></element>
+			<element name="ccy" type="string"></element>
+			<element name="description" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="userFundTransferRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="userFundTransferReqWrap">
+		<complexType>
+			<sequence>
+				<element name="userFundTransferReq" type="tns:userFundTransferReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="userFundTransferResWrap">
+		<complexType>
+			<sequence>
+				<element name="userFundTransferRes" type="tns:userFundTransferRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createLocations"
+	xmlns:tns="http://www.iexceed.com/createLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="LocationMapReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MPLOCDTLS" type="tns:MPLOCDTLS"/>
+		</sequence>
+
+	</complexType>
+	<complexType name="MPLOCDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="mapType" type="string"></element>
+			<element name="mapValue" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="LocationMapRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="LocationMapReqWrap">
+		<complexType>
+			<sequence>
+				<element name="LocationMapReq" type="tns:LocationMapReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="LocationMapResWrap">
+		<complexType>
+			<sequence>
+				<element name="LocationMapRes" type="tns:LocationMapRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

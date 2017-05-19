@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPushDelivery"
+	xmlns:tns="http://www.iexceed.com/queryPushDelivery" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPushDeliveryRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="PSHDLVRYRPT" type="tns:PSHDLVRYRPT"   minOccurs="1"
+				maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="PSHDLVRYRPT">
+		<sequence>
+			<element name="schedule_id" type="string" />
+			<element name="date" type="string" />
+			<element name="message" type="string" />
+			<element name="sent" type="string" />
+			<element name="pending" type="string" />
+			<element name="failed" type="string" />
+			<element name="total" type="string" />
+					</sequence>
+	</complexType>
+	
+	<element name="queryPushDeliveryResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPushDeliveryRes" type="tns:queryPushDeliveryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

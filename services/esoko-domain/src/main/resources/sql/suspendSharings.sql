@@ -1,0 +1,1 @@
+update user_shares set auth_stat='S',modified_by=?,modified_ts=CURRENT_TIMESTAMP where from_share=? and to_share=? ;

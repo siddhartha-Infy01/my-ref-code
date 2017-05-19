@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNewsLibById"
+	xmlns:tns="http://www.iexceed.com/queryNewsLibById" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNewsLibByIdRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRNWLIBBYID" type="tns:QRNWLIBBYID"  />
+		</sequence>
+	</complexType>
+	<complexType name="QRNWLIBBYID">
+		<sequence>
+			<element name="libId" type="string"></element>
+			<element name="Category" type="string"></element>
+			<element name="title" type="string"></element>
+			<element name="shortDesc" type="string"></element>
+			<element name="story" type="string"></element>
+			<element name="link" type="string"></element>
+			<element name="author" type="string"></element>
+			<element name="pic" type="base64Binary"></element>
+			<element name="Date" type="string"></element>
+		
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryNewsLibByIdResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNewsLibByIdRes" type="tns:queryNewsLibByIdRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

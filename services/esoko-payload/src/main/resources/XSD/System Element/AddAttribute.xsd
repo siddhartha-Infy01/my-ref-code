@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addAttribute"
+	xmlns:tns="http://www.iexceed.com/addAttribute" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addAttributeReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ADDATTRIBUTE" type="tns:ADDATTRIBUTE" />
+		</sequence>
+	</complexType>
+	<complexType name="ADDATTRIBUTE">
+		<sequence>
+			<element name="attribute_name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="addAttributeRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="addAttributeReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addAttributeReq" type="tns:addAttributeReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addAttributeResWrap">
+		<complexType>
+			<sequence>
+				<element name="addAttributeRes" type="tns:addAttributeRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

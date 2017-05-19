@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteInboxActivity"
+	xmlns:tns="http://www.iexceed.com/deleteInboxActivity" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="deleteInboxActivityReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DELINBOXACTIVTY" type="tns:DELINBOXACTIVTY" />
+		</sequence>
+	</complexType>
+	<complexType name="deleteInboxActivityRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="DELINBOXACTIVTY">
+		<sequence>
+			<element name="activityId" type="string" />
+			
+					</sequence>
+	</complexType>
+	
+	<element name="deleteInboxActivityReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteInboxActivityReq" type="tns:deleteInboxActivityReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteInboxActivityResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteInboxActivityRes" type="tns:deleteInboxActivityRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

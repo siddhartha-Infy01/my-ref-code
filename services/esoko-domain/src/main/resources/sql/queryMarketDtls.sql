@@ -1,0 +1,1 @@
+select * from market_details where location_id=?;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editPriceReq"
+	xmlns:tns="http://www.iexceed.com/editPriceReq" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="editPriceReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDITPRICE" type="tns:EDITPRICE" />
+		</sequence>
+	</complexType>
+	<complexType name="EDITPRICE">
+		<sequence>
+			<element name="upload_id" type="string" />
+			<element name="price" type="double" />
+			<element name="currency" type="string" />
+			<element name="measure" type="string" />
+			<element name="conversion" type="double" />
+			<element name="date" type="string" />
+			<element name="comments" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="editPriceRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="editPriceReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editPriceReq" type="tns:editPriceReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="editPriceResWrap">
+		<complexType>
+			<sequence>
+				<element name="editPriceRes" type="tns:editPriceRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

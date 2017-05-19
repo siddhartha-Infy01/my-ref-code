@@ -1,0 +1,1 @@
+select count(*) from sms_codes where  network_id=? and  sms_code=?;

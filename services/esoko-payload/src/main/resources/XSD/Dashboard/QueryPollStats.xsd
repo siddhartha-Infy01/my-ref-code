@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPollStats"
+	xmlns:tns="http://www.iexceed.com/queryPollStats" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPollStatsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="POLLDTLS" type="tns:POLLDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="POLLDTLS">
+		<sequence>
+			<element name="pollId" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="noOfPositives" type="int"></element>
+			<element name="noOfNegatives" type="int"></element>
+			<element name="noOfSuspensions" type="int"></element>
+		</sequence>
+	</complexType>
+	<element name="queryPollStatsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPollStatsRes" type="tns:queryPollStatsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

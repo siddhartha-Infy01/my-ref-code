@@ -1,0 +1,37 @@
+ Account Type (#c N - Network account, #c U - User account)
+ Banking Privillage Type (#c T = Transaction, #c S = Subscriptions, #c X = Transfer, #c A = Access)
+ Transaction type (#c D = Debit, #c C = Credit)
+ Content type (#c N = News, #c L = Library)
+ Transaction type (#c I = Incentive, #c R = Reward/Bonus, #c S = Salary )
+ Validation message type (#c S = Success/Matches, #c M = Multiple Match(Serial validated already by same number), #c F = Failure/No Match, #c  D = Serial validated already by another number, #c X = Cross Match (Multiple serials validation by same number))
+ Inbox message type trigger type (#c K = Keyword, #c P = Poll, #c V = Validation, #c U = Uncategorised)
+ Offer type (#c B = Bids/Offer to buy, #c O = Offer(i.e. offer to sell))
+ Price type symbol - Maximum of 3 char
+ Channel Type (#c K = kannel gateway #c A = android gateway
+ Commodity qualifier type (#c T = type, #c A = attribute)
+ Commodity type (#c S = sector #c G = group #c U = subgroup #c F = family #c C = commodity #c = T = type-qualified variety #c V = type-and-attribute-qualified variety
+ Used for #em geospatial #em data. Point is a geometric type built into PostgreSQL
+ Help panel type (#c P = Help Panel #c B = Help Box )
+ Represents hstore datatype
+ Represents hstore datatype for id storage only
+ Job type (#c T = Text SMS)
+ Location type (#c G = globe #c C = continent #c K = country #c S = state/region #c D = district/province #c U = subdistrict #c T = town/village #c M = market #c L = custom location)
+ Measure type (#c U = unit #c V = volume #c M = mass #c D = distance #c A = area)
+ Network type (#c S = system network, #c P = personal network, #c K = country network, #c N = custom network #c G = network group #c D = dynamic/smart group)
+ Network user type (#c F = friend #c M = member #c I = invite)
+ Occupation type (#c O = occupation, #c F = occupation family, #c G = occupation group)
+ Represents valid values for msisdns operator 
+ Network type (#c S = system, #c N = Network, #c M = module)
+ Price type (#c W = Wholesale, #c R = Retail, #c O = Off-lorry)
+ Privilege type (#c G = global, #c K = country, #c N = network)
+ Message trigger type (#c S = Scheduled, #c P = Poll,Push or Particular service, #c U = User, #c R = Reminder, #c X = Other or Unscheduled)
+ Indicates which party is requesting the sharing rule (#c SO = from / source #c ST = to / destination)
+ Subscription Type (#c N = Networks, #c B = Base Esoko subscription)
+ User type (#c U = user, #c A = agent)
+ Data structure type (#c T = Textual, #c N = Numeric, #c B = Boolean)
+ Message trigger type (#c S = Scheduled, #c P = Poll, #c U = User, #c R = Reminder)
+ Poll type (#c I = Inventory, #c C = Counting, #c Q = Question & Answer, #c A = Advanced)
+ Message error type (#c P = Poll parsing error, #c Q = Multiple poll parsing error, #c M = Message parsing error, #c N = Multiple message parsing error, #c D = Data parsing error, #c C = Confusion, #c S = System error, #c U = Unknown error)
+ Message trigger type (#c S = Scheduled, #c P = Poll, #c U = User, #c R = Reminder)
+ Message error type (#c P = Poll parsing error, #c Q = Multiple poll parsing error, #c M = Message parsing error, #c N = Multiple message parsing error, #c D = Data parsing error, #c C = Confusion, #c S = System error, #c U = Unknown error)
+ Survey action type (#c C = Contact, #c O = Offer Alert, #c P = Price alert, #c W = Weather Alert, #c X = Extended or General)

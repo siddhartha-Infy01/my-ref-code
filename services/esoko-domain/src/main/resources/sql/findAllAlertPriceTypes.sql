@@ -1,0 +1,1 @@
+select * from alert_price_type where alert_id=?;

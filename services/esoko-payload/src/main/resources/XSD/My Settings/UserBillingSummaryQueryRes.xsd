@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUserBillingSummary"
+	xmlns:tns="http://www.iexceed.com/queryUserBillingSummary" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserBillingSummaryRes">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="USRBILDTLS" type="tns:USRBILDTLS" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+	</complexType>
+	<complexType name="USRBILDTLS">
+		<sequence>
+			<element name="accountName" type="string"></element>
+			<element name="balance" type="float"></element>
+			<element name="currency" type="string"></element>
+			<element name="currSymbol" type="string"></element>
+			<element name="currencyName" type="string"></element>
+			<element name="accountNo" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUserBillingSummaryResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserBillingSummaryRes" type="tns:queryUserBillingSummaryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.iexceed.com/currentlySelectedCommodities"
+	xmlns:tns="http://www.iexceed.com/currentlySelectedCommodities"
+	xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="currentlySelectedCommodities">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRSELCOM" type="tns:CRSELCOM" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRSELCOM">
+		<sequence>
+			<element name="commodityID" type="string" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<element name="currentlySelectedCommoditiesWrap">
+		<complexType>
+			<sequence>
+				<element name="currentlySelectedCommodities" type="tns:currentlySelectedCommodities" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

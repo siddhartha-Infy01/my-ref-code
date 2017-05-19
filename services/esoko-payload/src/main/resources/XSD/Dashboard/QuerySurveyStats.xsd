@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySurveyStats"
+	xmlns:tns="http://www.iexceed.com/querySurveyStats" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySurveyStatsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SURVEYDTLS" type="tns:SURVEYDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="SURVEYDTLS">
+		<sequence>
+			<element name="surveyId" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="noOfPositives" type="int"></element>
+			<element name="noOfNegatives" type="int"></element>
+			<element name="noOfSuspensions" type="int"></element>
+		</sequence>
+	</complexType>
+	<element name="querySurveyStatsResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySurveyStatsRes" type="tns:querySurveyStatsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

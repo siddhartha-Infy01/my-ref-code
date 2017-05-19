@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveUserLocations"
+	xmlns:tns="http://www.iexceed.com/saveUserLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveUserLocationsReq">
+			<sequence  >
+				<element name="Header" type="hr:Header" />
+				<element name="LOCDTLS" type="tns:LOCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="LOCDTLS">
+		<sequence>
+			<element name="locationId" type="string"></element>
+			<element name="locationName" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveUserLocationsRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="saveUserLocationsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveUserLocationsReq" type="tns:saveUserLocationsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveUserLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveUserLocationsRes" type="tns:saveUserLocationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

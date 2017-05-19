@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deletepriceType"
+	xmlns:tns="http://www.iexceed.com/deletepriceType" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deletepriceTypeReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLPRCTYPDTLS" type="tns:DLPRCTYPDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLPRCTYPDTLS">
+		<sequence>
+			<element name="priceType" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deletepriceTypeRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	
+	</complexType>
+			<element name="deletepriceTypeReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deletepriceTypeReq" type="tns:deletepriceTypeReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deletepriceTypeResWrap">
+		<complexType>
+			<sequence>
+				<element name="deletepriceTypeRes" type="tns:deletepriceTypeRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

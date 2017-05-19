@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryLibrary"
+	xmlns:tns="http://www.iexceed.com/queryLibrary" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryLibraryRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRLIBRARYDETAILS" type="tns:QRLIBRARYDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRLIBRARYDETAILS">
+		<sequence>
+			<element name="title" type="string"></element>
+			<element name="story" type="string"></element>
+			<element name="date" type="string"></element>
+			<element name="sourceURL" type="anyURI"></element>
+			<element name="fileName" type="string"></element>
+			<element name="fileType" type="string"></element>
+			<element name="fileContent" type="base64Binary"></element>
+			<element name="image" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+	<element name="queryLibraryResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryLibraryRes" type="tns:queryLibraryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

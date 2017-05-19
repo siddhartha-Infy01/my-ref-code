@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/subscriptionSuspend"
+	xmlns:tns="http://www.iexceed.com/subscriptionSuspend" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="subscriptionSuspendReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SUBSCRIPSUSPEND" type="tns:SUBSCRIPSUSPEND" />
+		</sequence>
+	</complexType>
+	<complexType name="SUBSCRIPSUSPEND">
+		<sequence>
+			<element name="network_id" type="string" />
+			<element name="subscription_id" type="string" />
+			<element name="subscription_type" type="string" />
+			<element name="prevent_logs" type="string" />
+			<element name="suspend_debits" type="string" />
+			<element name="message" type="string" />
+		</sequence>
+	</complexType>
+	<element name="subscriptionSuspendReqWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriptionSuspendReq" type="tns:subscriptionSuspendReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="subscriptionSuspendRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="subscriptionSuspendResWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriptionSuspendRes" type="tns:subscriptionSuspendRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

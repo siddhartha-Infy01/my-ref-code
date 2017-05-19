@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createOffers"
+	xmlns:tns="http://www.iexceed.com/createOffers" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createOffersReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CROFFERDETAILS" type="tns:CROFFERDETAILS" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CROFFERDETAILS">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="agentId" type="string" />
+			<element name="offerType" type="string" />
+			<element name="commodity" type="string" />
+			<element name="variety" type="string" />
+			<element name="type" type="string" />
+			<element name="origin" type="string" />
+			<element name="quantity" type="double" />
+			<element name="measure" type="string" />
+			<element name="negotiable" type="string" />
+			<element name="price" type="double" minOccurs="0" />
+			<element name="priceCurrency" type="string" minOccurs="0" />
+			<element name="unit" type="string" minOccurs="0" />
+			<element name="validTill" type="string" />
+			<element name="offerBelongsTo" type="string" />
+			<element name="userNameOrMobNo" type="string" minOccurs="0" />
+			<element name="paymentDetails" type="string" />
+			<element name="deliveryPoint" type="string" />
+			<element name="deliverBy" type="string" />
+			<element name="deliverDays" type="int" />
+			<element name="documents" type="string" />
+			<element name="grade" type="string" />
+			<element name="notes" type="string" />
+			<element name="mode" type="string" />
+			<element name="location" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="createOffersRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createOffersReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createOffersReq" type="tns:createOffersReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createOffersResWrap">
+		<complexType>
+			<sequence>
+				<element name="createOffersRes" type="tns:createOffersRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

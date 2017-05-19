@@ -1,0 +1,1 @@
+select  s_dtls.* from subscription_master s_master,subscription_details s_dtls where s_dtls.subscription_type = s_master.subscription_type and s_dtls.subscription_id = s_master.subscription_id and s_dtls.subscription_category = 'P' order by s_dtls.country_name,s_dtls.subscription_id;

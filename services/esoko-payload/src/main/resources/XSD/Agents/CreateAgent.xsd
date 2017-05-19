@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createAgentRequest"
+	xmlns:tns="http://www.iexceed.com/createAgentRequest" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createAgentRequest">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRAGENTDTLS" type="tns:CRAGENTDTLS" />
+			<element name="CRNEWSUBUSRAGENT1" type="tns:CRNEWSUBUSRAGENT1" minOccurs="1"
+				maxOccurs="unbounded"></element>	
+		</sequence>
+	</complexType>
+	<complexType name="CRAGENTDTLS">
+		<sequence>
+			<element name="peopleId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="salary" type="string"></element>
+			<element name="bonus" type="string"></element>
+			<element name="copyFlag" type="string"></element>
+			<element name="AGENTAPPDTLS" type="tns:AGENTAPPDTLS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="AGENTAPPDTLS">
+		<sequence>
+		    <element name="detailId" type="string"></element>
+		    <element name="actionFlag" type="string"></element>
+			<element name="applicationId" type="string"></element>
+			<element name="locationId" type="string"></element>
+			<element name="commodityId" type="string"></element>
+			<element name="template" type="string"></element>
+			<element name="target" type="string"></element>
+			<element name="applicationBonus" type="string"></element>
+			<element name="incentive" type="string"></element>
+			
+		</sequence>
+	</complexType>
+	<complexType name="CRNEWSUBUSRAGENT1">
+		<sequence>
+		    <element name="paramName" type="string"></element>
+			<element name="sourceUserId" type="string"></element>
+				
+		</sequence>
+	</complexType>
+	<complexType name="createAgentRequestRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createAgentRequestWrap">
+		<complexType>
+			<sequence>
+				<element name="createAgentRequest" type="tns:createAgentRequest" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createAgentRequestResWrap">
+		<complexType>
+			<sequence>
+				<element name="createAgentRequestRes" type="tns:createAgentRequestRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

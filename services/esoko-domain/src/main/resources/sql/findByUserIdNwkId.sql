@@ -1,0 +1,1 @@
+select * from esoko.system_user where user_id=? and default_network_id=?;

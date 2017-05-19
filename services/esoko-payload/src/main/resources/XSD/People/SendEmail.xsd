@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/sendEmail"
+	xmlns:tns="http://www.iexceed.com/sendEmail" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="sendEmailReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SENDEMAIL" type="tns:SENDEMAIL" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="sendEmailRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="SENDEMAIL">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="networkId" type="string" />
+			<element name="subject" type="string" />
+			<element name="message" type="string" />
+		</sequence>
+	</complexType>
+	<element name="sendEmailReqWrap">
+		<complexType>
+			<sequence>
+				<element name="sendEmailReq" type="tns:sendEmailReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="sendEmailResWrap">
+		<complexType>
+			<sequence>
+				<element name="sendEmailRes" type="tns:sendEmailRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

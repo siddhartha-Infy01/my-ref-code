@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAgentDtlsByApps"
+	xmlns:tns="http://www.iexceed.com/queryAgentDtlsByApps" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAgentDtlsByAppsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRAGENTAPPMASDTLS" type="tns:QRAGENTAPPMASDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTAPPMASDTLS">
+		<sequence>
+			<element name="application_id" type="string"></element>
+			<element name="count" type="string"></element>
+			<element name="QRAGENTAPPDTLS" type="tns:QRAGENTAPPDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTAPPDTLS">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="people_id" type="string"></element>
+			<element name="QRAGENTAPPSUBDTLS" type="tns:QRAGENTAPPSUBDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTAPPSUBDTLS">
+		<sequence>
+			<element name="location_id" type="string"></element>
+			<element name="locationList" type="string"></element>			
+			<element name="commodity_id" type="string"></element>
+			<element name="commodityList" type="string"></element>
+			<element name="template" type="string"></element>
+			<element name="target" type="string"></element>
+			<element name="incentive" type="string"></element>
+			<element name="bonus" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryAgentDtlsByAppsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAgentDtlsByAppsRes" type="tns:queryAgentDtlsByAppsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

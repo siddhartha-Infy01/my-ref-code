@@ -1,0 +1,1 @@
+select * from user_smart_group where group_id=? and network_id=?;

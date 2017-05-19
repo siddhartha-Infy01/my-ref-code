@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryfxRates"
+	xmlns:tns="http://www.iexceed.com/queryfxRates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryfxRatesReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRFXRTDTLS" type="tns:QRFXRTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRFXRTDTLS">
+		<sequence>
+			<element name="baseCCy" type="string"></element>
+			<element name="quoteCCy" type="string"></element>
+			<element name="rate" type="float"></element>
+			<element name="amount" type="float"></element>
+		</sequence>
+	</complexType>
+	<complexType name="queryfxRatesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="FXRTDTLS" type="tns:FXRTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="FXRTDTLS">
+		<sequence>
+			<element name="baseCCy" type="string"></element>
+			<element name="quoteCCy" type="string"></element>
+			<element name="quoteCCySymbol" type="string"></element>
+			<element name="rate" type="float"></element>
+			<element name="amount" type="float"></element>
+			<element name="convrtAmount" type="float"></element>
+		</sequence>
+	</complexType>
+	<element name="queryfxRatesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="queryfxRatesReq" type="tns:queryfxRatesReq" />
+			</sequence>
+		</complexType>
+	</element>
+		<element name="queryfxRatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryfxRatesRes" type="tns:queryfxRatesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

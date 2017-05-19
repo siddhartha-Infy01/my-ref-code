@@ -1,0 +1,1 @@
+select * from network_pictures where network_id=?;

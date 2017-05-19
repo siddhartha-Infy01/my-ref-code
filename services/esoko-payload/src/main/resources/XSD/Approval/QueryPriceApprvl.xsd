@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPriceApprvl"
+	xmlns:tns="http://www.iexceed.com/queryPriceApprvl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPriceApprvlRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRPRICEAPPRV" type="tns:QRPRICEAPPRV" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPRICEAPPRV">
+		<sequence>
+			<element name="uploadId" type="string"></element>
+			<element name="oldPrice" type="string"></element>
+			<element name="newPrice" type="string"></element>
+			<element name="commodity" type="string"></element>
+			<element name="market" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="userName" type="string"></element>
+			<element name="mode" type="string"></element>
+			<element name="collectedOn" type="string"></element>
+			<element name="priceType" type="string"></element>
+			<element name="weight" type="string"></element>
+			<element name="measure" type="string"></element>
+			<element name="uploadedDate" type="string"></element>
+			<element name="gpsVariance" type="string"></element>
+			<element name="priceTypeComparison" type="string"></element>
+			<element name="change" type="string"></element>
+			<element name="price" type="string"></element>
+			<element name="currency" type="string"></element>
+			<element name="conversion" type="string"></element>
+			<element name="conversionMeasure" type="string"></element>
+			<element name="comments" type="string"></element>
+			<element name="baseMeasureID" type="string"></element>
+			<element name="quoteMeasureId" type="string"></element>
+			<element name="baseMeasureName" type="string"></element>
+			<element name="quoteMeasureName" type="string"></element>
+			
+		
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryPriceApprvlResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPriceApprvlRes" type="tns:queryPriceApprvlRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

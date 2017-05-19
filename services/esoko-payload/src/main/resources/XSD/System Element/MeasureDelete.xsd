@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteMeasure"
+	xmlns:tns="http://www.iexceed.com/deleteMeasure" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteMeasureReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLMSRDTLS" type="tns:DLMSRDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLMSRDTLS">
+		<sequence>
+			<element name="measureId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteMeasureRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+	<element name="deleteMeasureReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteMeasureReq" type="tns:deleteMeasureReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteMeasureResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteMeasureRes" type="tns:deleteMeasureRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

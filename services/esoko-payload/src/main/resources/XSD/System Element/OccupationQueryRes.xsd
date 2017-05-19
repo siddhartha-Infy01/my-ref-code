@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryOccupation"
+	xmlns:tns="http://www.iexceed.com/queryOccupation" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryOccupationRes">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="QROCCDTLS" type="tns:QROCCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="QROCCDTLS">
+		<sequence>
+			<element name="occupationID" type="string"></element>
+			<element name="occupationName" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="parentId" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="queryOccupationResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryOccupationRes" type="tns:queryOccupationRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

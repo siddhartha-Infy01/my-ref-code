@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAgentDtls"
+	xmlns:tns="http://www.iexceed.com/queryAgentDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAgentDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRAGENTDTLS" type="tns:QRAGENTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTDTLS">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="people_id" type="string"></element>
+			<element name="profile_pic" type="base64Binary"></element>
+			<element name="QRAGENTSUBDTLS" type="tns:QRAGENTSUBDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRAGENTSUBDTLS">
+		<sequence>
+			<element name="location_id" type="string"></element>
+			<element name="locationList" type="string"></element>
+			<element name="commodity_id" type="string"></element>
+			<element name="commodityList" type="string"></element>
+			<element name="template" type="string"></element>
+			<element name="templateList" type="string"></element>
+			<element name="target" type="string"></element>
+			<element name="application_id" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryAgentDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAgentDtlsRes" type="tns:queryAgentDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

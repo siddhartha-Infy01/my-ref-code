@@ -1,0 +1,1 @@
+select owner_user_id from Networks where network_id = ?;

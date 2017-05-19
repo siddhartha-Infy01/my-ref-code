@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAllGroups"
+	xmlns:tns="http://www.iexceed.com/queryAllGroups" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="queryAllGroupsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRGROUPDETAIL" type="tns:QRGROUPDETAIL"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRGROUPDETAIL">
+		<sequence>
+			<element name="smartGroup" type="string" />
+			<element name="groupId" type="string" />
+			<element name="name" type="string" />
+			<element name="noOfPeople" type="int" />			
+		</sequence>
+	</complexType>
+	<element name="queryAllGroupsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllGroupsRes" type="tns:queryAllGroupsRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

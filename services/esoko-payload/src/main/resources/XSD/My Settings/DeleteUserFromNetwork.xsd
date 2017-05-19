@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteUserFromNetwork"
+	xmlns:tns="http://www.iexceed.com/deleteUserFromNetwork" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteUserFromNetworkReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLTDFTNWK" type="tns:DLTDFTNWK" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="DLTDFTNWK">
+		<sequence>
+			<element name="userId" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteUserFromNetworkRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="deleteUserFromNetworkReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteUserFromNetworkReq" type="tns:deleteUserFromNetworkReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteUserFromNetworkResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteUserFromNetworkRes" type="tns:deleteUserFromNetworkRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

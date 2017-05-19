@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/creatCurrencies"
+	xmlns:tns="http://www.iexceed.com/creatCurrencies" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="creatCurrenciesReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRCURRDTLS" type="tns:CRCURRDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CRCURRDTLS">
+		<sequence>
+			<element name="currencyCode" type="string"></element>
+			<element name="currencyId" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="symbol" type="string"></element>
+			<element name="noOfDecimals" type="int"></element>
+			<element name="networkId" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="userData" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="creatCurrenciesRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+		<element name="creatCurrenciesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="creatCurrenciesReq" type="tns:creatCurrenciesReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="creatCurrenciesResWrap">
+		<complexType>
+			<sequence>
+				<element name="creatCurrenciesRes" type="tns:creatCurrenciesRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

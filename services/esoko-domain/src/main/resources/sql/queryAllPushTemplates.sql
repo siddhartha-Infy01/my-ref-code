@@ -1,0 +1,1 @@
+SELECT * FROM esoko.push_templates where network_id=? order by TemplateId;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryOccupChildsCount"
+	xmlns:tns="http://www.iexceed.com/queryOccupChildsCount" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryOccupChildsCountRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRYOCCPCHLDCOUNT" type="tns:QRYOCCPCHLDCOUNT"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRYOCCPCHLDCOUNT">
+		<sequence>
+			<element name="parentId" type="string"></element>
+			<element name="count" type="int"></element>
+		</sequence>
+	</complexType>
+	<element name="queryOccupChildsCountResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryOccupChildsCountRes" type="tns:queryOccupChildsCountRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

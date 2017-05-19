@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryWeather"
+	xmlns:tns="http://www.iexceed.com/queryWeather" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryWeatherSourceRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRWEATHERSOURCE" type="tns:QRWEATHERSOURCE"
+	minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRWEATHERSOURCE">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="source" type="string" />
+			<element name="location" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryWeatherSourceResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryWeatherSourceRes" type="tns:queryWeatherSourceRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

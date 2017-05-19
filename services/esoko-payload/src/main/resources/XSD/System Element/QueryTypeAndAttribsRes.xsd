@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryTypesAndAttributes"
+	xmlns:tns="http://www.iexceed.com/queryTypesAndAttributes" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryTypeandAttribsRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+				<element name="TYPDTLS" type="tns:TYPDTLS" minOccurs="1" maxOccurs="unbounded"/>
+				<element name="ATTDTLS" type="tns:ATTDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="TYPDTLS">
+		<sequence>
+			<element name="typeid" type="string"></element>
+			<element name="desc" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ATTDTLS">
+		<sequence>
+			<element name="attrId" type="string"></element>
+			<element name="attrDesc" type="string"></element>
+			
+		</sequence>
+	</complexType>
+		<element name="queryTypeandAttribsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryTypeandAttribsRes" type="tns:queryTypeandAttribsRes"/>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

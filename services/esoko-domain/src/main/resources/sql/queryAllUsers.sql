@@ -1,0 +1,1 @@
+select user_id,first_name,last_name,email,msisdn,town,country,default_network_id from system_user a where record_Status='A';

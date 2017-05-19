@@ -1,0 +1,1 @@
+select count(*) from keyword_alias where alias=? and channel=?;

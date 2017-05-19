@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querypriceType"
+	xmlns:tns="http://www.iexceed.com/querypriceType" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querypriceTypeRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="PRCTYPDTLS" type="tns:QRPRCTYPDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPRCTYPDTLS">
+		<sequence>
+			<element name="priceType" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="status" type="string"></element>
+			<element name="PRCALSDTLS" type="tns:QRPRCALSDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPRCALSDTLS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="querypriceTypeResWrap">
+		<complexType>
+			<sequence>
+				<element name="querypriceTypeRes" type="tns:querypriceTypeRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

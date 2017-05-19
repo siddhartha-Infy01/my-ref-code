@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySurvey"
+	xmlns:tns="http://www.iexceed.com/querySurvey" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySurveyRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRSURVEYDETAILS" type="tns:QRSURVEYDETAILS" />
+		</sequence>
+	</complexType>
+	<complexType name="QRSURVEYDETAILS">
+		<sequence>
+			<element name="survey_name" type="string" />
+			<element name="survey_type" type="string" />
+			<element name="phase" type="string" />
+			<element name="network_id" type="string" />
+			<element name="total_score" type="string" />
+			<element name="secured_score" type="string" />
+			<element name="QRSRVQUEANS" type="tns:QRSRVQUEANS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRSRVQUEANS">
+		<sequence>
+			<element name="question" type="string" />
+			<element name="flag" type="string" />
+			<choice>
+				<element name="answer" type="string" />
+				<element name="image" type="base64Binary" />
+			</choice>
+		</sequence>
+	</complexType>
+	<element name="querySurveyResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySurveyRes" type="tns:querySurveyRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

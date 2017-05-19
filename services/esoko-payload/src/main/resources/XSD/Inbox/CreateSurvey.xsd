@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createSurvey"
+	xmlns:tns="http://www.iexceed.com/createSurvey" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createSurveyReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRSURVEYDETAILS" type="tns:CRSURVEYDETAILS" />
+		</sequence>
+	</complexType>
+	<complexType name="CRSURVEYDETAILS">
+		<sequence>
+			<element name="survey_name" type="string" />
+			<element name="survey_type" type="string" />
+			<element name="phase" type="string" />
+			<element name="network_id" type="string" />
+			<element name="total_score" type="string" />
+			<element name="secured_score" type="string" />
+			<element name="CRSURQUEANS" type="tns:CRSURQUEANS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRSURQUEANS">
+		<sequence>
+			<element name="question" type="string" />
+			<element name="flag" type="string" />
+			<choice>
+				<element name="answer" type="string" />
+				<element name="image" type="base64Binary" />
+			</choice>
+		</sequence>
+	</complexType>
+	<complexType name="createSurveyRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createSurveyReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createSurveyReq" type="tns:createSurveyReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createSurveyResWrap">
+		<complexType>
+			<sequence>
+				<element name="createSurveyRes" type="tns:createSurveyRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

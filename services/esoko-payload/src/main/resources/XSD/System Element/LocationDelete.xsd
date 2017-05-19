@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteLocations"
+	xmlns:tns="http://www.iexceed.com/deleteLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteLocationsReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLLOCDTLS" type="tns:DLLOCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	
+	</complexType>
+	<complexType name="DLLOCDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteLocationsRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+	<element name="deleteLocationsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteLocationsReq" type="tns:deleteLocationsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteLocationsRes" type="tns:deleteLocationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

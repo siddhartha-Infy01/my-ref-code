@@ -1,0 +1,1 @@
+select * from esoko.network_subscription_apps where network_id=? and subscription_type=?;

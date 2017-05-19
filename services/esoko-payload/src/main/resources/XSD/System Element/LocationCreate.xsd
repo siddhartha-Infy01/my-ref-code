@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createLocations"
+	xmlns:tns="http://www.iexceed.com/createLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createLocationsReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRLOCDTLS" type="tns:CRLOCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRLOCDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+			<element name="networkID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="parentId" type="string"></element>
+			<element name="parentCountry" type="string"></element>
+			<element name="longitude" type="string"></element>
+			<element name="latitude" type="string"></element>
+			<element name="locationPic" type="string"></element>
+			<element name="CRLOCDAYS" type="tns:CRLOCDAYS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="CRLOCPRCTYP" type="tns:CRLOCPRCTYP" minOccurs="1"
+				maxOccurs="unbounded"></element>
+			<element name="CRLOCCOMM" type="tns:CRLOCCOMM" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRLOCDAYS">
+		<sequence>
+			<element name="dayOfWeek" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRLOCPRCTYP">
+		<sequence>
+			<element name="priceType" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRLOCCOMM">
+		<sequence>
+			<element name="commodityId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createLocationsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createLocationsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createLocationsReq" type="tns:createLocationsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="createLocationsRes" type="tns:createLocationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

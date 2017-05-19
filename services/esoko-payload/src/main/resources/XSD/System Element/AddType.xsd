@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addType"
+	xmlns:tns="http://www.iexceed.com/addType" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addTypeReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ADDTYPE" type="tns:ADDTYPE" />
+		</sequence>
+	</complexType>
+	<complexType name="ADDTYPE">
+		<sequence>
+			<element name="type_name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="addTypeRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="addTypeReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addTypeReq" type="tns:addTypeReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addTypeResWrap">
+		<complexType>
+			<sequence>
+				<element name="addTypeRes" type="tns:addTypeRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

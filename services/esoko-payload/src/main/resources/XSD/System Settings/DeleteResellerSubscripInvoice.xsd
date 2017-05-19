@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.iexceed.com/deleteResellerSubscripInvoice"
+	xmlns:tns="http://www.iexceed.com/deleteResellerSubscripInvoice"
+	xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteResellerInvoiceReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="INVOICEID" type="tns:INVOICEID" />
+		</sequence>
+	</complexType>
+	<complexType name="INVOICEID">
+		<sequence>
+			<element name="invoiceId" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="deleteResellerSubInvoiceRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteResellerSubInvoiceResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteResellerSubInvoiceRes" type="tns:deleteResellerSubInvoiceRes" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteResellerInvoiceReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteResellerInvoiceReq" type="tns:deleteResellerInvoiceReq" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

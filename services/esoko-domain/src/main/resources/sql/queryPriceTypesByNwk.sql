@@ -1,0 +1,1 @@
+select * from network_price_types where network_id=?;

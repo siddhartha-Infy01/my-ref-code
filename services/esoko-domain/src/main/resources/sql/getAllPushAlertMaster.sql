@@ -1,0 +1,1 @@
+select * from push_alert_master;

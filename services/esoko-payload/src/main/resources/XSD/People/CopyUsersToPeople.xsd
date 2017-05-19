@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/copyUsersToPeople"
+	xmlns:tns="http://www.iexceed.com/copyUsersToPeople" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="copyUsersToPeopleReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="COPYUSERS" type="tns:COPYUSERS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="copyUsersToPeopleRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="COPYUSERS">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="email" type="string" />
+			<element name="county" type="string" />
+			<element name="town" type="string" />
+			<element name="mob1" type="string" />
+			<element name="mob2" type="string" />
+			<element name="profilePic" type="base64Binary" />
+		</sequence>
+	</complexType>
+	<element name="copyUsersToPeopleReqWrap">
+		<complexType>
+			<sequence>
+				<element name="copyUsersToPeopleReq" type="tns:copyUsersToPeopleReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="copyUsersToPeopleResWrap">
+		<complexType>
+			<sequence>
+				<element name="copyUsersToPeopleRes" type="tns:copyUsersToPeopleRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

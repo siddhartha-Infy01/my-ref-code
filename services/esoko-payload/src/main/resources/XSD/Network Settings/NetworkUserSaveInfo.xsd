@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNetworkUserInfo"
+	xmlns:tns="http://www.iexceed.com/saveNetworkUserInfo" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNetworkUserInfoReq">
+		
+			<sequence  >
+				<element name="Header" type="hr:Header" />
+				<element name="CRNWKUSERDTLS" type="tns:CRNWKUSERDTLS" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="CRNWKUSERDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+			<element name="name" type="string"></element>
+			<element name="url" type="anyURI"></element>
+			<element name="networkOwner" type="string"></element>
+			<element name="mainOffice" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="categories" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveNetworkUserInfoRes">
+		
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+		
+	</complexType>
+	<element name="saveNetworkUserInfoReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkUserInfoReq" type="tns:saveNetworkUserInfoReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNetworkUserInfoResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNetworkUserInfoRes" type="tns:saveNetworkUserInfoRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

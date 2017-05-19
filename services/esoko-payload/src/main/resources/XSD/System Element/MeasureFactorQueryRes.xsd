@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryMeasureFactor"
+	xmlns:tns="http://www.iexceed.com/queryMeasureFactor" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryMeasureFactorRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRMSRFCTDTLS" type="tns:QRMSRFCTDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+			<element name="CUSTMSR" type="tns:CUSTMSR" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="METCMSR" type="tns:METCMSR" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="PRCTYP" type="tns:PRCTYP" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRMSRFCTDTLS">
+		<sequence>
+			<element name="commodityId" type="string"></element>
+			<element name="defined" type="string"></element>
+			<element name="QRFCTDTLS" type="tns:QRFCTDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+
+		</sequence>
+	</complexType>
+
+	<complexType name="QRFCTDTLS">
+		<sequence>
+			<element name="priceType" type="string"></element>
+			<element name="frommeasureId" type="string"></element>
+			<element name="measureFactor" type="string"></element>
+			<element name="tomeasureId" type="string"></element>
+			<element name="effectiveDate" type="string"></element>
+			<element name="default" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CUSTMSR">
+		<sequence>
+			<element name="measureId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="METCMSR">
+		<sequence>
+			<element name="measureId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="PRCTYP">
+		<sequence>
+			<element name="priceType" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<element name="queryMeasureFactorResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryMeasureFactorRes" type="tns:queryMeasureFactorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

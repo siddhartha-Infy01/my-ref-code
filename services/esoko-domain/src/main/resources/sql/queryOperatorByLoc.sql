@@ -1,0 +1,1 @@
+select * from operators where location_id=?;

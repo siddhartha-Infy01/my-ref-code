@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createOperator"
+	xmlns:tns="http://www.iexceed.com/createOperator" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createOperatorReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CROPERATORS" type="tns:CROPERATORS" />
+		</sequence>
+	</complexType>
+	<complexType name="CROPERATORS">
+		<sequence>
+			<element name="operatorName" type="string" />
+			<element name="operatorCountry" type="string" />
+			<element name="mcc" type="string" />
+			<element name="mnc" type="string" />
+			<element name="gatewayId1" type="string" />
+			<element name="smpp1" type="string" />
+			<element name="gatewayId2" type="string" />
+			<element name="smpp2" type="string" />
+			<element name="currencyId" type="string" />
+			<element name="direction" type="string" />
+			<element name="channel" type="string" />		
+			<element name="cost" type="float" />			
+			<element name="networkId" type="string" />
+			<element name="margin" type="float" />
+			<element name="premium" type="float" />			
+		</sequence>
+	</complexType>	
+	<element name="createOperatorReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createOperatorReq" type="tns:createOperatorReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="createOperatorRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createOperatorResWrap">
+		<complexType>
+			<sequence>
+				<element name="createOperatorRes" type="tns:createOperatorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

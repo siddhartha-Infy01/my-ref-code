@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAllReseller"
+	xmlns:tns="http://www.iexceed.com/queryAllReseller" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllResellerRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRALLRSLR" type="tns:QRALLRSLR" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRALLRSLR">
+		<sequence>
+			<element name="reseller_id" type="string"></element>
+			<element name="company" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="queryAllResellerResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllResellerRes" type="tns:queryAllResellerRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNwkPriceTypes"
+	xmlns:tns="http://www.iexceed.com/saveNwkPriceTypes" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNwkPriceTypesReq">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="CRNWKPRCDTLS" type="tns:CRNWKPRCDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="CRNWKPRCDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="farmGate" type="string"></element>
+			<element name="offLorry" type="string"></element>
+			<element name="producer" type="string"></element>
+			<element name="retail" type="string"></element>
+			<element name="wholesale" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="saveNwkPriceTypesRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="saveNwkPriceTypesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPriceTypesReq" type="tns:saveNwkPriceTypesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNwkPriceTypesResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPriceTypesRes" type="tns:saveNwkPriceTypesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

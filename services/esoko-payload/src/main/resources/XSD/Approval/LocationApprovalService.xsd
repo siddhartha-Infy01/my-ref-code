@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/locationApproval"
+	xmlns:tns="http://www.iexceed.com/locationApproval" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="locationApprovalReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="LOCAPPROVALSERVC" type="tns:LOCAPPROVALSERVC"  />
+		
+		</sequence>
+	</complexType>
+	<complexType name="LOCAPPROVALSERVC">
+		<sequence>
+			<element name="locationId" type="string"></element>
+			<element name="approvalFlag" type="string"></element>
+		
+			</sequence>
+	</complexType>
+	<complexType name="locationApprovalRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="locationApprovalReqWrap">
+		<complexType>
+			<sequence>
+				<element name="locationApprovalReq" type="tns:locationApprovalReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="locationApprovalResWrap">
+		<complexType>
+			<sequence>
+				<element name="locationApprovalRes" type="tns:locationApprovalRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+select * from alert_source_networks where push_alert_id=?;

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/approveSharingRequest"
+	xmlns:tns="http://www.iexceed.com/approveSharingRequest" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="approveSharingRequest">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="APRVSHARE" type="tns:APRVSHARE" />
+		</sequence>
+	</complexType>
+	<complexType name="APRVSHARE">
+		<sequence>
+			<element name="fromNetwork" type="string"></element>
+			<element name="toNetwork" type="string"></element>
+			<element name="approveFlag" type="string"></element>
+			<element name="peopleShareType" type="string"></element>
+			<element name="peopleMode" type="string"></element>
+			<element name="APPSHAREITEMS" type="tns:APPSHAREITEMS"
+				minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="APPSHAREITEMS">
+		<sequence>
+			<element name="shareItem" type="string"></element>
+			<element name="sendReceive" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="approveSharingRequestRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="approveSharingRequestWrap">
+		<complexType>
+			<sequence>
+				<element name="approveSharingRequest" type="tns:approveSharingRequest" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="approveSharingRequestResWrap">
+		<complexType>
+			<sequence>
+				<element name="approveSharingRequestRes" type="tns:approveSharingRequestRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

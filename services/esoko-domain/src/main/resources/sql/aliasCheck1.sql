@@ -1,0 +1,1 @@
+delete from keyword_alias where keyword=? and channel=?;

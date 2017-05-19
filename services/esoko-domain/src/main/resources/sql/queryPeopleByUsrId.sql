@@ -1,0 +1,1 @@
+SELECT * FROM people where record_status='A' and master_flag='Y' and people_id=?;

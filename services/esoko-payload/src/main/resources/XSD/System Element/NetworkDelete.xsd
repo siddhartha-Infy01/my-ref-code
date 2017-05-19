@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteNetwork"
+	xmlns:tns="http://www.iexceed.com/deleteNetwork" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteNetworkReq">
+		
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="DLNWKDETAILS" type="tns:DLNWKDETAILS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		
+	</complexType>
+	<complexType name="DLNWKDETAILS">
+		<sequence>
+			<element name="networkID" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="deleteNetworkRes">
+	
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	
+	</complexType>
+			<element name="deleteNetworkReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteNetworkReq" type="tns:deleteNetworkReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteNetworkResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteNetworkRes" type="tns:deleteNetworkRes"/>
+				</sequence>
+		</complexType>
+		</element>
+</schema>

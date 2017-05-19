@@ -1,0 +1,1 @@
+select a.* from network_location a, locations b where a.location_id=b.location_id and  b.record_status='A' and a.network_id=?;

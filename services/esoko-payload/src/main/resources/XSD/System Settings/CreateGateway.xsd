@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createGateway"
+	xmlns:tns="http://www.iexceed.com/createGateway" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createGatewayReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRGATEWAY" type="tns:CRGATEWAY" />
+		</sequence>
+	</complexType>
+	<complexType name="CRGATEWAY">
+		<sequence>
+			<element name="gatewayName" type="string" />				
+		</sequence>
+	</complexType>	
+	<element name="createGatewayReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createGatewayReq" type="tns:createGatewayReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="createGatewayRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createGatewayResWrap">
+		<complexType>
+			<sequence>
+				<element name="createGatewayRes" type="tns:createGatewayRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

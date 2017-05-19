@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/subscriberRegistration"
+	xmlns:tns="http://www.iexceed.com/subscriberRegistration" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="subscriberRegistrationReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SUBSCRIBERRGSTR" type="tns:SUBSCRIBERRGSTR" />
+		</sequence>
+	</complexType>
+	<complexType name="SUBSCRIBERRGSTR">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="email" type="string"></element>
+			<element name="mobile" type="string"></element>
+			<element name="gender" type="string"></element>
+			<element name="dob" type="string" />
+			<element name="occupation" type="string" />
+			<element name="location" type="string" />
+			<element name="reseller_id" type="string"></element>
+			<element name="network_id" type="string" />
+			<element name="subscrib_type" type="string" />
+		</sequence>
+	</complexType>
+	<element name="subscriberRegistrationReqWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriberRegistrationReq" type="tns:subscriberRegistrationReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="subscriberRegistrationRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="subscriberRegistrationResWrap">
+		<complexType>
+			<sequence>
+				<element name="subscriberRegistrationRes" type="tns:subscriberRegistrationRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createDefaultNetwork"
+	xmlns:tns="http://www.iexceed.com/createDefaultNetwork" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createDefaultNetworkReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRTDFTNWK" type="tns:CRTDFTNWK" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRTDFTNWK">
+		<sequence>
+			<element name="userId" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createDefaultNetworkRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createDefaultNetworkReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createDefaultNetworkReq" type="tns:createDefaultNetworkReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createDefaultNetworkResWrap">
+		<complexType>
+			<sequence>
+				<element name="createDefaultNetworkRes" type="tns:createDefaultNetworkRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

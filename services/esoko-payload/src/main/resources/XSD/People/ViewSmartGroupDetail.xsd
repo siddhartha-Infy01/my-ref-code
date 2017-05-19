@@ -1,0 +1,31 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/viewSmrtGrpDtl"
+	xmlns:tns="http://www.iexceed.com/viewSmrtGrpDtl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="viewSmrtGrpDtlRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SMRTGRPDTL" type="tns:SMRTGRPDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="SMRTGRPDTL">
+		<sequence>			
+			<element name="RULES" type="tns:RULES" minOccurs="1"
+				maxOccurs="unbounded" />			
+		</sequence>
+	</complexType>
+	<complexType name="RULES">
+		<sequence>
+			<element name="type" type="string" />
+			<element name="condition" type="string" />
+			<element name="value" type="string" />
+		</sequence>
+	</complexType>		
+	<element name="viewSmrtGrpDtlResWrap">
+		<complexType>
+			<sequence>
+				<element name="viewSmrtGrpDtlRes" type="tns:viewSmrtGrpDtlRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

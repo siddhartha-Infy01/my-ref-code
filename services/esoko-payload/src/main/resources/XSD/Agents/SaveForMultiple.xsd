@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveForMultiple"
+	xmlns:tns="http://www.iexceed.com/saveForMultiple" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="saveForMultipleReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CHANGEDTLS" type="tns:CHANGEDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="USERTODTLS" type="tns:USERTODTLS" minOccurs="1"
+				maxOccurs="unbounded"></element>	
+		</sequence>
+	</complexType>
+
+	<complexType name="USERTODTLS">
+		<sequence>
+			<element name="userId" type="string"></element>
+			<element name="networkId" type="string"></element>
+				
+							
+		</sequence>
+	</complexType>
+	<complexType name="CHANGEDTLS">
+		<sequence>
+		    <element name="paramName" type="string"></element>
+			<element name="paramValue" type="string"></element>
+			<element name="action" type="string"></element>
+			<element name="appId" type="string"></element>
+				
+		</sequence>
+	</complexType>
+
+	<complexType name="saveForMultipleRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	
+	<element name="saveForMultipleReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveForMultipleReq" type="tns:saveForMultipleReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveForMultipleResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveForMultipleRes" type="tns:saveForMultipleRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

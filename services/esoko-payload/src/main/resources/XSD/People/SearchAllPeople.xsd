@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/searchAllPeople"
+	xmlns:tns="http://www.iexceed.com/searchAllPeople" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="searchAllPeopleRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SEARCHPPLDTL" type="tns:SEARCHPPLDTL"
+				minOccurs="1" maxOccurs="3" />
+		</sequence>
+	</complexType>
+
+	<complexType name="SEARCHPPLDTL">
+		<sequence>
+			<element name="QRALLPEOPLEDTLS" type="tns:QRALLPEOPLEDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="QRALLPEOPLEDTLS">
+		<sequence>
+			<element name="peopleId" type="string" />
+			<element name="edit" type="string" />
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="gender" type="string" />
+			<element name="email" type="string" />
+			<element name="country" type="string" />
+			<element name="town" type="string" />
+			<element name="mob1" type="string" />
+			<element name="mob2" type="string" />
+			<element name="ownerNetwork" type="string" />
+			<element name="profilePic" type="base64Binary" />
+			<element name="CMMDTLS" type="tns:CMMDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="NWKDTLS" type="tns:NWKDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="OCCDTLS" type="tns:OCCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="EDITABLE" type="tns:EDITABLE" />
+		</sequence>
+	</complexType>
+	<complexType name="CMMDTLS">
+		<sequence>
+			<element name="commodity" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="NWKDTLS">
+		<sequence>
+			<element name="network" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="OCCDTLS">
+		<sequence>
+			<element name="occupation" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="EDITABLE">
+		<sequence>
+			<element name="firstName" type="string" />
+			<element name="lastName" type="string" />
+			<element name="gender" type="string" />
+			<element name="email" type="string" />
+			<element name="country" type="string" />
+			<element name="town" type="string" />
+			<element name="mob1" type="string" />
+			<element name="mob2" type="string" />
+			<element name="profilePic" type="string" />
+			<element name="CMMDTLS" type="string" />
+			<element name="NWKDTLS" type="string" />
+			<element name="OCCDTLS" type="string" />
+		</sequence>
+	</complexType>
+	<element name="searchAllPeopleResWrap">
+		<complexType>
+			<sequence>
+				<element name="searchAllPeopleRes" type="tns:searchAllPeopleRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

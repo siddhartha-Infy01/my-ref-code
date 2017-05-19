@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/editNewsAndLibraryReq"
+	xmlns:tns="http://www.iexceed.com/editNewsAndLibraryReq" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="editNewsAndLibraryReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="EDITNEWSLIBRARY" type="tns:EDITNEWSLIBRARY" />
+		</sequence>
+
+	</complexType>
+	<complexType name="EDITNEWSLIBRARY">
+		<sequence>
+			<element name="lib_id" type="string" />
+			<element name="category" type="string" />
+			<element name="title" type="string" />
+			<element name="summary" type="string" />
+			<element name="story" type="string" />
+			<element name="sourceUrl" type="string" />
+			<element name="author" type="string" />
+			<element name="image" type="base64Binary" />
+		</sequence>
+	</complexType>
+	<complexType name="editNewsAndLibraryRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="editNewsAndLibraryReqWrap">
+		<complexType>
+			<sequence>
+				<element name="editNewsAndLibraryReq" type="tns:editNewsAndLibraryReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="editNewsAndLibraryResWrap">
+		<complexType>
+			<sequence>
+				<element name="editNewsAndLibraryRes" type="tns:editNewsAndLibraryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

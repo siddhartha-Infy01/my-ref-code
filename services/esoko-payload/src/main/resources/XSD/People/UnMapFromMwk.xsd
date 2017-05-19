@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/unMapFromNwk"
+	xmlns:tns="http://www.iexceed.com/unMapFromNwk" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	
+	<complexType name="unMapFromNwkReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="UNMAPDTL" type="tns:UNMAPDTL"  minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	<complexType name="unMapFromNwkRes">
+		<sequence>
+			<element name="Header" type="hr:Header"/>
+		</sequence>
+	</complexType>		
+	<complexType name="UNMAPDTL">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="networkId" type="string" />			
+		</sequence>
+	</complexType>
+	<element name="unMapFromNwkReqWrap">
+		<complexType>
+			<sequence>
+				<element name="unMapFromNwkReq" type="tns:unMapFromNwkReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="unMapFromNwkResWrap">
+		<complexType>
+			<sequence>
+				<element name="unMapFromNwkRes" type="tns:unMapFromNwkRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

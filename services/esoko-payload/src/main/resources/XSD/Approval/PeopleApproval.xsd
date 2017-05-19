@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/RecordStsApproval"
+	xmlns:tns="http://www.iexceed.com/RecordStsApproval" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="RecordStsApprovalReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="APPROVALSERVC" type="tns:APPROVALSERV" />
+		</sequence>
+	</complexType>
+	<complexType name="APPROVALSERV">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="PEOPLEAPPROVAL" type="tns:PEOPLEAPPROVAL" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="PEOPLEAPPROVAL">
+		<sequence>
+			<element name="peopleId" type="string" />
+			<element name="approvalFlag" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="RecordStsApprovalRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="RecordStsApprovalReqWrap">
+		<complexType>
+			<sequence>
+				<element name="RecordStsApprovalReq" type="tns:RecordStsApprovalReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="RecordStsApprovalResWrap">
+		<complexType>
+			<sequence>
+				<element name="RecordStsApprovalRes" type="tns:RecordStsApprovalRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

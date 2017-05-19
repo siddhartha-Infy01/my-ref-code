@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCommodities"
+	xmlns:tns="http://www.iexceed.com/queryCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryCommoditiesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRCOMMDTLS" type="tns:QRCOMMDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRCOMMDTLS">
+		<sequence>
+			<element name="commodityID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="selected" type="string"></element>
+			<element name="childCount" type="string"></element>
+			<element name="parentId" type="string"></element>
+			<element name="ALSDTLS" type="tns:ALSDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="CMDPICS" type="tns:CMDPICS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="CMDTYPE" type="tns:CMDTYPE" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="CMDATTRIBS" type="tns:CMDATTRIBS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="QRCOMMDTLS" type="tns:QRCOMMDTLS"></element>
+		</sequence>
+	</complexType>
+	<complexType name="ALSDTLS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CMDPICS">
+		<sequence>
+			<element name="cmdPic" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CMDTYPE">
+		<sequence>
+			<element name="qTypeId" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="type" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CMDATTRIBS">
+		<sequence>
+			<element name="attribtId" type="string"></element>
+			<element name="name" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryCommoditiesRes" type="tns:queryCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

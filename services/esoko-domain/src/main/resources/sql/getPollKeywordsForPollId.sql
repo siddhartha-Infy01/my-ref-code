@@ -1,0 +1,1 @@
+SELECT * FROM poll_keywords where poll_id=?

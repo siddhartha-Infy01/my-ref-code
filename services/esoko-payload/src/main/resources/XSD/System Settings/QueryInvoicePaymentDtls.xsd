@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryInvoicePayment"
+	xmlns:tns="http://www.iexceed.com/queryInvoicePayment" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryInvoicePaymentRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRINVCEPYMTDTLS" type="tns:QRINVCEPYMTDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="QRINVCEPYMTDTLS">
+		<sequence>
+			<element name="invoiceFile" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+
+	<element name="queryInvoicePaymentResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryInvoicePaymentRes" type="tns:queryInvoicePaymentRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

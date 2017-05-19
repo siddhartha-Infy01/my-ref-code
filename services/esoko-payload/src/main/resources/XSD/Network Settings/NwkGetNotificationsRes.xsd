@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/getNotifications"
+	xmlns:tns="http://www.iexceed.com/getNotifications" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="getNotificationsRes">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="NOTFDTLS" type="tns:NOTFDTLS" minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+	</complexType>
+	<complexType name="NOTFDTLS">
+		<sequence>
+			<element name="type" type="string"></element>
+			<element name="message" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="getNotificationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="getNotificationsRes" type="tns:getNotificationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

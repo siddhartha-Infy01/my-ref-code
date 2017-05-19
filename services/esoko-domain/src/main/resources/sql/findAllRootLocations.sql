@@ -1,0 +1,1 @@
+select a.* from locations a where parent_id is null and record_status='A';

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryTowns"
+	xmlns:tns="http://www.iexceed.com/queryTowns" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllCurrencies">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALLCURRENCIES" type="tns:ALLCURRENCIES"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="ALLCURRENCIES">
+		<sequence>
+			<element name="currencyCode" type="string"></element>
+			<element name="currencyName" type="string"></element>
+			<element name="currencyId" type="string"></element>
+			<element name="symbol" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryAllCurrenciesWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllCurrencies" type="tns:queryAllCurrencies" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

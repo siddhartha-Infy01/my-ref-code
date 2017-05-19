@@ -1,0 +1,1 @@
+select count(*) as "count",b.name "network",b.primary_location_id as "location",(select content from network_pictures where network_id=a.default_network_id) as  "image" from people a,Networks b where a.default_network_id=? and a.default_network_id=b.network_id;

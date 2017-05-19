@@ -1,0 +1,1 @@
+SELECT * FROM weather where date(date)=? and location_id=? and source=?

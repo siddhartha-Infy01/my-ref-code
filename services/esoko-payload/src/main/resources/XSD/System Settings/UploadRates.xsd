@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/uploadRates"
+	xmlns:tns="http://www.iexceed.com/uploadRates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="uploadRatesReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="UPLOADRATES" type="tns:UPLOADRATES" />
+		</sequence>
+	</complexType>
+	<complexType name="UPLOADRATES">
+		<sequence>
+			<element name="gatewayId" type="string" />
+			<element name="SMPP" type="string" />
+			<element name="direction" type="string" />
+			<element name="channel" type="string" />
+			<element name="currencyId" type="string" />
+			<element name="RATEDETAILS" type="tns:RATEDETAILS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="RATEDETAILS">
+		<sequence>
+			<element name="OperatorName" type="string" />
+			<element name="OperatorCountry" type="string" />
+			<element name="MCC" type="string" />
+			<element name="MNC" type="string" />
+			<element name="Cost" type="string" />						
+			<element name="Margin" type="string" />
+			<element name="Premium" type="string" />
+		</sequence>
+	</complexType>
+	<element name="uploadRatesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="uploadRatesReq" type="tns:uploadRatesReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="uploadRatesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="uploadRatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="uploadRatesRes" type="tns:uploadRatesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/OccupationMap"
+	xmlns:tns="http://www.iexceed.com/OccupationMap" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="mapOccupationReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MPOCCDTLS" type="tns:MPOCCDTLS" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+
+	</complexType>
+	<complexType name="MPOCCDTLS">
+		<sequence>
+			<element name="occupationID" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="mapType" type="string"></element>
+			<element name="mapValue" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="mapOccupationRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="mapOccupationReqWrap">
+		<complexType>
+			<sequence>
+				<element name="mapOccupationReq" type="tns:mapOccupationReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="mapOccupationResWrap">
+		<complexType>
+			<sequence>
+				<element name="mapOccupationRes" type="tns:mapOccupationRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

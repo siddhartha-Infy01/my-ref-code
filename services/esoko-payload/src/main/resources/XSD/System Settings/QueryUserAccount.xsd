@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUserAccount"
+	xmlns:tns="http://www.iexceed.com/queryUserAccount" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserAccountRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRUSERACCNT" type="tns:QRUSERACCNT" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRUSERACCNT">
+		<sequence>
+			<element name="accountNo" type="string"></element>
+			<element name="accountName" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="balance" type="string"></element>
+			<element name="currecyId" type="string" />
+			<element name="currecySymbol" type="string" />
+			<element name="minBalance" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="queryUserAccountResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserAccountRes" type="tns:queryUserAccountRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

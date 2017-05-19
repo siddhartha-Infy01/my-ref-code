@@ -1,0 +1,1 @@
+select * from Transaction_codes;

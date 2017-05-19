@@ -1,0 +1,1 @@
+SELECT count(*)  FROM user_group where network_id=? and user_id=? and group_id='Administrator';

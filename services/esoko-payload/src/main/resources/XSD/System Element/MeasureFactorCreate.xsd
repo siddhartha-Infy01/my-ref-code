@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createMeasureFactor"
+	xmlns:tns="http://www.iexceed.com/createMeasureFactor" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createMeasureFactorReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRMSRFCTDTLS" type="tns:CRMSRFCTDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRMSRFCTDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="locationId" type="string"></element>
+			<element name="commodityId" type="string"></element>
+			<element name="measureId" type="string"></element>
+			<element name="CRFCTDTLS" type="tns:CRFCTDTLS" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRFCTDTLS">
+		<sequence>
+			<element name="priceType" type="string"></element>
+			<element name="fromMeasureId" type="string"></element>
+			<element name="measureFactor" type="string"></element>
+			<element name="toMeasureId" type="string"></element>
+			<element name="defined" type="string"></element>
+			<element name="effectiveDate" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="createMeasureFactorRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createMeasureFactorReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createMeasureFactorReq" type="tns:createMeasureFactorReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createMeasureFactorResWrap">
+		<complexType>
+			<sequence>
+				<element name="createMeasureFactorRes" type="tns:createMeasureFactorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

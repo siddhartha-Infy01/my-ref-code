@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryResellerSubscriberDtls"
+	xmlns:tns="http://www.iexceed.com/queryResellerSubscriberDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryResellerSubscriberDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRRSLRSUBERDTLS" type="tns:QRRSLRSUBERDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRRSLRSUBERDTLS">
+		<sequence>
+			<element name="row_id" type="string"></element>
+			<element name="sub_type" type="string"></element>
+			<element name="network_id" type="string"></element>
+			<element name="network_name" type="string" />
+			<element name="balance" type="string" />
+			<element name="expiry" type="string" />
+			<element name="currency" type="string" />
+			<element name="owner_name" type="string" />
+			<element name="expiry_flag" type="string" />
+			<element name="balance_flag" type="string" />
+			<element name="agents" type="string" />
+			<element name="alerts" type="string" />
+			<element name="QRRESELLERINVOICES" type="tns:QRRESELLERINVOICES"
+				minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="QRRESELLERINVOICES">
+		<sequence>
+			<element name="invoice_no" type="string"></element>
+			<element name="amount" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryResellerSubscriberDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryResellerSubscriberDtlsRes" type="tns:queryResellerSubscriberDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

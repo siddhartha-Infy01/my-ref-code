@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCommodities"
+	xmlns:tns="http://www.iexceed.com/queryCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryChildCommoditiesRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRCHILDCOMMODITIES" type="tns:QRCHILDCOMMODITIES" />
+		</sequence>
+	</complexType>
+	<complexType name="QRCHILDCOMMODITIES">
+		<sequence>
+			<element name="detailId" type="string" />
+			<element name="PARENT_COMMD" type="tns:PARENT_COMMD"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PARENT_COMMD">
+		<sequence>
+			<element name="parentCommodity_name" type="string" />
+			<element name="CHILD_COMMD" type="tns:CHILD_COMMD" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="CHILD_COMMD">
+		<sequence>
+			<element name="childCommodity_name" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryChildCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryChildCommoditiesRes" type="tns:queryChildCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+update push_alert_master set data_status=?, alert_state=?, modified_by=?, modified_ts=? where push_alert_id=?;

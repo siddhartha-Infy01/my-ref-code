@@ -1,0 +1,1 @@
+select * from price_types where record_status='A';

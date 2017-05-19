@@ -1,0 +1,1 @@
+select * from alert_profile_based where push_alert_id=?;

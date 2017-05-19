@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAlertDelivery"
+	xmlns:tns="http://www.iexceed.com/queryAlertDelivery" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAlertDeliveryRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALRTDLVRYRPT" type="tns:ALRTDLVRYRPT"  minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ALRTDLVRYRPT">
+		<sequence>
+			<element name="schedule_id" type="string" />
+			<element name="alert_name" type="string" />
+			<element name="date" type="string" />
+			<element name="time" type="string" />
+			<element name="sent" type="string" />
+			<element name="pending" type="string" />
+			<element name="failed" type="string" />
+			<element name="total" type="string" />
+					</sequence>
+	</complexType>
+	
+	<element name="queryAlertDeliveryResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAlertDeliveryRes" type="tns:queryAlertDeliveryRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

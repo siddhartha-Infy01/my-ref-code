@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createCommodities"
+	xmlns:tns="http://www.iexceed.com/createCommodities" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createCommoditiesReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRCOMMDTLS" type="tns:CRCOMMDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRCOMMDTLS">
+		<sequence>
+			<element name="commodityID" type="string"></element>
+			<element name="commodityAlias" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="rank" type="int"></element>
+			<element name="parentId" type="string"></element>
+			<element name="global_location" type="string"></element>
+			<element name="picture" type="base64Binary"></element>
+			<element name="qType" type="string"></element>
+			<element name="offLorry" type="string"></element>
+			<element name="wholesale" type="string"></element>
+			<element name="status" type="string"></element>
+			<element name="CRCOMMATTDTLS" type="tns:CRCOMMATTDTLS"
+				minOccurs="1" maxOccurs="unbounded"></element>
+			<element name="CRALSDTLS" type="tns:CRALSDTLS" minOccurs="1"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRALSDTLS">
+		<sequence>
+			<element name="aliasID" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRCOMMATTDTLS">
+		<sequence>
+			<element name="attributeID" type="string"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="createCommoditiesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="createCommoditiesReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createCommoditiesReq" type="tns:createCommoditiesReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createCommoditiesResWrap">
+		<complexType>
+			<sequence>
+				<element name="createCommoditiesRes" type="tns:createCommoditiesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

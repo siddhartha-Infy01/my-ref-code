@@ -1,0 +1,1 @@
+select * from Network_permissions where network_id=? and group_id=?;

@@ -1,0 +1,1 @@
+select a.* from measure_factor a where a.network_id=? and a.commodity_id=? and a.price_type=? and a.default_measure='Y';

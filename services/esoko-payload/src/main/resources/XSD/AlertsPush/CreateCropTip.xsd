@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createCropTip"
+	xmlns:tns="http://www.iexceed.com/createCropTip" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="createCropTipReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CROPTIP" type="tns:CROPTIP" />
+		</sequence>
+	</complexType>
+	<complexType name="createCropTipRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<complexType name="CROPTIP">
+		<sequence>
+			<element name="requestType" type="string" />
+			<element name="cropTipId" type="string" />
+			<element name="peopleId" type="string" />
+			<element name="tipName" type="string" />
+			<element name="tipCategory" type="string" />
+			<element name="customCategory" type="string" />
+			<element name="triggerType" type="string" />
+			<element name="commodity" type="string" />
+			<element name="currencyId" type="string" />
+			<element name="payeeAccNo" type="string" />
+			<element name="payeeType" type="string" />
+			<element name="networkId" type="string" />
+			<element name="tipCode" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+			<element name="RECIPIENTS" type="tns:RECIPIENTS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="TIPDETAILS" type="tns:TIPDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="TIPDETAILS">
+		<sequence>
+			<element name="tipDate" type="string" />
+			<element name="tipTime" type="string" />
+			<element name="tipNumber" type="integer"/>
+			<element name="tipContent" type="string" />
+			<element name="tipInterval" type="integer" />
+			<element name="tipMeasure" type="string" />
+			<element name="nuOfMsg" type="integer" />
+			<element name="nuOfChar" type="integer" />
+		</sequence>
+	</complexType>
+	<complexType name="RECIPIENTS">
+		<sequence>
+			<element name="parentId" type="string" />
+			<element name="recipientId" type="string" />
+			<element name="recipientType" type="string" />
+		</sequence>
+	</complexType>
+	<element name="createCropTipReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createCropTipReq" type="tns:createCropTipReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createCropTipResWrap">
+		<complexType>
+			<sequence>
+				<element name="createCropTipRes" type="tns:createCropTipRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/libraryApprovalApproval"
+	xmlns:tns="http://www.iexceed.com/libraryApprovalApproval" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="bidsAndOffersApprovalReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="BIDSANDOFFERSAPPRVL" type="tns:BIDSANDOFFERSAPPRVL" />
+		</sequence>
+	</complexType>
+	<complexType name="BIDSANDOFFERSAPPRVL">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="BIDSANDOFFERSDTLS" type="tns:BIDSANDOFFERSDTLS" minOccurs="1"
+	maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="BIDSANDOFFERSDTLS">
+		<sequence>
+			<element name="upload_id" type="string" />
+			<element name="approvalFlag" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="bidsAndOffersApprovalRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="bidsAndOffersApprovalReqWrap">
+		<complexType>
+			<sequence>
+				<element name="bidsAndOffersApprovalReq" type="tns:bidsAndOffersApprovalReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="bidsAndOffersApprovalResWrap">
+		<complexType>
+			<sequence>
+				<element name="bidsAndOffersApprovalRes" type="tns:bidsAndOffersApprovalRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

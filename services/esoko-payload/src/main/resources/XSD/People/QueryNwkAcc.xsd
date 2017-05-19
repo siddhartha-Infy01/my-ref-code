@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNwkAccounts"
+	xmlns:tns="http://www.iexceed.com/queryNwkAccounts" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+
+	<complexType name="queryNwkAccountsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRSMSACCS" type="tns:QRSMSACCS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRSMSACCS">
+		<sequence>
+			<element name="accountNo" type="string" />
+			<element name="balance" type="float" />
+			<element name="currency" type="string" />
+			<element name="networkId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryNwkAccountsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNwkAccountsRes" type="tns:queryNwkAccountsRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

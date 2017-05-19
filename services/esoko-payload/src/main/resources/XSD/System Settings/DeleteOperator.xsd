@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteOperator"
+	xmlns:tns="http://www.iexceed.com/deleteOperator" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteOperatorReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ROUTEDTL" type="tns:ROUTEDTL" />
+		</sequence>
+	</complexType>
+	<complexType name="ROUTEDTL">
+		<sequence>
+			<element name="routeId" type="string" />				
+		</sequence>
+	</complexType>	
+	<element name="deleteOperatorReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteOperatorReq" type="tns:deleteOperatorReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="deleteOperatorRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteOperatorResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteOperatorRes" type="tns:deleteOperatorRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySubLimitsDtls"
+	xmlns:tns="http://www.iexceed.com/querySubLimitsDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySubLimitsDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRLIMITSLIST" type="tns:QRLIMITSLIST"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRLIMITSLIST">
+		<sequence>
+			<element name="sub_id" type="string"></element>
+			<element name="sub_level" type="string"></element>
+			<element name="QRYLIMITS" type="tns:QRYLIMITS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRYLIMITS">
+		<sequence>
+			<element name="row_id" type="int" />
+			<element name="type" type="string" />
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+			<element name="margin" type="string" />
+		</sequence>
+	</complexType>
+	<element name="querySubLimitsDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySubLimitsDtlsRes" type="tns:querySubLimitsDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+select a.* from commodities a where parent_id is null and record_status='A';

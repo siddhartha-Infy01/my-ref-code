@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/saveNwkPermissions"
+	xmlns:tns="http://www.iexceed.com/saveNwkPermissions" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="saveNwkPermissionsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRPRMSDTLS" type="tns:CRPRMSDTLS" minOccurs="1"
+				maxOccurs="1" />
+			<element name="CRNETWORKS" type="tns:CRNETWORKS" minOccurs="1"
+				maxOccurs="1" />
+			<element name="CRAPPS" type="tns:CRAPPS" minOccurs="1"
+				maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="CRPRMSDTLS">
+		<sequence>
+			<element name="groupId" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRNETWORKS">
+		<sequence>
+			<element name="billing" type="string"></element>
+			<element name="configurations" type="string"></element>
+			<element name="permissions" type="string"></element>
+			<element name="sharing" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRAPPS">
+		<sequence>
+			<element name="agents" type="string"></element>
+			<element name="alerts" type="string"></element>
+			<element name="approve" type="string"></element>
+			<element name="inbox" type="string"></element>
+			<element name="marketplace" type="string"></element>
+			<element name="people" type="string"></element>
+			<element name="push" type="string"></element>
+			<element name="smspolls" type="string"></element>
+			<element name="upload" type="string"></element>
+			<element name="Reports" type="string"/>
+		</sequence>
+	</complexType>
+	<complexType name="saveNwkPermissionsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="saveNwkPermissionsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPermissionsReq" type="tns:saveNwkPermissionsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="saveNwkPermissionsResWrap">
+		<complexType>
+			<sequence>
+				<element name="saveNwkPermissionsRes" type="tns:saveNwkPermissionsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

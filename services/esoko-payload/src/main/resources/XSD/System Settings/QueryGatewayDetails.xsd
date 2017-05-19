@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryGatewayDtls"
+	xmlns:tns="http://www.iexceed.com/queryGatewayDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryGatewayDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="GATEWAYDTLS" type="tns:GATEWAYDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="GATEWAYDTLS">
+		<sequence>
+			<element name="gatewayName" type="string" />
+			<element name="nuOfCountries" type="string" />
+			<element name="nuOfOperators" type="string" />
+			<element name="OPERATORDTLS" type="tns:OPERATORDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="OPERATORDTLS">
+		<sequence>
+			<element name="countryName" type="string" />
+			<element name="nuOfOperators" type="string" />
+			<element name="OPERATORS" type="tns:OPERATORS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="OPERATORS">
+		<sequence>
+			<element name="routeId" type="string" />
+			<element name="operatorName" type="string" />
+			<element name="mcc" type="string" />
+			<element name="mnc" type="string" />
+			<element name="direction" type="string" />
+			<element name="channel" type="string" />
+			<element name="exceptions" type="string" />
+			<element name="exceptionName" type="string" />
+			<element name="currency" type="string" />
+			<element name="currencyName" type="string" />
+			<element name="cost" type="float" />
+			<element name="margin" type="float" />
+			<element name="price" type="float" />
+		</sequence>
+	</complexType>
+
+	<element name="queryGatewayDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryGatewayDtlsRes" type="tns:queryGatewayDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

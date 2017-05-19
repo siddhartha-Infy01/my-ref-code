@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNwkPrivacySettings"
+	xmlns:tns="http://www.iexceed.com/queryNwkPrivacySettings" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNwkPrivacySettingsRes">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="QRNWKPRVDTLS" type="tns:QRNWKPRVDTLS" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+	</complexType>
+	<complexType name="QRNWKPRVDTLS">
+		<sequence>
+			<element name="contacts" type="string"></element>
+			<element name="offers" type="string"></element>
+			<element name="prices" type="string"></element>
+			<element name="newsLibrary" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryNwkPrivacySettingsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNwkPrivacySettingsRes" type="tns:queryNwkPrivacySettingsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

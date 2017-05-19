@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNwkPermissions"
+	xmlns:tns="http://www.iexceed.com/queryNwkPermissions" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNwkPermissionsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRPRMSDTLS" type="tns:QRPRMSDTLS" minOccurs="1"
+				maxOccurs="1" />
+			<element name="QRNETWORKS" type="tns:QRNETWORKS" minOccurs="1"
+				maxOccurs="1" />
+			<element name="CRAPPS" type="tns:CRAPPS" minOccurs="1" maxOccurs="1" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPRMSDTLS">
+		<sequence>
+			<element name="groupId" type="string"></element>
+			<element name="networkId" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="QRNETWORKS">
+		<sequence>
+			<element name="billing" type="string"></element>
+			<element name="configurations" type="string"></element>
+			<element name="permissions" type="string"></element>
+			<element name="sharing" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="CRAPPS">
+		<sequence>
+			<element name="agents" type="string"></element>
+			<element name="alerts" type="string"></element>
+			<element name="approve" type="string"></element>
+			<element name="inbox" type="string"></element>
+			<element name="marketplace" type="string"></element>
+			<element name="people" type="string"></element>
+			<element name="push" type="string"></element>
+			<element name="smspolls" type="string"></element>
+			<element name="upload" type="string"></element>
+			<element name="Reports" type="string"/>
+		</sequence>
+	</complexType>
+	<element name="queryNwkPermissionsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNwkPermissionsRes" type="tns:queryNwkPermissionsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPeopleByPhone"
+	xmlns:tns="http://www.iexceed.com/queryPeopleByPhone" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPeopleByPhoneRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="PEOPLEDTLS" type="tns:PEOPLEDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+			<element name="UNAVLBLNOS" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="PEOPLEDTLS">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="userName" type="string" />
+			<element name="country" type="string" />
+			<element name="mobile" type="string" />
+			<element name="type" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryPeopleByPhoneResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPeopleByPhoneRes" type="tns:queryPeopleByPhoneRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

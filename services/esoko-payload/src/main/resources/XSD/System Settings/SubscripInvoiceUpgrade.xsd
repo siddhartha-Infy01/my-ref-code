@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/subscripInvoiceUpgrade"
+	xmlns:tns="http://www.iexceed.com/subscripInvoiceUpgrade" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="subscripInvoiceUpgradeReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="UPGRADEINVOICES" type="tns:UPGRADEINVOICES" />
+		</sequence>
+	</complexType>
+	<complexType name="UPGRADEINVOICES">
+		<sequence>
+			<element name="reseller_id" type="string"></element>
+			<element name="network_id" type="string"></element>
+			<element name="network_balance" type="string"></element>
+			<element name="subscription_type" type="string"></element>
+			<element name="subscriber_name" type="string"></element>
+			<element name="owner_name" type="string"></element>
+			<element name="period" type="int"></element>
+			<element name="reseller_cost" type="string"></element>
+			<element name="margin_earned" type="string"></element>
+			<element name="total" type="string"></element>
+			<element name="currency" type="string"></element>
+			<element name="discount" type="string"></element>
+			<element name="vat" type="string"></element>
+			<element name="start_date" type="string"></element>
+			<element name="expiry_date" type="string"></element>
+			<element name="dso" type="int"></element>
+			<element name="INVOICEAPPS" type="tns:INVOICEAPPS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="INVOICEAPPS">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+		</sequence>
+	</complexType>
+	<element name="subscripInvoiceUpgradeReqWrap">
+		<complexType>
+			<sequence>
+				<element name="subscripInvoiceUpgradeReq" type="tns:subscripInvoiceUpgradeReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="subscripInvoiceUpgradeRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="subscripInvoiceUpgradeResWrap">
+		<complexType>
+			<sequence>
+				<element name="subscripInvoiceUpgradeRes" type="tns:subscripInvoiceUpgradeRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,52 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false"
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="AccountsLogFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/jboss/jboss-eap-6.3/standalone/log/EsokoLogFile.log"
+			/>
+		<param name="MaxFileSize" value="4000KB" />
+		<param name="MaxBackupIndex" value="20" />
+		<param name="Threshold" value="trace" />
+		<param name="Append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %c{1}- %F- %M
+				- %m%n" />
+		</layout>
+	</appender>
+	<appender name="SchedulerLogFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/jboss/jboss-eap-6.3/standalone/log/SchedulerLogFile.log"
+			/>
+		<param name="MaxFileSize" value="4000KB" />
+		<param name="MaxBackupIndex" value="20" />
+		<param name="Threshold" value="trace" />
+		<param name="Append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %c{1}- %F- %M
+				- %m%n" />
+		</layout>
+	</appender>
+	<appender name="SmartGroupLogFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/home/jboss/jboss-eap-6.3/standalone/log/SmartGroupLogFile.log"
+			/>
+		<param name="MaxFileSize" value="4000KB" />
+		<param name="MaxBackupIndex" value="20" />
+		<param name="Threshold" value="trace" />
+		<param name="Append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %c{1}- %F- %M
+				- %m%n" />
+		</layout>
+	</appender>
+	<logger name="com.iexceed.esoko.app">
+		<level value="debug" />
+		<appender-ref ref="AccountsLogFile" />
+	</logger>
+	<logger name="com.iexceed.esoko.sch">
+		<level value="debug" />
+		<appender-ref ref="SchedulerLogFile" />
+	</logger>
+	<logger name="com.iexceed.esoko.people">
+		<level value="debug" />
+		<appender-ref ref="SmartGroupLogFile" />
+	</logger>
+</log4j:configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAllPolls"
+	xmlns:tns="http://www.iexceed.com/queryAllPolls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllPollsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALLPOLLS" type="tns:ALLPOLLS" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="ALLPOLLS">
+		<sequence>			
+			<element name="pollId" type="string" />
+			<element name="pollName" type="string" />
+			<element name="pollQues" type="string" />
+			<element name="participants" type="string" />
+			<element name="responses" type="string" />
+			<element name="startDate" type="string" />
+			<element name="endDate" type="string" />
+			<element name="pollState" type="string" />						
+		</sequence>
+	</complexType>
+	<element name="queryAllPollsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllPollsRes" type="tns:queryAllPollsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

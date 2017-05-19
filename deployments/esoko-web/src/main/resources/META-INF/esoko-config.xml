@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans             
+    http://www.springframework.org/schema/beans/spring-beans.xsd             
+    http://www.springframework.org/schema/context              
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd   
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd            
+    http://www.springframework.org/schema/aop              
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<context:annotation-config />
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:component-scan base-package="com.iexceed.esoko.se.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.ms.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.ns.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.ss.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.dash.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.agents.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.signup.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.people.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.pushalert.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.approve.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.smspoll.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.inbox.rest" />
+	<context:component-scan base-package="com.iexceed.esoko.se.service" />
+	<context:component-scan base-package="com.iexceed.esoko.ms.service" />
+	<context:component-scan base-package="com.iexceed.esoko.ne.service" />
+	<context:component-scan base-package="com.iexceed.esoko.ss.service" />
+	<context:component-scan base-package="com.iexceed.esoko.db.service" />
+	<context:component-scan base-package="com.iexceed.esoko.agents.service" />
+	<context:component-scan base-package="com.iexceed.esoko.signup.service" />
+	<context:component-scan base-package="com.iexceed.esoko.people.service" />
+	<context:component-scan base-package="com.iexceed.esoko.pushalert.service" />
+	<context:component-scan base-package="com.iexceed.esoko.approval.service" />
+	<context:component-scan base-package="com.iexceed.esoko.inbox.service" />
+	<context:component-scan base-package="com.iexceed.esoko.smspoll.service" />
+	<context:component-scan base-package="com.iexceed.esoko.acc" />
+	<context:component-scan base-package="com.iexceed.esoko.domain.dao" />
+	<context:component-scan base-package="com.iexceed.esoko.engine.resources" />
+	<context:component-scan base-package="com.iexceed.esoko.engine.simpletrigger" />
+	<context:component-scan base-package="com.iexceed.esoko.domain.dao2" />
+	<context:component-scan base-package="com.iexceed.esoko.domain.dao3" />
+	<context:component-scan base-package="com.iexceed.esoko.domain.dao4" />
+	<context:component-scan base-package="com.iexceed.esoko.sch.service" />
+	<context:component-scan base-package="com.iexceed.esoko.sch.comp" />
+	<context:component-scan base-package="com.iexceed.esoko.sch.job" />
+	<context:component-scan base-package="com.iexceed.esoko.sch.client" />
+	<context:component-scan base-package="com.iexceed.esoko.users" />
+	<context:component-scan base-package="com.iexceed.esoko.smscb" />
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="classpath*:META-INF/jpa-persistence.xml" />
+		<property name="persistenceUnitName" value="esoko-domain" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+			</bean>
+		</property>
+		<property name="persistenceProviderClass" value="org.hibernate.ejb.HibernatePersistence" />
+	</bean>
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="defaultTimeout" value="10" />
+	</bean>
+</beans>

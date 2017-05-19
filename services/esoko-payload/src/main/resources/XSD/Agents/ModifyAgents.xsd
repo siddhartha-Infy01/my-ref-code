@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/modifyAgents"
+	xmlns:tns="http://www.iexceed.com/modifyAgents" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="modifyAgentsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="MODAGENTS" type="tns:MODAGENTS" minOccurs="1"  maxOccurs="unbounded" />
+		
+		</sequence>
+	</complexType>
+	<complexType name="MODAGENTS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="agentId" type="string"></element>
+			<element name="flag" type="string"></element>
+			</sequence>
+	</complexType>
+	<complexType name="modifyAgentsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="modifyAgentsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="modifyAgentsReq" type="tns:modifyAgentsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="modifyAgentsResWrap">
+		<complexType>
+			<sequence>
+				<element name="modifyAgentsRes" type="tns:modifyAgentsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

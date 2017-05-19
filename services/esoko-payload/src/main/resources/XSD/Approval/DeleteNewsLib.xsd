@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteNewsLib"
+	xmlns:tns="http://www.iexceed.com/deleteNewsLib" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteNewsLibReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DELNWSLIB" type="tns:DELNWSLIB"  />
+		
+		</sequence>
+	</complexType>
+	<complexType name="DELNWSLIB">
+		<sequence>
+			<element name="uploadId" type="string"></element>
+			<element name="applicationId" type="string"></element>
+			
+			</sequence>
+	</complexType>
+	<complexType name="deleteNewsLibRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteNewsLibReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteNewsLibReq" type="tns:deleteNewsLibReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteNewsLibResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteNewsLibRes" type="tns:deleteNewsLibRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

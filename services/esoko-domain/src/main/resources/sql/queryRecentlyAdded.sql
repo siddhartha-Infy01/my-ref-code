@@ -1,0 +1,1 @@
+SELECT * FROM esoko.people where default_network_id=? and record_status='A' and created_ts >= date(date(sysdate()) - ?);

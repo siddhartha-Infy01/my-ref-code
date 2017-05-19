@@ -1,0 +1,1 @@
+select * from locations where location_id like ? and record_status='A';

@@ -1,0 +1,1 @@
+select concat(floor(rand() * 10000),cast(current_date as unsigned))  from dual;

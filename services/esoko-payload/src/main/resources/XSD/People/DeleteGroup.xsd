@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteGroup"
+	xmlns:tns="http://www.iexceed.com/deleteGroup" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	
+	<complexType name="deleteGroupReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLGROUPDTL" type="tns:DLGROUPDTL" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	<complexType name="deleteGroupRes">
+		<sequence>
+			<element name="Header" type="hr:Header"/>
+		</sequence>
+	</complexType>		
+	<complexType name="DLGROUPDTL">
+		<sequence>			
+			<element name="networkId" type="string" />
+			<element name="groupId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="deleteGroupReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteGroupReq" type="tns:deleteGroupReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteGroupResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteGroupRes" type="tns:deleteGroupRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

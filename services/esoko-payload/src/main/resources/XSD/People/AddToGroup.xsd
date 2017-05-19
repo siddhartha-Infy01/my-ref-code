@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addToGroup"
+	xmlns:tns="http://www.iexceed.com/addToGroup" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	
+	<complexType name="addToGroupReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ADDTOGRPDTL" type="tns:ADDTOGRPDTL" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	<complexType name="addToGroupRes">
+		<sequence>
+			<element name="Header" type="hr:Header"/>
+		</sequence>
+	</complexType>		
+	<complexType name="ADDTOGRPDTL">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="networkId" type="string" />
+			<element name="groupId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="addToGroupReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addToGroupReq" type="tns:addToGroupReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addToGroupResWrap">
+		<complexType>
+			<sequence>
+				<element name="addToGroupRes" type="tns:addToGroupRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

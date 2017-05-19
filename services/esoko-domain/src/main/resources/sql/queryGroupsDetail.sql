@@ -1,0 +1,1 @@
+select * from people where people_id in(SELECT user_id FROM esoko.user_group where group_id=? and network_id=?) and default_network_id = ? and record_status='A';

@@ -1,0 +1,1 @@
+select * from comm_variety_alias where variety_id=?;

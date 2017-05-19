@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/priceApprovalApproval"
+	xmlns:tns="http://www.iexceed.com/priceApprovalApproval" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="priceApprovalReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="PRICEAPPRVL" type="tns:PRICEAPPRVL" />
+		</sequence>
+	</complexType>
+	<complexType name="PRICEAPPRVL">
+		<sequence>
+			<element name="networkId" type="string" />
+			<element name="PRICEDTLS" type="tns:PRICEDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PRICEDTLS">
+		<sequence>
+			<element name="upload_id" type="string" />
+			<element name="approval_flag" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="priceApprovalRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="priceApprovalReqWrap">
+		<complexType>
+			<sequence>
+				<element name="priceApprovalReq" type="tns:priceApprovalReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="priceApprovalResWrap">
+		<complexType>
+			<sequence>
+				<element name="priceApprovalRes" type="tns:priceApprovalRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

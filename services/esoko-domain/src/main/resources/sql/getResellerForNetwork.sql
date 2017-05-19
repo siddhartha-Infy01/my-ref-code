@@ -1,0 +1,1 @@
+select * from reseller_network where network_id=?;

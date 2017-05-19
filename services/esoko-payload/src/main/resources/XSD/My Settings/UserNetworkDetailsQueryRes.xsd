@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryUserNetworkDetails"
+	xmlns:tns="http://www.iexceed.com/queryUserNetworkDetails" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserNetworkDetailsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRUSRNWKDTLS" type="tns:QRUSRNWKDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRUSRNWKDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="networkName" type="string"></element>
+			<element name="networkDesc" type="string"></element>
+			<element name="noOfPeople" type="int"></element>
+			<element name="isManaged" type="string"></element>
+			<element name="profilePic" type="base64Binary"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUserNetworkDetailsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserNetworkDetailsRes" type="tns:queryUserNetworkDetailsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

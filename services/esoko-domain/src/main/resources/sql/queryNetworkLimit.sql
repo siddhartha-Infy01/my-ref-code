@@ -1,0 +1,1 @@
+select * from subscription_details where subscription_category = 'L' and country_name =? and subscription_type=? and param_name=? ;

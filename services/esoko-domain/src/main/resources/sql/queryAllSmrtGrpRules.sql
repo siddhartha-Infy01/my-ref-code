@@ -1,0 +1,1 @@
+SELECT * FROM smartgroup_rules where group_id=? and network_id=?;

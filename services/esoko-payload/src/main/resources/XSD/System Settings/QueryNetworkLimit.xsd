@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryNetworkLimit"
+	xmlns:tns="http://www.iexceed.com/queryNetworkLimit" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryNetworkLimitRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRNWKLIMITDTLS" type="tns:QRNWKLIMITDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="QRNWKLIMITDTLS">
+		<sequence>
+			<element name="row_id" type="int" />
+			<element name="sub_type" type="string" />
+			<element name="country_name" type="string" />
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+			<element name="margin" type="string" />
+		</sequence>
+	</complexType>
+	<element name="queryNetworkLimitResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryNetworkLimitRes" type="tns:queryNetworkLimitRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

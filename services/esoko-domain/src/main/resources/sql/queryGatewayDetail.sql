@@ -1,0 +1,1 @@
+SELECT * FROM gateway_details where gateway_name=?;

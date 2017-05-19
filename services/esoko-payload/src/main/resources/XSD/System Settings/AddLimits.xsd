@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addSubLimitsDtls"
+	xmlns:tns="http://www.iexceed.com/addSubLimitsDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addSubLimitsDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRLIMITSLIST" type="tns:CRLIMITSLIST"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRLIMITSLIST">
+		<sequence>
+			<element name="type" type="string"></element>
+			<element name="level" type="string"></element>
+			<element name="row_id" type="int"></element>
+			<element name="CRLIMITS" type="tns:CRLIMITS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="CRLIMITS">
+		<sequence>
+			<element name="param_name" type="string" />
+			<element name="param_value" type="string" />
+			<element name="margin" type="string" />
+			<element name="country_name" type="string" />
+			<element name="network_name" type="string" />
+		</sequence>
+	</complexType>
+	<element name="addSubLimitsDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addSubLimitsDtlsReq" type="tns:addSubLimitsDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="addSubLimitsDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="addSubLimitsDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="addSubLimitsDtlsRes" type="tns:addSubLimitsDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

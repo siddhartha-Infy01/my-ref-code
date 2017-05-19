@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/querySurveyDefinition"
+	xmlns:tns="http://www.iexceed.com/querySurveyDefinition" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="querySurveyDefinitionRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SURVEYDEFINITION" type="tns:SURVEYDEFINITION" />
+		</sequence>
+	</complexType>
+
+	<complexType name="SURVEYDEFINITION">
+		<sequence>
+			<element name='servey_definition' type="string" />
+		</sequence>
+	</complexType>
+	<element name="querySurveyDefinitionResWrap">
+		<complexType>
+			<sequence>
+				<element name="querySurveyDefinitionRes" type="tns:querySurveyDefinitionRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

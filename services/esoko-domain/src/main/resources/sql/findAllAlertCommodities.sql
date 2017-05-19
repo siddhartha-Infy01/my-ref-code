@@ -1,0 +1,1 @@
+select * from alert_commodities where push_alert_id =?;

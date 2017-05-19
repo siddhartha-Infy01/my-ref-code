@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/addUserAsAdmin"
+	xmlns:tns="http://www.iexceed.com/addUserAsAdmin" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="addUserAsAdminReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ADDADMINUSR" type="tns:ADDADMINUSR"  />
+		
+		</sequence>
+	</complexType>
+	<complexType name="ADDADMINUSR">
+		<sequence>
+			<element name="userNetworkid" type="string"></element>
+			<element name="userid" type="string"></element>
+			<element name="networkid" type="string"></element>
+			</sequence>
+	</complexType>
+	<complexType name="addUserAsAdminRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="addUserAsAdminReqWrap">
+		<complexType>
+			<sequence>
+				<element name="addUserAsAdminReq" type="tns:addUserAsAdminReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="addUserAsAdminResWrap">
+		<complexType>
+			<sequence>
+				<element name="addUserAsAdminRes" type="tns:addUserAsAdminRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryLocationsApprvl"
+	xmlns:tns="http://www.iexceed.com/queryLocationsApprvl" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllAlertsByNwk">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRALLALRTSNW" type="tns:QRALLALRTSNW" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRALLALRTSNW">
+		<sequence>
+	
+			<element name="alertId" type="string"></element>
+			<element name="alertName" type="string"></element>
+					
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryAllAlertsByNwkWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllAlertsByNwk" type="tns:queryAllAlertsByNwk" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,1 @@
+delete from user_occupations where user_id=? and network_id=?;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteSubPricesDtls"
+	xmlns:tns="http://www.iexceed.com/deleteSubPricesDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteSubPricesDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLPRICESLIST" type="tns:DLPRICESLIST" />
+		</sequence>
+	</complexType>
+	<complexType name="DLPRICESLIST">
+		<sequence>
+			<element name="sub_level" type="string" />
+			<element name="sub_id" type="string" />
+		</sequence>
+	</complexType>
+	<element name="deleteSubPricesDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSubPricesDtlsReq" type="tns:deleteSubPricesDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="deleteSubPricesDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteSubPricesDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSubPricesDtlsRes" type="tns:deleteSubPricesDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

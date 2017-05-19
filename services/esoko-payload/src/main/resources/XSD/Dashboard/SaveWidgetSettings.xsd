@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/savewidgetSettings"
+	xmlns:tns="http://www.iexceed.com/savewidgetSettings" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="savewidgetSettingsReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRWIDGETDETAILS" type="tns:CRWIDGETDETAILS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="CRWIDGETDETAILS">
+		<sequence>
+			<element name="widgetId" type="string"></element>
+			<element name="userId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="locationId" type="string"></element>
+			<element name="commodityId" type="string"></element>
+			<element name="currency" type="string"></element>
+			<element name="priceType" type="string"></element>
+			<element name="dateRange" type="string"></element>
+			<element name="incPbl" type="string"></element>
+			<element name="nwkOffers" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="savewidgetSettingsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="savewidgetSettingsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="savewidgetSettingsReq" type="tns:savewidgetSettingsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="savewidgetSettingsResWrap">
+		<complexType>
+			<sequence>
+				<element name="savewidgetSettingsRes" type="tns:savewidgetSettingsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

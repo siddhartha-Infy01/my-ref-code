@@ -1,0 +1,1 @@
+SELECT * FROM esoko.push_alert_master where push_alert_id like ? and message_type='CT';

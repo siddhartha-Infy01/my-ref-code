@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryStates"
+	xmlns:tns="http://www.iexceed.com/queryStates" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryStatesRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="STATEDTLS" type="tns:STATEDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="STATEDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryStatesResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryStatesRes" type="tns:queryStatesRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

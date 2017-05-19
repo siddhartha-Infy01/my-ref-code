@@ -1,0 +1,1 @@
+select * from Network_admins where RECORD_STATUS='A' and user_id=?;

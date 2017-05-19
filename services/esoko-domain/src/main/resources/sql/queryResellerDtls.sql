@@ -1,0 +1,1 @@
+select * from reseller_master where reseller_id = ? and record_status = 'A'; 

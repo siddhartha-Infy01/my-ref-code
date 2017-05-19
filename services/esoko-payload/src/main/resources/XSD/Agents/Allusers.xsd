@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/allusers"
+	xmlns:tns="http://www.iexceed.com/allusers" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="allusersRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALLUSRS" type="tns:ALLUSRS" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="ALLUSRS">
+		<sequence>
+			<element name="user_id" type="string"></element>
+			<element name="name" type="string"></element>
+			<element name="email" type="string"></element>
+			<element name="msisdn" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string"></element>
+			<element name="networkId" type="string"></element>	
+            <element name="photo" type="base64Binary"></element>
+			
+		
+		</sequence>
+	</complexType>
+		
+	<element name="allusersResWrap">
+		<complexType>
+			<sequence>
+				<element name="allusersRes" type="tns:allusersRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

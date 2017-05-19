@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryOperatorByLoc"
+	xmlns:tns="http://www.iexceed.com/queryOperatorByLoc" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryOperatorByLocRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="OPRTRDTLS" type="tns:OPRTRDTLS"  minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="OPRTRDTLS">
+		<sequence>
+			<element name="operatorId" type="string" />
+			<element name="opeartorName" type="string" />
+							
+		
+		</sequence>
+	</complexType>
+	
+	<element name="queryOperatorByLocResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryOperatorByLocRes" type="tns:queryOperatorByLocRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

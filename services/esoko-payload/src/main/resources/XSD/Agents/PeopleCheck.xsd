@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/usrExsts"
+	xmlns:tns="http://www.iexceed.com/usrExsts" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="usrExstsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="PPLCHK" type="tns:PPLCHK" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PPLCHK">
+		<sequence>
+			<element name="flag" type="string"></element>
+			</sequence>
+	</complexType>
+		<element name="usrExstsResWrap">
+		<complexType>
+			<sequence>
+				<element name="usrExstsRes" type="tns:usrExstsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

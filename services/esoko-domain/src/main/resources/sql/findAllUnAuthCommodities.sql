@@ -1,0 +1,1 @@
+SELECT * FROM commodities where auth_stat='U' and record_status='A';

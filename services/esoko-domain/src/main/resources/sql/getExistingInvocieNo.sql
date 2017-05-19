@@ -1,0 +1,1 @@
+select * from  network_subscription_apps where subscription_id = ?;

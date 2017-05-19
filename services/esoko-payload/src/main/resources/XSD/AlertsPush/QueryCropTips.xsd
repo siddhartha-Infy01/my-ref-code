@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCropTips"
+	xmlns:tns="http://www.iexceed.com/queryCropTips" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryCropTipsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRTIPS" type="tns:QRTIPS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRTIPS">
+		<sequence>
+			<element name="cropTipId" type="string" />
+			<element name="peopleId" type="string" />
+			<element name="alertName" type="string" />
+			<element name="recipientCount" type="string" />
+			<element name="recipientDetail" type="string" />
+			<element name="commodity" type="string" />
+			<element name="category" type="string" />
+			<element name="status" type="string" />
+		</sequence>
+	</complexType>
+
+	<element name="queryCropTipsResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryCropTipsRes" type="tns:queryCropTipsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteSubLimitsDtls"
+	xmlns:tns="http://www.iexceed.com/deleteSubLimitsDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteSubLimitsDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLLIMITSLIST" type="tns:DLLIMITSLIST" />
+		</sequence>
+	</complexType>
+	<complexType name="DLLIMITSLIST">
+		<sequence>
+			<element name="sub_level" type="string" />
+			<element name="sub_id" type="string" />
+		</sequence>
+	</complexType>
+	<element name="deleteSubLimitsDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSubLimitsDtlsReq" type="tns:deleteSubLimitsDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="deleteSubLimitsDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteSubLimitsDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteSubLimitsDtlsRes" type="tns:deleteSubLimitsDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteFromGroup"
+	xmlns:tns="http://www.iexceed.com/deleteFromGroup" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	
+	<complexType name="deleteFromGroupReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DELFRMGRP" type="tns:DELFRMGRP" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>	
+	<complexType name="deleteFromGroupRes">
+		<sequence>
+			<element name="Header" type="hr:Header"/>
+		</sequence>
+	</complexType>		
+	<complexType name="DELFRMGRP">
+		<sequence>
+			<element name="userId" type="string" />
+			<element name="networkId" type="string" />
+			<element name="groupId" type="string" />
+		</sequence>
+	</complexType>
+	<element name="deleteFromGroupReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteFromGroupReq" type="tns:deleteFromGroupReq"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteFromGroupResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteFromGroupRes" type="tns:deleteFromGroupRes"/>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

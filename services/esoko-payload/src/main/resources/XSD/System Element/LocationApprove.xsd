@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/approveLocations"
+	xmlns:tns="http://www.iexceed.com/approveLocations" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="approveLocationsReq">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="APLOCDTLS" type="tns:APLOCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="APLOCDTLS">
+		<sequence>
+			<element name="locationID" type="string"></element>
+			<element name="approverID" type="string"></element>
+			<element name="approvalDate" type="date"></element>
+		</sequence>
+	</complexType>
+	<complexType name="approveLocationsRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+
+	</complexType>
+	<element name="approveLocationsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="approveLocationsReq" type="tns:approveLocationsReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="approveLocationsResWrap">
+		<complexType>
+			<sequence>
+				<element name="approveLocationsRes" type="tns:approveLocationsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

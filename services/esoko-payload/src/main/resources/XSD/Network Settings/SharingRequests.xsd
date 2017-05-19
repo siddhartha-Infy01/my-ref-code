@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/sharingRequestsData"
+	xmlns:tns="http://www.iexceed.com/sharingRequestsData" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="sharingRequestsDataRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="SHAREREQDTLS" type="tns:SHAREREQDTLS"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="SHAREREQDTLS">
+		<sequence>
+			<element name="networkId" type="string"></element>
+			<element name="networkName" type="string"></element>
+			<element name="no_of_people" type="string"></element>
+			<element name="profile" type="base64Binary"></element>
+			<element name="location" type="string"></element>
+			<element name="profileType" type="string"></element>
+			<element name="prices" type="string"></element>
+			<element name="offers" type="string"></element>
+			<element name="newsAndLibrary" type="string"></element>
+			<element name="people" type="string"></element>
+			<element name="sendReceiveFlag" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="sharingRequestsDataResWrap">
+		<complexType>
+			<sequence>
+				<element name="sharingRequestsDataRes" type="tns:sharingRequestsDataRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

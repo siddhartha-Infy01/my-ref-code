@@ -1,0 +1,1 @@
+SELECT * FROM sender_details where network_id=? and send_type=?;

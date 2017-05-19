@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/nwkFundTransfer"
+	xmlns:tns="http://www.iexceed.com/nwkFundTransfer" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="nwkFundTransferReq">
+			<sequence >
+				<element name="Header" type="hr:Header" />
+				<element name="FNDTRFDTLS" type="tns:FNDTRFDTLS"/>
+			</sequence>
+	</complexType>
+	<complexType name="FNDTRFDTLS">
+		<sequence>
+			<element name="toAcc" type="string"></element>
+			<element name="fromAcc" type="string"></element>
+			<element name="networkId" type="string"></element>
+			<element name="password" type="string"></element>
+			<element name="amount" type="float"></element>
+			<element name="ccy" type="string"></element>
+			<element name="description" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="nwkFundTransferRes">
+			<sequence>
+				<element name="Header" type="hr:Header" />
+			</sequence>
+	</complexType>
+	<element name="nwkFundTransferReqWrap">
+		<complexType>
+			<sequence>
+				<element name="nwkFundTransferReq" type="tns:nwkFundTransferReq" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="nwkFundTransferResWrap">
+		<complexType>
+			<sequence>
+				<element name="nwkFundTransferRes" type="tns:nwkFundTransferRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

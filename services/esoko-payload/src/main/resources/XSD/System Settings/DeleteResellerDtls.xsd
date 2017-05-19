@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteResellerDtls"
+	xmlns:tns="http://www.iexceed.com/deleteResellerDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteResellerDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLRSLRDTLS" type="tns:DLRSLRDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="DLRSLRDTLS">
+		<sequence>
+			<element name="reseller_id" type="string"></element>
+			<element name="network_id" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="deleteResellerDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteResellerDtlsReq" type="tns:deleteResellerDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="deleteResellerDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteResellerDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteResellerDtlsRes" type="tns:deleteResellerDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

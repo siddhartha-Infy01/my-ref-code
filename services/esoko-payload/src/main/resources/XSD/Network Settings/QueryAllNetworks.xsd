@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryAllNwks"
+	xmlns:tns="http://www.iexceed.com/queryAllNwks" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllNwksRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALLNWK" type="tns:ALLNWK" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ALLNWK">
+		<sequence>
+			<element name="network_id" type="string"></element>
+			<element name="network_name" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryAllNwksResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllNwksRes" type="tns:queryAllNwksRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

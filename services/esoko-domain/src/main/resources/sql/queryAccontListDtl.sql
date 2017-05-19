@@ -1,0 +1,1 @@
+SELECT  account.account_no,account.acc_name,user.user_id,user.first_name,user.last_name,user.msisdn FROM System_accounts account,system_user user where account.owner_id=user.user_id

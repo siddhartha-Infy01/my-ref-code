@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/deleteTemplateRequest"
+	xmlns:tns="http://www.iexceed.com/deleteTemplateRequest" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="deleteTemplateRequest">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="DLTTEMPLATS" type="tns:DLTTEMPLATS" />
+		</sequence>
+	</complexType>
+	<complexType name="DLTTEMPLATS">
+		<sequence>
+			<element name="templateId" type="string"></element>
+			<element name="networkId" type="string"></element>
+			
+			
+				
+		</sequence>
+	</complexType>
+	
+	<complexType name="deleteTemplateRequestRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="deleteTemplateRequestWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteTemplateRequest" type="tns:deleteTemplateRequest" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="deleteTemplateRequestResWrap">
+		<complexType>
+			<sequence>
+				<element name="deleteTemplateRequestRes" type="tns:deleteTemplateRequestRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

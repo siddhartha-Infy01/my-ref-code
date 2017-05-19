@@ -1,0 +1,1 @@
+select * from user_notifications where network_id=? and user_grp_id=? and status='U';

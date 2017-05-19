@@ -1,0 +1,2 @@
+select b.commodity_id,(select sms_code from sms_codes where network_id=? and sms_id=b.commodity_id) as sm_code
+from  network_commodities b, commodities c where b.network_id=? and b.commodity_id=c.commodity_id and c.parent_id=?;

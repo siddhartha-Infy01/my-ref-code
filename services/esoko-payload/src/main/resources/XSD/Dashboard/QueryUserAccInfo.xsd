@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.iexceed.com/queryUserAccountInformation"
+	xmlns:tns="http://www.iexceed.com/queryUserAccountInformation"
+	xmlns:hr="http://www.iexceed.com/Header" elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryUserAccountInformationRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ACCDTLS" type="tns:ACCDTLS" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="ACCDTLS">
+		<sequence>
+			<element name="balance" type="float"></element>
+			<element name="expiry" type="string"></element>
+			<element name="subscriptionType" type="string"></element>
+			<element name="HISTORY" type="tns:HISTORY" minOccurs="1" maxOccurs="unbounded" ></element>
+		</sequence>
+	</complexType>
+	<complexType name="HISTORY">
+		<sequence>
+			<element name="date" type="string"></element>
+			<element name="service" type="string"></element>
+			<element name="description" type="string"></element>
+			<element name="debit" type="float"></element>
+			<element name="credit" type="float"></element>
+			<element name="balance" type="float"></element>
+		</sequence>
+	</complexType>
+	<element name="queryUserAccountInformationResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryUserAccountInformationRes" type="tns:queryUserAccountInformationRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

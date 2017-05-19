@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createSenderId"
+	xmlns:tns="http://www.iexceed.com/createSenderId" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createSenderId">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRSNDRID" type="tns:CRSNDRID" />
+		</sequence>
+	</complexType>
+	<complexType name="CRSNDRID">
+		<sequence>
+		    <element name="edit_save_flag" type="string"></element>
+		    <element name="oldsenderId" type="string"></element>
+			<element name="senderId" type="string"></element>
+			<element name="locationId" type="string"></element>
+			<element name="networkId" type="string"></element>
+				<element name="sendType" type="string"></element>
+			<element name="operatorId" type="string"></element>
+					
+		</sequence>
+	</complexType>
+		<complexType name="createSenderIdRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createSenderIdWrap">
+		<complexType>
+			<sequence>
+				<element name="createSenderId" type="tns:createSenderId" />
+			</sequence>
+		</complexType>
+	</element>
+	<element name="createSenderIdResWrap">
+		<complexType>
+			<sequence>
+				<element name="createSenderIdRes" type="tns:createSenderIdRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

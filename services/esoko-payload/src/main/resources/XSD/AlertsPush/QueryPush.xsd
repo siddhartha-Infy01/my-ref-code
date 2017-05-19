@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryPush"
+	xmlns:tns="http://www.iexceed.com/queryPush" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryPushRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRPUSH" type="tns:QRPUSH" minOccurs="1"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="QRPUSH">
+		<sequence>
+			<element name="alert_id" type="string"></element>
+			<element name="receiver" type="string"></element>
+			<element name="groups" type="string"></element>
+			<element name="users" type="string"></element>
+			<element name="startDate" type="string"></element>
+			<element name="endDate" type="string"></element>
+			<element name="text" type="string"></element>
+			<element name="status" type="string"></element>	
+						
+			
+		</sequence>
+	</complexType>
+	
+	<element name="queryPushResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryPushRes" type="tns:queryPushRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

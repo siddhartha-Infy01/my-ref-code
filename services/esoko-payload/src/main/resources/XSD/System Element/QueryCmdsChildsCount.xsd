@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryCmdsChildsCount"
+	xmlns:tns="http://www.iexceed.com/queryCmdsChildsCount" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryCmdsChildsCountRes">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="QRYCMDCHLDCOUNT" type="tns:QRYCMDCHLDCOUNT"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="QRYCMDCHLDCOUNT">
+		<sequence>
+			<element name="parentId" type="string"></element>
+			<element name="count" type="int"></element>
+		</sequence>
+	</complexType>
+	<element name="queryCmdsChildsCountResWrap">
+		<complexType>
+			<sequence>
+				<element name="queryCmdsChildsCountRes" type="tns:queryCmdsChildsCountRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

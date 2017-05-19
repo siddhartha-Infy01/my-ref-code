@@ -1,0 +1,1 @@
+SELECT * FROM esoko.profile_Sharing_types where network_id = ?;

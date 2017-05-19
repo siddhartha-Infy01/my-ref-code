@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/queryTowns"
+	xmlns:tns="http://www.iexceed.com/queryTowns" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="queryAllLanguages">
+
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="ALLLANGUAGES" type="tns:ALLLANGUAGES"
+				minOccurs="1" maxOccurs="unbounded" />
+		</sequence>
+
+	</complexType>
+	<complexType name="ALLLANGUAGES">
+		<sequence>
+			<element name="languageCode" type="string"></element>
+			<element name="languageId" type="string"></element>
+		</sequence>
+	</complexType>
+	<element name="queryAllLanguagesWrap">
+		<complexType>
+			<sequence>
+				<element name="queryAllLanguages" type="tns:queryAllLanguages" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

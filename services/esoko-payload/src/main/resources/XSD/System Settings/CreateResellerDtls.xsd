@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.iexceed.com/createResellerDtls"
+	xmlns:tns="http://www.iexceed.com/createResellerDtls" xmlns:hr="http://www.iexceed.com/Header"
+	elementFormDefault="qualified">
+	<import schemaLocation="../Common/HeaderNode.xsd" namespace="http://www.iexceed.com/Header" />
+	<complexType name="createResellerDtlsReq">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+			<element name="CRRSLRDTLS" type="tns:CRRSLRDTLS" />
+		</sequence>
+	</complexType>
+	<complexType name="CRRSLRDTLS">
+		<sequence>
+			<element name="reseller_id" type="string"></element>
+			<element name="networkId" type="string" />
+			<element name="company" type="string"></element>
+			<element name="type" type="string"></element>
+			<element name="town" type="string"></element>
+			<element name="country" type="string" />
+			<element name="msisdn1" type="string" />
+			<element name="msisdn2" type="string" />
+			<element name="fixed" type="string" />
+			<element name="email" type="string" />
+			<element name="address" type="string" />
+			<element name="website" type="string" />
+			<element name="countries" type="string" />
+			<element name="paypal" type="string" />
+			<element name="bitcoin" type="string" />
+			<element name="bank_dtls" type="string" />
+			<element name="mobile_money" type="string" />
+			<element name="admins" type="string" />
+		</sequence>
+	</complexType>
+	<element name="createResellerDtlsReqWrap">
+		<complexType>
+			<sequence>
+				<element name="createResellerDtlsReq" type="tns:createResellerDtlsReq" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="createResellerDtlsRes">
+		<sequence>
+			<element name="Header" type="hr:Header" />
+		</sequence>
+	</complexType>
+	<element name="createResellerDtlsResWrap">
+		<complexType>
+			<sequence>
+				<element name="createResellerDtlsRes" type="tns:createResellerDtlsRes" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>
